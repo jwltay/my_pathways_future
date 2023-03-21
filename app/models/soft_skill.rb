@@ -1,6 +1,6 @@
 class SoftSkill < ApplicationRecord
-  has_and_belongs_to_many :careers
-  has_and_belongs_to_many :users
+  has_many :user_soft_skills
+  has_many :users, through: :user_soft_skills
 
   validates :name, presence: true, uniqueness: true
 end

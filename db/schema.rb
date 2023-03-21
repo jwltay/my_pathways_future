@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_091906) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_092936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_091906) do
     t.index ["user_id"], name: "index_subjects_users_on_user_id"
   end
 
+  create_table "user_soft_skills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "soft_skill_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["soft_skill_id"], name: "index_user_soft_skills_on_soft_skill_id"
+    t.index ["user_id"], name: "index_user_soft_skills_on_user_id"
+  end
+
   create_table "user_subjects", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "subject_id", null: false
@@ -132,6 +141,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_091906) do
   add_foreign_key "soft_skills_users", "users"
   add_foreign_key "subjects_users", "subjects"
   add_foreign_key "subjects_users", "users"
+  add_foreign_key "user_soft_skills", "soft_skills"
+  add_foreign_key "user_soft_skills", "users"
   add_foreign_key "user_subjects", "subjects"
   add_foreign_key "user_subjects", "users"
 end

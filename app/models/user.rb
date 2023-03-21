@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :soft_skills
+  has_many :user_soft_skills
+  has_many :soft_skills, through: :user_soft_skills
 
   has_many :user_subjects
   has_many :subjects, through: :user_subjects
