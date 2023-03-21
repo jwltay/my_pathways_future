@@ -31,9 +31,12 @@ class ProgrammesController < ApplicationController
     redirect to programme_path(current_user)
   end
 
+  def delete
+  end
+
   private
 
   def programme_params
-    params.require(:programme).permit(:tuition_fees, :duration, :rating, :description)
+    params.require(:programme).permit(:tuition_fees, :duration, :rating, :description, :summary)
   end
 end

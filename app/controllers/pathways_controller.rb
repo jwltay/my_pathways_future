@@ -14,7 +14,7 @@ class PathwaysController < ApplicationController
     @pathway = Pathway.new(pathway_params)
     @pathway.career = @career
     @pathway.user = current_user
-    current_user.update(user_params)
+    # current_user.update(user_params)
     if @pathway.save
       flash[:notice] = "Pathway is saved!"
       redirect_to programme_path(@programme)
@@ -32,9 +32,9 @@ class PathwaysController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :current_profession, :occupation)
-  end
+  # def user_params
+  #   params.require(:user).permit(:first_name, :last_name, :email, :current_profession, :occupation)
+  # end
 
   def pathway_params
     params.require(:pathway).permit(:programme_id)

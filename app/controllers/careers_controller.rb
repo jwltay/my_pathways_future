@@ -12,7 +12,7 @@ class CareersController < ApplicationController
   end
 
   def create
-    @career = Career.new(job_params)
+    @career = Career.new(career_params)
     @career.user = current_user
     if @career.save
       redirect_to career_path(@career)
