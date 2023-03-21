@@ -8,7 +8,8 @@ class Programme < ApplicationRecord
   validates :tuition_fees, numericality: true, presence: true
   validates :duration, numericality: true, presence: true
   validates :rating, numericality: true, presence: true
-  validates :description, presence: true
-  # TODO: Add summary into schema
   validates :summary, presence: true
+  validates :name, presence: true
+  validates :university, presence: true
+  validates :overview, presence: true
 end
