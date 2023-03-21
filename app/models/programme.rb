@@ -9,4 +9,6 @@ class Programme < ApplicationRecord
   validates :duration, numericality: true, presence: true
   validates :rating, numericality: true, presence: true
   validates :description, presence: true
+  # TODO: Add summary into schema
+  validates :summary, presence: true
 end
