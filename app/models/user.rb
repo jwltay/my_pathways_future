@@ -8,4 +8,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def careers
+    careers = []
+    programmes.each do |programme|
+      programme.careers.each do |career|
+        careers << career
+      end
+    end
+  end
 end

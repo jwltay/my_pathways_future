@@ -1,10 +1,7 @@
 class CareersController < ApplicationController
   def index
     @user = current_user
-    @pathways = Pathway.where(user: @user)
-    @careers = @pathways.map do |pathway|
-      pathway.career
-    end
+    @careers = @user.careers
   end
 
   def show
