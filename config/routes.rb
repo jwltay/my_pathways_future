@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :subjects, only: %i[index show]
   resources :soft_skills, only: %i[index show]
+  resources :programmes, only: %i[index show new create edit update]
 end
