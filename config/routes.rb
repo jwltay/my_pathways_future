@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :programmes, only: %i[index show]
   resources :pathways, only: %i[index create update]
   resources :careers, only: %i[index show]
+  resources :users, only: %i[edit update]
 end
