@@ -1,6 +1,6 @@
 class Subject < ApplicationRecord
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :programmes
+  has_many :user_subjects
+  has_many :users, through: :user_subjects
 
   validates :name, presence: true, uniqueness: true
 end

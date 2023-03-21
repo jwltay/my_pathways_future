@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_081624) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_091906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_081624) do
     t.index ["user_id"], name: "index_subjects_users_on_user_id"
   end
 
+  create_table "user_subjects", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_user_subjects_on_subject_id"
+    t.index ["user_id"], name: "index_user_subjects_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -123,4 +132,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_081624) do
   add_foreign_key "soft_skills_users", "users"
   add_foreign_key "subjects_users", "subjects"
   add_foreign_key "subjects_users", "users"
+  add_foreign_key "user_subjects", "subjects"
+  add_foreign_key "user_subjects", "users"
 end
