@@ -1,6 +1,9 @@
 class ProgrammesController < ApplicationController
   def index
-    @programmes = Programme.all
+    @user = current_user
+    @programmes = @user.pathways.map do |pathway|
+      pathway.programme
+    end
   end
 
   def show
