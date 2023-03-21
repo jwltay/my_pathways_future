@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :soft_skills, only: %i[index show]
   resources :programmes, only: %i[index show new create edit update]
   resources :pathways, only: %i[index show new create edit update]
+  resources :careers, only: %i[index show new create edit update]
 end
