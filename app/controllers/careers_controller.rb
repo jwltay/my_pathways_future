@@ -1,39 +1,43 @@
 class CareersController < ApplicationController
   def index
-    @careers = Career.all
+    @user = current_user
+    @pathways = Pathway.where(user: @user)
+    @careers = @pathways.map do |pathway|
+      pathway.career
+    end
   end
 
   def show
     @career = Career.find(params[:id])
   end
 
-  def new
-    @career = Career.new
-  end
+  # def new
+  #   @career = Career.new
+  # end
 
-  def create
-    @career = Career.new(career_params)
-    @career.user = current_user
-    if @career.save
-      redirect_to career_path(@career)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @career = Career.new(career_params)
+  #   @career.user = current_user
+  #   if @career.save
+  #     redirect_to career_path(@career)
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
-  def edit
-    @career = Career.find(params[:id])
-  end
+  # def edit
+  #   @career = Career.find(params[:id])
+  # end
 
-  def update
-    @careere = Career.find(params[:id])
-    @career.update!(career_params)
-    redirect to career_path(current_user)
-  end
+  # def update
+  #   @careere = Career.find(params[:id])
+  #   @career.update!(career_params)
+  #   redirect to career_path(current_user)
+  # end
 
-  private
+  # private
 
-  def career_params
-    params.require(:career).permit(:average_salary, :description, :name, :summary)
-  end
+  # def career_params
+  #   params.require(:career).permit(:average_salary, :description, :name, :summary)
+  # end
 end
