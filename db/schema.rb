@@ -10,15 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_20_094825) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_073114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "careers", force: :cascade do |t|
     t.integer "average_salary", null: false
-    t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.text "summary", null: false
+    t.text "responsibilities", null: false
+    t.text "progression", null: false
+    t.text "education", null: false
   end
 
   create_table "pathways", force: :cascade do |t|
@@ -36,9 +40,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_094825) do
     t.integer "tuition_fees"
     t.integer "duration"
     t.integer "rating"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "summary", null: false
+    t.string "name", null: false
+    t.string "university", null: false
+    t.text "overview", null: false
   end
 
   create_table "soft_skills", force: :cascade do |t|
@@ -61,10 +68,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_094825) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.string "current_profession"
-    t.integer "age", null: false
+    t.string "occupation"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
