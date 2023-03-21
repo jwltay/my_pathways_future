@@ -10,9 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_20_090601) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_20_094825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "careers", force: :cascade do |t|
+    t.integer "average_salary", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pathways", force: :cascade do |t|
+    t.boolean "active", default: false, null: false
+    t.boolean "primary", default: false, null: false
+    t.bigint "user_id", null: false
+    t.bigint "programme_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["programme_id"], name: "index_pathways_on_programme_id"
+    t.index ["user_id"], name: "index_pathways_on_user_id"
+  end
+
+  create_table "programmes", force: :cascade do |t|
+    t.integer "tuition_fees"
+    t.integer "duration"
+    t.integer "rating"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "soft_skills", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,4 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_090601) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pathways", "programmes"
+  add_foreign_key "pathways", "users"
 end
