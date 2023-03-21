@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_073114) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_081624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_073114) do
     t.text "responsibilities", null: false
     t.text "progression", null: false
     t.text "education", null: false
+  end
+
+  create_table "careers_programmes", force: :cascade do |t|
+    t.bigint "career_id", null: false
+    t.bigint "programme_id", null: false
+    t.index ["career_id"], name: "index_careers_programmes_on_career_id"
+    t.index ["programme_id"], name: "index_careers_programmes_on_programme_id"
+  end
+
+  create_table "careers_soft_skills", force: :cascade do |t|
+    t.bigint "career_id", null: false
+    t.bigint "soft_skill_id", null: false
+    t.index ["career_id"], name: "index_careers_soft_skills_on_career_id"
+    t.index ["soft_skill_id"], name: "index_careers_soft_skills_on_soft_skill_id"
   end
 
   create_table "pathways", force: :cascade do |t|
@@ -48,16 +62,37 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_073114) do
     t.text "overview", null: false
   end
 
+  create_table "programmes_subjects", force: :cascade do |t|
+    t.bigint "programme_id", null: false
+    t.bigint "subject_id", null: false
+    t.index ["programme_id"], name: "index_programmes_subjects_on_programme_id"
+    t.index ["subject_id"], name: "index_programmes_subjects_on_subject_id"
+  end
+
   create_table "soft_skills", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "soft_skills_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "soft_skill_id", null: false
+    t.index ["soft_skill_id"], name: "index_soft_skills_users_on_soft_skill_id"
+    t.index ["user_id"], name: "index_soft_skills_users_on_user_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects_users", force: :cascade do |t|
+    t.bigint "subject_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["subject_id"], name: "index_subjects_users_on_subject_id"
+    t.index ["user_id"], name: "index_subjects_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +111,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_073114) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "careers_programmes", "careers"
+  add_foreign_key "careers_programmes", "programmes"
+  add_foreign_key "careers_soft_skills", "careers"
+  add_foreign_key "careers_soft_skills", "soft_skills"
   add_foreign_key "pathways", "programmes"
   add_foreign_key "pathways", "users"
+  add_foreign_key "programmes_subjects", "programmes"
+  add_foreign_key "programmes_subjects", "subjects"
+  add_foreign_key "soft_skills_users", "soft_skills"
+  add_foreign_key "soft_skills_users", "users"
+  add_foreign_key "subjects_users", "subjects"
+  add_foreign_key "subjects_users", "users"
 end
