@@ -1,4 +1,9 @@
 <%= @user.first_name %>
-<% @programmes.each do |programme| %>
-  <%= programme.name %>
-<% end %>
+<ul>
+  <% @programmes.each do |programme| %>
+    <li>
+      <%= programme.name %>
+      <%= link_to "Add to Pathways", "#", class: 'btn btn-primary' %>
+    </li>
+  <% end %>
+</ul>
