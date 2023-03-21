@@ -8,6 +8,9 @@ class Programme < ApplicationRecord
   has_many :programme_subjects
   has_many :subjects, through: :programme_subjects
 
+  has_many :career_programmes
+  has_many :careers, through: :career_programmes
+
   validates :tuition_fees, numericality: true, presence: true
   validates :duration, numericality: true, presence: true
   validates :rating, numericality: true, presence: true
