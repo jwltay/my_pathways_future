@@ -1,6 +1,6 @@
 class SoftSkillsController < ApplicationController
   def index
-    @soft_skills = Soft_Skills.all
+    @soft_skills = Soft_Skill.all
   end
 
   def show
