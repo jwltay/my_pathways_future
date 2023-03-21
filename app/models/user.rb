@@ -12,6 +12,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true, uniqueness: true
   validates :email, presence: true, format: { with: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/ }
   validates :current_profession, presence: true
-  # TODO: Remove age and include occupation in schema
   validates :occupation, presence: true, inclusion: { in: %w[student fresh\ grad working\ adult] }
 end
