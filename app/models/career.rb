@@ -5,7 +5,9 @@ class Career < ApplicationRecord
   validates :name, presence: true
   validates :average_salary, presence: true, numericality: { only_integer: true }
   # TODO: Remove description, add with responsibilities and add to schema
-  validates :description, presence: true
+  validates :responsibilities, presence: true
   validates :summary, presence: true
+  validates :progression, presence: true
+  validates :education, presence: true
   # TODO: Add progression and education to schema
 end
