@@ -1,0 +1,2 @@
+class CareersController < ApplicationController
+end
