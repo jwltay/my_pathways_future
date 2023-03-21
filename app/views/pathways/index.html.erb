@@ -1,0 +1,10 @@
+<ul>
+  <% @pathways.each do |pathway| %>
+    <li>
+      <% if pathway.active? %>
+        <%= pathway.programme.name %>
+        <%= link_to "View University Programmes", "#", class: 'btn btn-primary' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
