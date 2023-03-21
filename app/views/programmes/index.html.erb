@@ -1,2 +1,4 @@
 <%= @user.first_name %>
-<%= @programmes %>
+<% @programmes.each do |programme| %>
+  <%= programme.name %>
+<% end %>

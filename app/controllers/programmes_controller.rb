@@ -1,7 +1,8 @@
 class ProgrammesController < ApplicationController
   def index
     @user = current_user
-    @programmes = @user.pathways.map do |pathway|
+    @pathways = Pathway.where(user: @user) #when fixed, used @user.pathways instead
+    @programmes = @pathways.map do |pathway|
       pathway.programme
     end
   end
