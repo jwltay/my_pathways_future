@@ -5,6 +5,9 @@ class Programme < ApplicationRecord
   has_many :pathways
   has_many :users, through: :pathways
 
+  has_many :programme_subjects
+  has_many :subjects, through: :programme_subjects
+
   validates :tuition_fees, numericality: true, presence: true
   validates :duration, numericality: true, presence: true
   validates :rating, numericality: true, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_093555) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_094149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_093555) do
     t.datetime "updated_at", null: false
     t.index ["programme_id"], name: "index_pathways_on_programme_id"
     t.index ["user_id"], name: "index_pathways_on_user_id"
+  end
+
+  create_table "programme_subjects", force: :cascade do |t|
+    t.bigint "programme_id", null: false
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["programme_id"], name: "index_programme_subjects_on_programme_id"
+    t.index ["subject_id"], name: "index_programme_subjects_on_subject_id"
   end
 
   create_table "programmes", force: :cascade do |t|
@@ -146,6 +155,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_093555) do
   add_foreign_key "careers_soft_skills", "soft_skills"
   add_foreign_key "pathways", "programmes"
   add_foreign_key "pathways", "users"
+  add_foreign_key "programme_subjects", "programmes"
+  add_foreign_key "programme_subjects", "subjects"
   add_foreign_key "programmes_subjects", "programmes"
   add_foreign_key "programmes_subjects", "subjects"
   add_foreign_key "soft_skills_users", "soft_skills"
