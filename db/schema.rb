@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_064838) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_073114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_064838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
-    t.string "summary", null: false
+    t.text "summary", null: false
     t.text "responsibilities", null: false
     t.text "progression", null: false
     t.text "education", null: false
@@ -40,9 +40,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_064838) do
     t.integer "tuition_fees"
     t.integer "duration"
     t.integer "rating"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "summary", null: false
+    t.string "name", null: false
+    t.string "university", null: false
+    t.text "overview", null: false
   end
 
   create_table "soft_skills", force: :cascade do |t|
