@@ -25,7 +25,6 @@ math.careers << swe
 nus.careers << swe
 ntu.careers << swe
 
-
 Pathway.create!(user: manu, programme: nus, active: true)
 Pathway.create!(user: manu, programme: ntu, active: true)
 Pathway.create!(user: manu, programme: math, active: true)
