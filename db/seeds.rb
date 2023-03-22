@@ -3,10 +3,20 @@ require 'csv'
 
 Faker::UniqueGenerator.clear
 
+CareerProgramme.destroy_all if CareerProgramme.exists?
+CareerSoftSkill.destroy_all if CareerSoftSkill.exists?
+ProgrammeSubject.destroy_all if ProgrammeSubject.exists?
+User.destroy_all if User.exists?
+Subject.destroy_all if Subject.exists?
+Career.destroy_all if Career.exists?
+Programme.destroy_all if Programme.exists?
+SoftSkill.destroy_all if SoftSkill.exists?
+
 careers_filepath = "db/careers.csv"
 programmes_filepath = "db/programmes.csv"
 
 # Careers =====================================================================
+
 CSV.foreach(careers_filepath, headers: :first_row) do |row|
   Career.create!(
     name: row['name'],
@@ -29,7 +39,8 @@ data_analyst = Career.find_by(name: "data analyst")
 music_therapist = Career.find_by(name: "music therapist")
 # End of Global Careers ========================================================
 
-# Programmes ==================================================================
+# Programmes =================================================================
+
 CSV.foreach(programmes_filepath, headers: :first_row) do |row|
   Programme.create!(
     name: row['name'],
@@ -45,78 +56,33 @@ end
 
 ## career_programmes =========================================================
 # market research analyst
-
-list_of_market_programmes = []
-Programme.all.each do |programme|
-  list_of_market_programmes << programme if programme.name.downcase.include?('market')
-end
-
-market_researcher.programmes = list_of_market_programmes
+market_researcher.programmes = Programme.where("name ILIKE ?", "%market%")
 
 # music therapist
 
-# list_of_music_programmes = []
-# Programme.all.each do |programme|
-#   list_of_music_programmes << programme if programme.name.downcase.include?('market')
-# end
-
-# music_therapist.programmes = list_of_music_programmes
-
 # accountant
-list_of_accounting_programmes = []
-Programme.all.each do |programme|
-  if programme.name.downcase.include?('account') || programme.name.downcase.include?('finance')
-    list_of_accounting_programmes << programme
-  end
-end
-
-accountant.programmes = list_of_accounting_programmes
+accountant.programmes = Programme.where("name ILIKE ?", "%account%")
+                                 .or(Programme.where("name ILIKE ?", "%finance%"))
 
 # software developer
-list_of_software_programmes = []
-Programme.all.each do |programme|
-  if programme.name.downcase.include?('information') || programme.name.downcase.include?('computer')
-    list_of_software_programmes << programme
-  end
-end
-
-software_dev.programmes = list_of_software_programmes
+software_dev.programmes = Programme.where("name ILIKE ?", "%information%")
+                                   .or(Programme.where("name ILIKE ?", "%computer%"))
 
 # financial analyst
-list_of_finance_programmes = []
-Programme.all.each do |programme|
-  if programme.name.downcase.include?('finance') || programme.name.downcase.include?('business')
-    list_of_finance_programmes << programme
-  end
-end
-
-financial_analyst.programmes = list_of_finance_programmes
+financial_analyst.programmes = Programme.where("name ILIKE ?", "%finance%")
+                                        .or(Programme.where("name ILIKE ?", "%business%"))
 
 # medical scientist
-list_of_medical_programmes = []
-Programme.all.each do |programme|
-  if programme.name.downcase.include?('biomed') || programme.name.downcase.include?('biological')
-    list_of_medical_programmes << programme
-  end
-end
-
-medical_scientist.programmes = list_of_medical_programmes
+medical_scientist.programmes = Programme.where("name ILIKE ?", "%biomed%")
+                                        .or(Programme.where("name ILIKE ?", "%biological%"))
 
 # data analyst
-list_of_data_programmes = []
-Programme.all.each do |programme|
-  if programme.name.downcase.include?('analytics') || programme.name.downcase.include?('computer')
-    list_of_data_programmes << programme
-  end
-end
-
-data_analyst.programmes = list_of_data_programmes
+data_analyst.programmes = Programme.where("name ILIKE ?", "%analytics%")
+                                   .or(Programme.where("name ILIKE ?", "%computer%"))
 
 ## End of career_programmes =========================================================
 
 # Soft_skills =======================================================================
-SoftSkill.destroy_all if SoftSkill.exists?
-
 list_of_soft_skill = [
   "Networking skills",
   "Communication",
@@ -138,7 +104,6 @@ list_of_soft_skill = [
 list_of_soft_skill.each do |soft_skill|
   SoftSkill.create!(name: soft_skill)
 end
-
 # End of Soft_skills ===========================================================
 
 # Career Soft Skills ===========================================================
@@ -167,7 +132,7 @@ data_analyst.soft_skills << analytical
 # END of Career Soft Skills ==================================================
 
 # Users ======================================================================
-User.destroy_all if User.exists?
+
 5.times do
   loop_name = Faker::Name.first_name
   User.create!(
@@ -189,7 +154,7 @@ User.create!(
 # End of Users =================================================================
 
 # Subjects ====================================================================
-Subject.destroy_all if Subject.exists?
+
 list_of_subjects = [
   "Art",
   'Economics',
@@ -208,7 +173,33 @@ list_of_subjects.each { |subject| Subject.create!(name: subject) }
 # End of Subjects ==============================================================
 
 # Programme subjects ===========================================================
-Programme.all.each do |programme|
-  pass
+Programme.where("name ILIKE ?", "%market%").each do |programme|
+  programme.subjects << Subject.find_by(name: "Mathematics")
+  programme.subjects << Subject.find_by(name: "Economics")
+end
+
+Programme.where("name ILIKE ?", "%account%")
+         .or(Programme.where("name ILIKE ?", "%finance%")).each do |programme|
+  programme.subjects << Subject.find_by(name: "Mathematics")
+  programme.subjects << Subject.find_by(name: "Economics")
+end
+
+Programme.where("name ILIKE ?", "%math%").each do |programme|
+  programme.subjects << Subject.find_by(name: "Mathematics")
+end
+
+Programme.where("name ILIKE ?", "%med%")
+         .or(Programme.where("name ILIKE ?", "%bio%")).each do |programme|
+  programme.subjects << Subject.find_by(name: "Biology")
+  programme.subjects << Subject.find_by(name: "Chemistry")
+end
+
+Programme.where("name ILIKE ?", "%computer%")
+         .or(Programme.where("name ILIKE ?", "%information%")).each do |programme|
+  programme.subjects << Subject.find_by(name: "Computing")
+end
+
+Programme.where("name ILIKE ?", "%law%").each do |programme|
+  programme.subjects << Subject.find_by(name: "English")
 end
 # End of Programme subjects=====================================================
