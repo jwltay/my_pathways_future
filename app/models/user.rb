@@ -23,26 +23,21 @@ class User < ApplicationRecord
     "I am a working professional exploring my options"
   ]
 
-  def careers
-    careers = []
-    programmes.each do |programme|
-      programme.careers.each do |career|
-        careers << career
-      end
-    end
-    careers.uniq
-  end
-
   def generate_pathways
     find_matching_programmes.each do |programme|
       Pathway.create!(user: self, programme:)
     end
   end
 
-private
+  # lists recommended careers for a user
+  def careers
+    sort_careers_by_skills(find_matching_careers)
+  end
+
+  private
 
   # matches user with programmes by their shared subjects
-  def find_matching_programmes      # exclude mismatches entirely?
+  def find_matching_programmes
     scores = {}
 
     Programme.all.each do |programme|
@@ -50,7 +45,7 @@ private
       programme.subjects.each do |subject|
         score += 2 if subjects.include?(subject)
       end
-      scores[programme] = score if score > 0
+      scores[programme] = score if score.positive?
     end
     scores.sort_by { |_, value| value }.reverse.to_h.keys
   end
@@ -66,7 +61,7 @@ private
   end
 
   # sorts careers by how much their associated soft skills match with the user's
-  def sort_careers_by_skills
+  def sort_careers_by_skills(careers)
     career_by_scores = {}
 
     careers.each do |career|
@@ -76,6 +71,6 @@ private
       end
       career_by_scores[career] = score
     end
-    career_by_scores.sort_by { |_, value| value }.reverse.to_h
+    career_by_scores.sort_by { |_, value| value }.reverse.to_h.keys
   end
 end
