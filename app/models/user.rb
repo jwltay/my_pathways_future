@@ -45,4 +45,12 @@ class User < ApplicationRecord
     end
     scores.sort_by { |_, value| value }.reverse.to_h.keys
   end
+
+  def find_matching_careers
+    careers = []
+    find_matching_programmes.each do |programme|
+      careers << programme.careers
+    end
+    careers.flatten.uniq
+  end
 end
