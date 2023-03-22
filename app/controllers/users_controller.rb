@@ -13,18 +13,26 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update!(user_params.except(:subject_ids, :soft_skill_ids))
-    user_params[:subject_ids].compact_blank.each { |id| @user.subjects << Subject.find(id) }
-    user_params[:soft_skill_ids].compact_blank.each { |id| @user.soft_skills << SoftSkill.find(id) }
+    @user.update!(user_update_params)
+    subject_ids.each { |id| @user.user_subjects.build(subject_id: id) }
+    soft_skill_ids.each { |id| @user.user_soft_skills.build(soft_skill_id: id) }
+    # create pathways
     if @user.save!
       redirect_to careers_path
-      # create pathways
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   private
+
+  def user_update_params
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :occupation
+    )
+  end
 
   def user_params
     params.require(:user).permit(
@@ -34,5 +42,13 @@ class UsersController < ApplicationController
       subject_ids: [],
       soft_skill_ids: []
     )
+  end
+
+  def subject_ids
+    user_params[:subject_ids].compact_blank
+  end
+
+  def soft_skill_ids
+    user_params[:soft_skill_ids].compact_blank
   end
 end
