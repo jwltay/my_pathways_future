@@ -12,6 +12,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def careers
+    careers = []
+    programmes.each do |programme|
+      programme.careers.each do |career|
+        careers << career
+      end
+    end
+    careers.uniq
+  end
+
   validates :email, presence: true, uniqueness: true
   validates :occupation, inclusion: { in: %w[student fresh\ grad working\ adult] }
 end
