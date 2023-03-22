@@ -16,7 +16,6 @@ careers_filepath = "db/careers.csv"
 programmes_filepath = "db/programmes.csv"
 
 # Careers =====================================================================
-
 CSV.foreach(careers_filepath, headers: :first_row) do |row|
   Career.create!(
     name: row['name'],
@@ -27,8 +26,6 @@ CSV.foreach(careers_filepath, headers: :first_row) do |row|
     education: row['education']
   )
 end
-
-# End of Careers ===============================================================
 # Global Careers ===============================================================
 market_researcher = Career.find_by(name: "market research analyst")
 accountant = Career.find_by(name: "accountant")
@@ -37,7 +34,7 @@ financial_analyst = Career.find_by(name: "financial analyst")
 medical_scientist = Career.find_by(name: "medical scientist")
 data_analyst = Career.find_by(name: "data analyst")
 music_therapist = Career.find_by(name: "music therapist")
-# End of Global Careers ========================================================
+# End of Careers ==============================================================
 
 # Programmes =================================================================
 
@@ -79,7 +76,6 @@ medical_scientist.programmes = Programme.where("name ILIKE ?", "%biomed%")
 # data analyst
 data_analyst.programmes = Programme.where("name ILIKE ?", "%analytics%")
                                    .or(Programme.where("name ILIKE ?", "%computer%"))
-
 ## End of career_programmes =========================================================
 
 # Soft_skills =======================================================================
