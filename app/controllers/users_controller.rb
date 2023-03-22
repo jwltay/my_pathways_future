@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user.update!(user_update_params)
     subject_ids.each { |id| @user.user_subjects.build(subject_id: id) }
     soft_skill_ids.each { |id| @user.user_soft_skills.build(soft_skill_id: id) }
-    # create pathways
+    @user.generate_pathways
     if @user.save!
       redirect_to careers_path
     else
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   private
 
+  # safe params for updating user's first name, last name, and occupation
   def user_update_params
     params.require(:user).permit(
       :first_name,
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
     )
   end
 
+  # safe params
   def user_params
     params.require(:user).permit(
       :first_name,
@@ -44,10 +46,12 @@ class UsersController < ApplicationController
     )
   end
 
+  # extracts array of subject_ids from safe params and removes empty string
   def subject_ids
     user_params[:subject_ids].compact_blank
   end
 
+  # extracts array of soft_skill_ids from safe params and removes empty string
   def soft_skill_ids
     user_params[:soft_skill_ids].compact_blank
   end

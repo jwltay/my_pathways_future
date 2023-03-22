@@ -34,11 +34,14 @@ class User < ApplicationRecord
   end
 
   def generate_pathways
-    find_matching_careers
+    find_matching_programmes.each do |programme|
+      Pathway.create!(user: self, programme:)
+    end
   end
 
+  private
 
-
+  # matches user with programmes by their shared subjects
   def find_matching_programmes      # exclude mismatches entirely?
     scores = {}
 
@@ -52,6 +55,7 @@ class User < ApplicationRecord
     scores.sort_by { |_, value| value }.reverse.to_h.keys
   end
 
+  # finds careers associated with each of the suggested programmes for a user
   def find_matching_careers
     careers = []
 
@@ -61,6 +65,7 @@ class User < ApplicationRecord
     careers.flatten.uniq!
   end
 
+  # sorts careers by how much their associated soft skills match with the user's
   def sort_careers_by_skills
     career_by_scores = {}
 
