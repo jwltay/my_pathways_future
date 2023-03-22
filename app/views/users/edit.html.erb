@@ -1,0 +1,35 @@
+<h2>edit user</h2>
+
+
+<%= simple_form_for(@user) do |f| %>
+
+  <%# first page %>
+  <%= f.input :occupation,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: User::CATEGORIES %>
+  <%# end of first page %>
+
+  <%# second page %>
+  <%= f.input :first_name, label: "First name:" %>
+  <%= f.input :last_name, label: "Last name:" %>
+  <%# end of second paage %>
+
+  <%# third page %>
+  <%= f.association :subjects,
+                  as: :check_boxes,
+                  label: "What subjects have you studied?",
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+    <%= f.association :soft_skills,
+                  as: :check_boxes,
+                  label: "What soft skills do you possess?",
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+
+  <%= f.submit "Show my options" %>
+    <%# end of third page %>
+  <% end %>
