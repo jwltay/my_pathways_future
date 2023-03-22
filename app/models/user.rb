@@ -33,7 +33,13 @@ class User < ApplicationRecord
     careers.uniq
   end
 
-  def find_matching_programmes
+  def generate_pathways
+    find_matching_careers
+  end
+
+
+
+  def find_matching_programmes      # exclude mismatches entirely?
     scores = {}
 
     Programme.all.each do |programme|
@@ -48,9 +54,23 @@ class User < ApplicationRecord
 
   def find_matching_careers
     careers = []
+
     find_matching_programmes.each do |programme|
       careers << programme.careers
     end
-    careers.flatten.uniq
+    careers.flatten.uniq!
+  end
+
+  def sort_careers_by_skills
+    career_by_scores = {}
+
+    careers.each do |career|
+      score = 0
+      career.soft_skills.each do |soft_skill|
+        soft_skills.include?(soft_skill) ? score += 2 : score -= 1
+      end
+      career_by_scores[career] = score
+    end
+    career_by_scores.sort_by { |_, value| value }.reverse.to_h
   end
 end
