@@ -13,13 +13,11 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.first_name = user_params[:first_name]
-    @user.last_name = user_params[:last_name]
-    @user.occupation = user_params[:occupation]
+    @user.update!(user_params.except(:subject_ids, :soft_skill_ids))
     user_params[:subject_ids].compact_blank.each { |id| @user.subjects << Subject.find(id) }
     user_params[:soft_skill_ids].compact_blank.each { |id| @user.soft_skills << SoftSkill.find(id) }
     if @user.save!
-      redirect_to edit_user_path(current_user)
+      redirect_to careers_path
       # create pathways
     else
       render :edit, status: :unprocessable_entity
