@@ -12,6 +12,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :email, presence: true, uniqueness: true
+
+  # CATEGORIES = ["student", "fresh graduate", "working professional"]
+
+  CATEGORIES = [
+    "I am a student considering prospective careers",
+    "I am a graduate entering the workforce",
+    "I am a working professional exploring my options"
+  ]
+
   def careers
     careers = []
     programmes.each do |programme|
@@ -21,7 +31,4 @@ class User < ApplicationRecord
     end
     careers.uniq
   end
-
-  validates :email, presence: true, uniqueness: true
-  validates :occupation, inclusion: { in: %w[student fresh\ grad working\ adult] }
 end
