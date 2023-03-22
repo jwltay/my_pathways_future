@@ -39,7 +39,7 @@ class User < ApplicationRecord
     end
   end
 
-  private
+private
 
   # matches user with programmes by their shared subjects
   def find_matching_programmes      # exclude mismatches entirely?
@@ -48,9 +48,9 @@ class User < ApplicationRecord
     Programme.all.each do |programme|
       score = 0
       programme.subjects.each do |subject|
-        subjects.include?(subject) ? score += 2 : score -= 1
+        score += 2 if subjects.include?(subject)
       end
-      scores[programme] = score
+      scores[programme] = score if score > 0
     end
     scores.sort_by { |_, value| value }.reverse.to_h.keys
   end
