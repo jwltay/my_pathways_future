@@ -33,4 +33,16 @@ class User < ApplicationRecord
     careers.uniq
   end
 
+  def find_matching_programmes
+    scores = {}
+
+    Programme.all.each do |programme|
+      score = 0
+      programme.subjects.each do |subject|
+        subjects.include?(subject) ? score += 2 : score -= 1
+      end
+      scores[programme] = score
+    end
+    scores.sort_by { |_, value| value }.reverse.to_h.keys
+  end
 end
