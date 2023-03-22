@@ -19,6 +19,7 @@ class User < ApplicationRecord
         careers << career
       end
     end
+    careers
   end
 
   validates :email, presence: true, uniqueness: true
