@@ -9,3 +9,69 @@
 .line-active {
   background-color: $purple;
 }
+
+.col-form-label {
+  display: none;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.category-item {
+  flex: 0 0 30%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: flex;
+  align-items: center;
+  height: 350px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  padding: 80px 30px 80px 30px;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+}
+
+#user_occupation_i_am_a_student_considering_prospective_careers + label {
+  color: $dark;
+}
+
+#user_occupation_i_am_a_student_considering_prospective_careers:checked + label {
+  background-color: $beige;
+  border-color: $beige;
+}
+
+
+#user_occupation_i_am_a_graduate_entering_the_workforce + label {
+  color: $dark;
+}
+
+#user_occupation_i_am_a_graduate_entering_the_workforce:checked + label {
+  background-color: $beige;
+  border-color: $beige;
+}
+
+
+#user_occupation_i_am_a_working_professional_exploring_my_options + label {
+  color: $dark;
+}
+
+#user_occupation_i_am_a_working_professional_exploring_my_options:checked + label {
+  background-color: $beige;
+  border-color: $beige;
+}

@@ -15,13 +15,14 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  # CATEGORIES = ["student", "fresh graduate", "working professional"]
 
   CATEGORIES = [
     "I am a student considering prospective careers",
     "I am a graduate entering the workforce",
     "I am a working professional exploring my options"
   ]
+
+  # CATEGORIES = ["Ruby", "JavaScript", "CSS"]
 
   def generate_pathways
     find_matching_programmes.each do |programme|
