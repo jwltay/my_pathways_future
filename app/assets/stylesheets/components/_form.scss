@@ -53,7 +53,7 @@
 
 #user_occupation_i_am_a_student_considering_prospective_careers:checked + label {
   background-color: $beige;
-  border-color: $beige;
+  font-weight: bold;
 }
 
 
@@ -63,7 +63,7 @@
 
 #user_occupation_i_am_a_graduate_entering_the_workforce:checked + label {
   background-color: $beige;
-  border-color: $beige;
+  font-weight: bold;
 }
 
 
@@ -73,5 +73,5 @@
 
 #user_occupation_i_am_a_working_professional_exploring_my_options:checked + label {
   background-color: $beige;
-  border-color: $beige;
+  font-weight: bold;
 }
