@@ -80,14 +80,14 @@ data_analyst.programmes = Programme.where("name ILIKE ?", "%analytics%")
 
 # Soft_skills =======================================================================
 list_of_soft_skill = [
-  "Networking skills",
+  "Networking Skills",
   "Communication",
   "Confidence",
   "Organisation",
   "Problem Solving",
   "Proactive",
   "Fast Learner",
-  "Self-motivated",
+  "Self-Motivated",
   "Work Under Pressure",
   "Technical Savvy",
   "Teamwork",
@@ -106,7 +106,7 @@ end
 analytical = SoftSkill.find_by(name: "Analytical Skills")
 critical = SoftSkill.find_by(name: "Critical Thinking")
 communication = SoftSkill.find_by(name: "Communication")
-problem_solving = SoftSkill.find_by(name: "Problem solving")
+problem_solving = SoftSkill.find_by(name: "Problem Solving")
 
 market_researcher.soft_skills << analytical
 market_researcher.soft_skills << critical
