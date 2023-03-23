@@ -40,12 +40,12 @@ class User < ApplicationRecord
   def find_matching_programmes
     scores = {}
 
-    Programme.all.each do |programme|
+    Programme.includes(programme_subjects: :subject).all.each do |programme|
       score = 0
       programme.subjects.each do |subject|
-        score += 2 if subjects.include?(subject)
+        score -= 2 unless subjects.include?(subject)
       end
-      scores[programme] = score if score.positive?
+      scores[programme] = score unless score.negative?
     end
     scores.sort_by { |_, value| value }.reverse.to_h.keys
   end
