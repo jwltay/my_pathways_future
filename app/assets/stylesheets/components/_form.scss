@@ -1,0 +1,119 @@
+.form-container {
+  width: 850px;
+  margin: 0 auto;
+}
+
+.form-inputs-second {
+  margin-top: 100px;
+  margin-bottom: 125px;
+}
+
+.form-inputs-third {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.line {
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: $teal;
+  height: 3px;
+  width: 350px;
+}
+
+.line-active {
+  background-color: $purple;
+}
+
+.first-page .col-form-label {
+  display: none;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.category-item {
+  flex: 0 0 30%;
+}
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: flex;
+  align-items: center;
+  height: 350px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  padding: 80px 30px 80px 30px;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+}
+
+#user_occupation_i_am_a_student_considering_prospective_careers + label {
+  color: $dark;
+}
+
+#user_occupation_i_am_a_student_considering_prospective_careers:checked + label {
+  background-color: $beige;
+  font-weight: bold;
+}
+
+
+#user_occupation_i_am_a_graduate_entering_the_workforce + label {
+  color: $dark;
+}
+
+#user_occupation_i_am_a_graduate_entering_the_workforce:checked + label {
+  background-color: $beige;
+  font-weight: bold;
+}
+
+
+#user_occupation_i_am_a_working_professional_exploring_my_options + label {
+  color: $dark;
+}
+
+#user_occupation_i_am_a_working_professional_exploring_my_options:checked + label {
+  background-color: $beige;
+  font-weight: bold;
+}
+
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #ECEAFF;
+  color: $purple;
+  border: 1px solid $purple;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  background-color: $purple;
+  color: white;
+}

@@ -1,0 +1,26 @@
+.footer {
+  background: white;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  color: #737373;
+}
+
+.second-line {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.second-line-col {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.second-line-col a {
+  color: #737373;
+  text-decoration: none;
+}
+
+.second-line-col a:hover {
+  color: rgb(50, 50, 50);
+}
