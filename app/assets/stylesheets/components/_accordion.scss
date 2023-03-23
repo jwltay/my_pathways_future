@@ -1,0 +1,13 @@
+.accordion {
+  display: block;
+  width: 100%;
+}
+
+.panel {
+  display: none;
+  height: max-content;
+}
+
+.active {
+  display: block;
+}
