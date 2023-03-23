@@ -3,6 +3,16 @@
   margin: 0 auto;
 }
 
+.form-inputs-second {
+  margin-top: 120px;
+  margin-bottom: 145px;
+}
+
+.form-inputs-third {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 .line {
   margin-left: 8px;
   margin-right: 8px;
@@ -15,7 +25,7 @@
   background-color: $purple;
 }
 
-.col-form-label {
+.first-page .col-form-label {
   display: none;
 }
 
@@ -79,4 +89,31 @@
 #user_occupation_i_am_a_working_professional_exploring_my_options:checked + label {
   background-color: $beige;
   font-weight: bold;
+}
+
+.tag-item {
+  display: inline-block;
+}
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: #ECEAFF;
+  color: $purple;
+  border: 1px solid $purple;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  background-color: $purple;
+  color: white;
 }
