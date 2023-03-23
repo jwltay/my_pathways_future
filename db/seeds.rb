@@ -3,6 +3,7 @@ require 'csv'
 
 Faker::UniqueGenerator.clear
 
+puts "Clearing old data.."
 CareerProgramme.destroy_all if CareerProgramme.exists?
 CareerSoftSkill.destroy_all if CareerSoftSkill.exists?
 ProgrammeSubject.destroy_all if ProgrammeSubject.exists?
@@ -15,6 +16,7 @@ SoftSkill.destroy_all if SoftSkill.exists?
 careers_filepath = "db/careers.csv"
 programmes_filepath = "db/programmes.csv"
 
+puts "loading CSV for careers..."
 # Careers =====================================================================
 CSV.foreach(careers_filepath, headers: :first_row) do |row|
   Career.create!(
@@ -38,6 +40,7 @@ music_therapist = Career.find_by(name: "music therapist")
 
 # Programmes =================================================================
 
+puts "Loading CSV for programmes..."
 CSV.foreach(programmes_filepath, headers: :first_row) do |row|
   Programme.create!(
     name: row['name'],
@@ -97,6 +100,7 @@ list_of_soft_skill = [
   "Project Management"
 ]
 
+puts "Creating Soft Skills..."
 list_of_soft_skill.each do |soft_skill|
   SoftSkill.create!(name: soft_skill)
 end
@@ -129,6 +133,7 @@ data_analyst.soft_skills << analytical
 
 # Users ======================================================================
 
+puts "Creating Users..."
 5.times do
   loop_name = Faker::Name.first_name
   User.create!(
@@ -165,6 +170,8 @@ list_of_subjects = [
   'Mathematics',
   'Computing'
 ]
+
+puts "Creating Subjects..."
 list_of_subjects.each { |subject| Subject.create!(name: subject) }
 # End of Subjects ==============================================================
 
@@ -232,3 +239,6 @@ end
 # SoftSkill.create!(name: "Critical Thinking")
 # SoftSkill.create!(name: "Leadership")
 # SoftSkill.create!(name: "Project Management")
+
+
+puts "Done 🚀🚀🚀"
