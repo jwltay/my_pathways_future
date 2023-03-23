@@ -2,22 +2,24 @@
   class="accordions shadow-sm"
   data-controller="accordion"
 >
-  <div class="accordion-card">
-    <button
-      class="accordion btn p-0 mb-3"
-      data-action="click->accordion#expand"
-    >
-      <h2 class="mb-0">Testing</h2>
-      <%= link_to "View", "#" %>
-    </button>
-    <div
-      class="panel"
-      data-accordion-target="panel"
-    >
-      <p>Part 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <div class="d-flex justify-content-end">
-        <%= link_to "More Details", "#", class: "btn-success"%>
+  <% items.each do |item| %>
+    <div class="accordion-card">
+      <button
+        class="accordion btn p-0"
+        data-action="click->accordion#expand"
+      >
+        <h2 class="mb-0">Testing</h2>
+        <%= link_to "View", "#" %>
+      </button>
+      <div
+        class="panel mt-3"
+        data-accordion-target="panel"
+      >
+        <p>Part 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="d-flex justify-content-end">
+          <%= link_to "More Details", "#", class: "btn-success"%>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
