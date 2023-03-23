@@ -1,9 +1,3 @@
-<%= @user.first_name %>
-<ul>
-  <% @programmes.each do |programme| %>
-    <li>
-      <%= programme.name %>
-      <%= link_to "Add to Pathways", "#", class: 'btn btn-primary' %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <%= render partial: "shared/accordion", locals: {items: @programmes} %>
+</div>
