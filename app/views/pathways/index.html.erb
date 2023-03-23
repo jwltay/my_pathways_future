@@ -5,26 +5,31 @@
 
 <div class="container">
 
-  <div class="beige-info-card row justify-content-evenly">
+  <div class="beige-info-card row justify-content-evenly my-4">
     <% @pathways.each do |pathway| %>
       <% if pathway.active %>
+        <div class="bg-info col-3 p-4 my-3 rounded shadow text-dark text-center d-flex flex-column justify-content-evenly">
 
-        <div class="bg-info col-3 p-4 my-3 rounded shadow text-dark">
-          <p><%= pathway.programme.name %></p>
-          <p><%= pathway.programme.university %></p>
+          <p class="fw-bold"><%= pathway.programme.name %></p>
+          <p class="text-body-color"><%= pathway.programme.university %></p>
           <p id="pop-up">Ranked #<%= pathway.programme.rating %></p>
-          <p>$<%= pathway.programme.tuition_fees %></p>
-          <p>Subject Requirements:</p>
-          <% pathway.programme.subjects.each do |subject| %>
-            <%= subject.name %>
+          <p class="text-danger fw-bold">$<%= pathway.programme.tuition_fees %></p>
+          <p class="m-0 fw-bold">Subject Requirements:</p>
+          <ul class="list-unstyled">
+            <% pathway.programme.subjects.each do |subject| %>
+              <li class="text-warning">
+                <i class="fa-solid fa-book"></i>
+                <%= subject.name %><li>
+                <% end %>
+              </ul>
+
+              <div class="row">
+                <%= link_to "Set as Goal", "#", class: 'btn btn-danger rounded-pill text-white col-12' %>
+              </div>
+
+            </div>
           <% end %>
+        <% end %>
+      </div>
 
-          <div class="row">
-            <%= link_to "Set as Goal", "#", class: 'btn btn-danger rounded-pill text-white col-12' %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-
-</div>
+    </div>
