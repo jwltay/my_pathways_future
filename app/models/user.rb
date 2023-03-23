@@ -15,13 +15,14 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  # CATEGORIES = ["student", "fresh graduate", "working professional"]
 
   CATEGORIES = [
     "I am a student considering prospective careers",
     "I am a graduate entering the workforce",
     "I am a working professional exploring my options"
   ]
+
+  # CATEGORIES = ["Ruby", "JavaScript", "CSS"]
 
   def generate_pathways
     find_matching_programmes.each do |programme|
@@ -40,12 +41,12 @@ class User < ApplicationRecord
   def find_matching_programmes
     scores = {}
 
-    Programme.all.each do |programme|
+    Programme.includes(programme_subjects: :subject).all.each do |programme|
       score = 0
       programme.subjects.each do |subject|
-        score += 2 if subjects.include?(subject)
+        score -= 2 unless subjects.include?(subject)
       end
-      scores[programme] = score if score.positive?
+      scores[programme] = score unless score.negative?
     end
     scores.sort_by { |_, value| value }.reverse.to_h.keys
   end

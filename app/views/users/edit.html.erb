@@ -1,35 +1,92 @@
-<h2>edit user</h2>
+<h2 class='teal-header bg-primary text-white text-center fw-bold p-3'>Tell us about yourself</h2>
+
+<div class="container" data-controller="user-form">
+  <%= simple_form_for(@user) do |f| %>
 
 
-<%= simple_form_for(@user) do |f| %>
+    <%#=============== first page ================%>
+    <div class="first-page" data-user-form-target="firstform">
+      <div class="d-flex text-primary align-items-center justify-content-center my-4">
+        <i class="fa-solid fa-circle text-warning"></i>
+        <div class="line"></div>
+        <i class="fa-solid fa-circle"></i>
+        <div class="line"></div>
+        <i class="fa-solid fa-circle"></i>
+      </div>
 
-  <%# first page %>
-  <%= f.input :occupation,
+      <%= f.input :occupation,
             as: :radio_buttons,
             collection_wrapper_tag: 'div',
             collection_wrapper_class: 'category-wrapper',
             item_wrapper_class: 'category-item',
             input_html: {class: 'category-selector'},
             collection: User::CATEGORIES %>
-  <%# end of first page %>
 
-  <%# second page %>
-  <%= f.input :first_name, label: "First name:" %>
-  <%= f.input :last_name, label: "Last name:" %>
-  <%# end of second paage %>
+      <div class="d-flex justify-content-center my-5">
+        <div class="btn btn-primary rounded-pill text-white px-4" data-user-form-target="secondbutton">Next</div>
+      </div>
+    </div>
+    <%#================ end of first page ==============%>
 
-  <%# third page %>
-  <%= f.association :subjects,
+
+    <%#================= second page =====================%>
+
+    <div class="form-container d-none" data-user-form-target="secondform">
+
+      <div class="d-flex text-primary align-items-center justify-content-center my-4">
+        <i class="fa-solid fa-circle text-warning"></i>
+        <div class="line line-active"></div>
+        <i class="fa-solid fa-circle text-warning"></i>
+        <div class="line"></div>
+        <i class="fa-solid fa-circle"></i>
+      </div>
+
+      <div class="form-inputs-second">
+
+        <%= f.input :first_name, label: "First name:", input_html: { class: "shadow-sm" }%>
+        <%= f.input :last_name, label: "Last name:", input_html: { class: "shadow-sm" } %>
+      </div>
+
+      <div class="d-flex justify-content-center my-5">
+        <div class="btn btn-primary rounded-pill text-white px-4" data-user-form-target="thirdbutton">Next</div>
+      </div>
+
+    </div>
+    <%#=============== end of second paage ====================%>
+
+
+    <%#=================== third page ========================%>
+
+    <div class="form-container d-none" data-user-form-target="thirdform">
+
+      <div class="d-flex text-primary align-items-center justify-content-center my-4">
+        <i class="fa-solid fa-circle text-warning"></i>
+        <div class="line line-active"></div>
+        <i class="fa-solid fa-circle text-warning"></i>
+        <div class="line line-active"></div>
+        <i class="fa-solid fa-circle text-warning"></i>
+      </div>
+
+      <div class="form-inputs-third">
+
+        <%= f.association :subjects,
                   as: :check_boxes,
                   label: "What subjects have you studied?",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
-    <%= f.association :soft_skills,
+        <%= f.association :soft_skills,
                   as: :check_boxes,
                   label: "What soft skills do you possess?",
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item' %>
+        </div>
 
-  <%= f.submit "Show my options" %>
-    <%# end of third page %>
-  <% end %>
+        <div class="d-flex justify-content-center my-5">
+          <%= f.submit "Show my options", class: "btn btn-danger rounded-pill text-white" %>
+        </div>
+      </div>
+      <%#=============== end of third page =================%>
+
+
+    <% end %>
+  </div>
