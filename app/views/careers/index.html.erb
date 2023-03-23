@@ -1,3 +1,1 @@
-<% @careers.each do |career| %>
-  <%= career.name %>
-<% end %>
+<%= render "shared/accordion", locals: @careers %>

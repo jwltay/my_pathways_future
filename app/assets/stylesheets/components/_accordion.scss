@@ -1,15 +1,25 @@
 .accordion-card {
+  background-color: white;
   display:block;
   width: 100%;
+  border-radius: 10px;
+  padding: 16px;
 }
 
-.accordion {
-
+.accordion-card .btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .panel {
   display: none;
   height: max-content;
+}
+
+.panel a {
+  float: right;
 }
 
 .active {
