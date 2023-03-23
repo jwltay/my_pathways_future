@@ -143,7 +143,7 @@ end
 User.create!(
   first_name: "Manu",
   last_name: "Nonsense",
-  email: "manu@#{['gmail', 'yahoo', 'hotmail'].sample}.#{['com', 'sg'].sample}",
+  email: "manu@gmail.com",
   password: "password",
   occupation: "student"
 )
