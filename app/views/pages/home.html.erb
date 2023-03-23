@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner-background">
+  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="banner-content d-flex">
+      <div class="banner-cta d-flex flex-column justify-content-center">
+        <h1>Find Your Path</h1>
+        <h2 class="fs-4 w-55">Helping you to navigate the education system towards a bright future</h2>
+        <%= button_to "Get started", new_user_registration_path, class: "btn btn-warning text-white rounded-pill px-3 mt-5"%>
+      </div>
+        <%= image_tag("pixeltrue-location.png", class: "hero-banner-image") %>
+    </div>
+  </div>
+</div>
