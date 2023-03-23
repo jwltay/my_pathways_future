@@ -111,16 +111,20 @@ analytical = SoftSkill.find_by(name: "Analytical Skills")
 critical = SoftSkill.find_by(name: "Critical Thinking")
 communication = SoftSkill.find_by(name: "Communication")
 problem_solving = SoftSkill.find_by(name: "Problem Solving")
+teamwork = SoftSkill.find_by(name: "Teamwork")
+motivated = SoftSkill.find_by(name: "Self-Motivated")
 
 market_researcher.soft_skills << analytical
 market_researcher.soft_skills << critical
 
 music_therapist.soft_skills << communication
+music_therapist.soft_skills << teamwork
 
 accountant.soft_skills << analytical
 
 software_dev.soft_skills << analytical
 software_dev.soft_skills << problem_solving
+software_dev.soft_skills << motivated
 
 financial_analyst.soft_skills << analytical
 financial_analyst.soft_skills << critical
@@ -176,9 +180,8 @@ list_of_subjects.each { |subject| Subject.create!(name: subject) }
 # End of Subjects ==============================================================
 
 # Programme subjects ===========================================================
-Programme.where("name ILIKE ?", "%market%").each do |programme|
+Programme.where("name ILIKE ?", "%business%").each do |programme|
   programme.subjects << Subject.find_by(name: "Mathematics")
-  programme.subjects << Subject.find_by(name: "Economics")
 end
 
 Programme.where("name ILIKE ?", "%account%")
@@ -189,9 +192,10 @@ end
 
 Programme.where("name ILIKE ?", "%math%").each do |programme|
   programme.subjects << Subject.find_by(name: "Mathematics")
+  programme.subjects << Subject.find_by(name: "English")
 end
 
-Programme.where("name ILIKE ?", "%med%")
+Programme.where("name ILIKE ?", "%bio%")
          .or(Programme.where("name ILIKE ?", "%bio%")).each do |programme|
   programme.subjects << Subject.find_by(name: "Biology")
   programme.subjects << Subject.find_by(name: "Chemistry")
@@ -199,11 +203,15 @@ end
 
 Programme.where("name ILIKE ?", "%computer%")
          .or(Programme.where("name ILIKE ?", "%information%")).each do |programme|
-  programme.subjects << Subject.find_by(name: "Computing")
+  programme.subjects << Subject.find_by(name: "Mathematics")
 end
 
 Programme.where("name ILIKE ?", "%law%").each do |programme|
   programme.subjects << Subject.find_by(name: "English")
+end
+
+Programme.where("name ILIKE ?", "%psych%").each do |programme|
+  programme.subjects << Subject.find_by(name: "Mathematics")
 end
 # End of Programme subjects=====================================================
 
