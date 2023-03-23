@@ -1,13 +1,22 @@
 .accordions {
   margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 .accordion-card {
   background-color: white;
   display:block;
   width: 100%;
-  border-radius: 10px;
+  border-bottom: 0.8px dashed $body-color;
+  border-left: 0.8px dashed $body-color;
+  border-right: 0.8px dashed $body-color;
   padding: 16px;
+
+  &.active {
+    .panel {
+      display:block;
+    }
+  }
 }
 
 .accordion-card .btn{
@@ -17,6 +26,15 @@
   width: 100%;
 }
 
+.accordion-card .btn a{
+  background-color: $purple;
+  border-radius: 24px;
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+
 .panel {
   display: none;
   height: max-content;
@@ -24,8 +42,10 @@
 
 .panel a {
   float: right;
-}
-
-.active {
-  display: block;
+  background-color: $teal;
+  border-radius: 24px;
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
 }
