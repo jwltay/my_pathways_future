@@ -1,32 +1,30 @@
 <h2 class='white-header text-dark text-center fw-bold p-3'>Your Pathways</h2>
 
 
-<div class="bg-primary">
+<div class="background"></div>
 
-  <div class="container">
+<div class="container">
 
-    <div class="beige-info-card row justify-content-evenly">
-      <% @pathways.each do |pathway| %>
-        <% if pathway.active %>
+  <div class="beige-info-card row justify-content-evenly">
+    <% @pathways.each do |pathway| %>
+      <% if pathway.active %>
 
-          <div class="bg-info col-3 p-4 my-3 rounded shadow text-dark">
-            <p><%= pathway.programme.name %></p>
-            <p><%= pathway.programme.university %></p>
-            <p>University World Ranking:</p>
-            <p>#<%= pathway.programme.rating %></p>
-            <p>$<%= pathway.programme.tuition_fees %></p>
-            <p>Subject Requirements:</p>
-            <% pathway.programme.subjects.each do |subject| %>
-              <%= subject.name %>
-            <% end %>
+        <div class="bg-info col-3 p-4 my-3 rounded shadow text-dark">
+          <p><%= pathway.programme.name %></p>
+          <p><%= pathway.programme.university %></p>
+          <p id="pop-up">Ranked #<%= pathway.programme.rating %></p>
+          <p>$<%= pathway.programme.tuition_fees %></p>
+          <p>Subject Requirements:</p>
+          <% pathway.programme.subjects.each do |subject| %>
+            <%= subject.name %>
+          <% end %>
 
-            <div class="row">
-              <%= link_to "Set as Goal", "#", class: 'btn btn-danger rounded-pill text-white col-12' %>
-            </div>
+          <div class="row">
+            <%= link_to "Set as Goal", "#", class: 'btn btn-danger rounded-pill text-white col-12' %>
           </div>
-        <% end %>
+        </div>
       <% end %>
-    </div>
-
+    <% end %>
   </div>
+
 </div>
