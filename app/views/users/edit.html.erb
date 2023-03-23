@@ -1,11 +1,11 @@
 <h2 class='teal-header bg-primary text-white text-center fw-bold p-3'>Tell us about yourself</h2>
 
-<div class="container">
+<div class="container" data-controller="user-form">
   <%= simple_form_for(@user) do |f| %>
 
 
     <%#=============== first page ================%>
-    <div class="first-page">
+    <div data-user-form-target="firstform">
       <div class="d-flex text-primary align-items-center justify-content-center my-4">
         <i class="fa-solid fa-circle text-warning"></i>
         <div class="line"></div>
@@ -23,7 +23,7 @@
             collection: User::CATEGORIES %>
 
       <div class="d-flex justify-content-center my-5">
-        <div class="btn btn-primary rounded-pill text-white px-4">Next</div>
+        <div class="btn btn-primary rounded-pill text-white px-4" data-user-form-target="secondbutton">Next</div>
       </div>
     </div>
     <%#================ end of first page ==============%>
@@ -31,7 +31,7 @@
 
     <%#================= second page =====================%>
 
-    <div class="second-page form-container">
+    <div class="form-container d-none" data-user-form-target="secondform">
 
       <div class="form-inputs">
 
@@ -48,7 +48,7 @@
       </div>
 
       <div class="d-flex justify-content-center my-5">
-        <div class="btn btn-primary rounded-pill text-white px-4">Next</div>
+        <div class="btn btn-primary rounded-pill text-white px-4" data-user-form-target="thirdbutton">Next</div>
       </div>
 
     </div>
@@ -57,9 +57,9 @@
 
     <%#=================== third page ========================%>
 
-    <div class="third-page form-container">
+    <div class="form-container d-none" data-user-form-target="thirdform">
 
-      <div class="form-inputs">
+      <div class=" form-inputs">
 
         <div class="d-flex text-primary align-items-center justify-content-center my-4">
           <i class="fa-solid fa-circle text-warning"></i>
