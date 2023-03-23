@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_many :user_soft_skills
+  has_many :user_soft_skills, dependent: :destroy
   has_many :soft_skills, through: :user_soft_skills
 
-  has_many :user_subjects
+  has_many :user_subjects, dependent: :destroy
   has_many :subjects, through: :user_subjects
 
   has_many :pathways, dependent: :destroy
