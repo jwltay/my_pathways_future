@@ -1,8 +1,9 @@
 .footer {
   background: white;
   padding-bottom: 2rem;
-  padding-top: 3rem;
-  // border-top: grey;
+  padding-top: 2rem;
+  // color: gray;
+  color: #737373;
 }
 
 .second-line {
@@ -14,4 +15,13 @@
 .second-line-col {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.second-line-col a {
+  color: #737373;
+  text-decoration: none;
+}
+
+.second-line-col a:hover {
+  color: rgb(50, 50, 50);
 }
