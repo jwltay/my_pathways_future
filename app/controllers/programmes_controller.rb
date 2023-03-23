@@ -1,7 +1,8 @@
 class ProgrammesController < ApplicationController
   def index
     @user = current_user
-    @programmes = @user.programmes
+    @career = Career.find(params[:career_id])
+    @programmes = @career.programmes
   end
 
   def show
