@@ -7,7 +7,7 @@
       <button class="accordion btn p-0">
         <h2 class="mb-0"><%= item.name.capitalize %></h2>
         <% if item.instance_of?(Career) %>
-          <%= link_to "View University Programmes", programmes_path %>
+          <%= link_to "View University Programmes", career_programmes_path(item) %>
         <% elsif item.instance_of?(Programme) %>
           <%= link_to "Compare", pathways_path %>
         <% end %>
