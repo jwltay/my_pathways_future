@@ -28,8 +28,7 @@ class User < ApplicationRecord
   end
 
   def primary_pathway?
-    active_pathways = pathways.where(active: true)
-    active_pathways.each do |pathway|
+    pathways.each do |pathway|
       return true if pathway.primary?
     end
     return false
