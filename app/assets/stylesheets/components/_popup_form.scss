@@ -57,6 +57,8 @@
 }
 
 .border-bottom {
-  border-bottom: 0.8px dashed $body-color;
-  margin-top: 1em;
+  border-bottom: 0.8px solid $body-color;
+  margin-top: 10px;
+  border-left: 0.8px solid $body-color;
+  padding-inline: 16px;
 }
