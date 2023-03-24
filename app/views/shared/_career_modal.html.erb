@@ -1,0 +1,16 @@
+<!-- Parent controller -->
+<div data-controller="modal">
+  <!-- Trigger -->
+  <div class="btn btn-primary" data-action="click->modal#showModal">show modal</div>
+  <!-- Modal Wrapper -->
+  <div class="modal-wrapper" data-modal-target="popup">
+    <!-- Close Btn -->
+    <i class="fa fa-times fa-2x" data-action="click->modal#hideModal"></i>
+    <!-- Content -->
+    <div class="container">
+      <div class="modal-content">
+        can have anything inside
+      </div>
+    </div>
+  </div>
+</div>
