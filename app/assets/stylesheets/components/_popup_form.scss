@@ -56,9 +56,16 @@
   justify-content: center;
 }
 
-.border-bottom {
-  border-bottom: 0.8px solid $body-color;
-  margin-top: 10px;
-  border-left: 0.8px solid $body-color;
-  padding-inline: 16px;
+.content-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.item {
+  border-left: 4px solid white;
+  padding-left: 8px;
+
+}
+.item:hover {
+  border-left: 4px solid $teal;
 }

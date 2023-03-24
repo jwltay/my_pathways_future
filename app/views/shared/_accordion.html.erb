@@ -15,13 +15,13 @@
         <div class="d-flex justify-content-end">
           <% if item.instance_of?(Career) %>
             <%= render partial: "shared/career_modal", locals: { career: item } %>
-          <% elsif item.instance_of?(Programme) %
+          <% elsif item.instance_of?(Programme) %>
             <%= link_to "More Details", career_path(item) %>
-        <% elsif item.instance_of?(Programme) %>
-          <%= link_to "More Details", programme_path(item) %>
-        <% end %>
+          <% elsif item.instance_of?(Programme) %>
+            <%= link_to "More Details", programme_path(item) %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>

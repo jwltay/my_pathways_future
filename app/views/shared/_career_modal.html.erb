@@ -9,27 +9,27 @@
     <!-- Content -->
     <div class="container">
       <div class="modal-content">
-        <div class="container">
-          <div class="row">
-            <h2 class="text-center">More Information</h2>
-            <div class="col-4">
-              <p>testing</p>
-            </div>
-            <div class="col-8 teal-background">
-              <h3><%= career.name.capitalize %></h3>
-              <p><%= career.summary %></p>
-            </div>
+        <div class="row">
+          <h2 class="text-dark fw-bold p-3 text-center">More Information</h2>
+          <div class="col-4">
+            <p>testing</p>
           </div>
-          <div class="border-bottom">
-            <h5>General responsibilities</h5>
+          <div class="col-8 teal-background px-5">
+            <h3><%= career.name.capitalize %></h3>
+            <p><%= career.summary %></p>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class="item border-bottom pt-3 mt-5">
+            <h5 class="fw-bold">General responsibilities</h5>
             <p><%= career.responsibilities %></p>
           </div>
-          <div class="border-bottom">
-            <h5>Career Progression</h5>
+          <div class="item border-bottom pt-3">
+            <h5 class="fw-bold">Career Progression</h5>
             <p><%= career.progression %></p>
           </div>
-          <div class="border-bottom">
-            <h5>Education Requirements</h5>
+          <div class="item border-bottom pt-3 mb-3">
+            <h5 class="fw-bold">Education Requirements</h5>
             <p><%= career.education %></p>
           </div>
         </div>
