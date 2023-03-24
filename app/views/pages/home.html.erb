@@ -1,2 +1,73 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# ================== START OF HERO BANNER ================== %>
+<div class="hero-banner-background">
+  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="banner-content d-flex">
+      <div class="banner-cta d-flex flex-column justify-content-center">
+        <h1 class="text-dark">Find Your Path</h1>
+        <h2 class="fs-4 w-55 text-dark">Helping you to navigate the education system towards a bright future</h2>
+        <%= link_to "Get started", new_user_registration_path, class: "btn btn-lg btn-warning text-white rounded-pill px-5 mt-5"%>
+      </div>
+        <%= image_tag("pixeltrue-location.png", class: "hero-banner-image") %>
+    </div>
+  </div>
+</div>
+<%# ================== END OF HERO BANNER ================== %>
+
+<%# ================== START OF BEIGE FEATURE CARDS ================== %>
+<div class="container">
+    <h1 class="text-dark text-center pt-5 fw-bold">More than one way to success</h2>
+  <div class="row m-5">
+
+    <div class="col-md-4">
+      <div class="card-beige-small p-5 shadow-sm rounded d-flex align-items-center">
+        <div>
+          <%= image_tag("pixeltrue-discover.png", class: "card-beige-small-image") %>
+          <div class="mt-5">
+            <h3 class="text-dark">Discover your possiblities</h3>
+            <p class="text-dark">Get tailored university and career recommendations based on your profile and shortlist them</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card-beige-small p-5 shadow-sm rounded d-flex align-items-center">
+        <div>
+          <%= image_tag("pixeltrue-explore.png", class: "card-beige-small-image") %>
+          <div class="mt-5">
+            <h3 class="text-dark">Explore your shortlisted options</h3>
+            <p class="text-dark">Compare the details of your selected recommendations all in one place</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card-beige-small p-5 shadow-sm rounded d-flex align-items-center">
+        <div>
+          <%= image_tag("pixeltrue-follow.png", class: "card-beige-small-image") %>
+          <div class="mt-5">
+            <h3 class="text-dark">Follow your selected path</h3>
+            <p class="text-dark">Track deadlines and to-do’s on your dashboard, based on your chosen pathway</p>
+          </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<%# ================== END OF BEIGE FEATURE CARDS ================== %>
+
+<%# ================== START OF CTA BANNER ================== %>
+<div class="cta-banner-background">
+  <div class="container d-flex align-items-center justify-content-center p-5">
+    <div class="banner-content d-flex">
+        <%= image_tag("pixeltrue-find.png", class: "cta-banner-image") %>
+      <div class="banner-cta d-flex flex-column justify-content-center m-5">
+        <h1 class="text-dark">Let us help you find your way</h1>
+        <%= link_to "Get started", new_user_registration_path, class: "btn btn-lg btn-warning text-white rounded-pill px-5 mt-5"%>
+      </div>
+    </div>
+  </div>
+</div>
+<%# ================== END OF CTA BANNER ================== %>
