@@ -35,6 +35,14 @@ class User < ApplicationRecord
     sort_careers_by_skills(find_matching_careers)
   end
 
+  def primary_pathway?
+    active_pathways = pathways.where(active: true)
+    active_pathways.each do |pathway|
+      return true if pathway.primary?
+    end
+    return false
+  end
+
   private
 
   # matches user with programmes by their shared subjects
