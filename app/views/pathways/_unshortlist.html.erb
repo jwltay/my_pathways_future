@@ -1,0 +1,4 @@
+<%= link_to 'Unshortlist', pathway_path(pathway, career: career), class: "shortlist shortlisted", data: {
+  turbo_method: :delete,
+  turbo_confirm: "are you sure you want to remove this?"
+} %>
