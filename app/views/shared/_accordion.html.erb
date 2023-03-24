@@ -1,7 +1,4 @@
-<div
-  class="accordions"
-  data-controller="accordion"
->
+<div class="accordions" data-controller="accordion">
   <% items.each do |item| %>
     <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
       <button class="accordion btn p-0">
@@ -16,6 +13,8 @@
         <p><%= item.summary %></p>
         <div class="d-flex justify-content-end">
           <% if item.instance_of?(Career) %>
+            <%= render partial: "shared/career_modal", locals: { career: item } %>
+          <% elsif item.instance_of?(Programme) %>
             <%= link_to "More Details", career_path(item) %>
           <% elsif item.instance_of?(Programme) %>
             <%= link_to "More Details", programme_path(item) %>

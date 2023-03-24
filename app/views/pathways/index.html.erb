@@ -1,10 +1,12 @@
-<ul>
-  <% @pathways.each do |pathway| %>
-    <li>
-      <% if pathway.shortlisted %>
-        <%= pathway.programme.name %>
-        <%= link_to "Set as Goal", "#", class: 'btn btn-danger' %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<h2 class='white-header text-dark text-center fw-bold p-3'>Your Pathways</h2>
+
+
+<div class="background"></div>
+
+<div class="container">
+
+  <div class="beige-info-card row justify-content-evenly my-4">
+    <%= render @pathways %>
+  </div>
+
+</div>

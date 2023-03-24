@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     @user.update!(user_update_params)
     subject_ids.each { |id| @user.user_subjects.build(subject_id: id) }
     soft_skill_ids.each { |id| @user.user_soft_skills.build(soft_skill_id: id) }
-    @user.generate_pathways
     if @user.save!
       redirect_to careers_path
     else
