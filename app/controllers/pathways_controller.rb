@@ -4,7 +4,7 @@ class PathwaysController < ApplicationController
 
   def index
     @user = current_user
-    @pathways = @user.pathways.where(active: true).order(id: :asc)
+    @pathways = @user.pathways.order(id: :asc)
   end
 
   # def new

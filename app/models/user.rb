@@ -22,14 +22,6 @@ class User < ApplicationRecord
     "I am a working professional exploring my options"
   ]
 
-  # CATEGORIES = ["Ruby", "JavaScript", "CSS"]
-
-  def generate_pathways
-    find_matching_programmes.each do |programme|
-      Pathway.create!(user: self, programme:)
-    end
-  end
-
   # lists recommended careers for a user
   def careers
     sort_careers_by_skills(find_matching_careers)
