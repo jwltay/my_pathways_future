@@ -1,3 +1,74 @@
+<style>
+  .accordion-card{
+    overflow: hidden;
+  }
+  .accordion-card.active:hover .shortlist{
+    opacity:1;
+    transform: translateY(0)
+  }
+
+  .shortlist {
+    text-decoration: none;
+    background-color: #88619a;
+    color:white;
+    padding: .5rem 1rem;
+    position:absolute;
+    right: 0;
+    top: 0;
+    opacity:0;
+    transform: translateY(-50px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: 300ms;
+  }
+  .shortlist.shortlisted {
+    background-color: #1edd88;
+    opacity:1;
+    transform: translateY(0)
+  }
+  .shortlist:hover {
+    padding: .5rem 2rem;
+    color:white;
+  }
+</style>
+
+
 <div class="container">
-  <%= render partial: "shared/accordion", locals: {items: @programmes} %>
+  <div
+  class="accordions"
+  data-controller="accordion"
+>
+  <% @programmes.each do |program| %>
+    <div
+      class="accordion-card py-4 position-relative"
+      data-accordion-target="program"
+      data-action="click->accordion#expand"
+      data-controller="shortlist"
+      >
+
+      <% if program.shortlisted?(current_user) %>
+        <%= render 'pathways/unshortlist', pathway: Pathway.where(user: current_user, programme: program).first, career: @career %>
+      <% else %>
+        <%= render 'pathways/form', program: program, career_id: @career.id %>
+      <% end %>
+
+
+      <button class="accordion btn p-0">
+        <h2 class="mb-0"><%= program.name.capitalize %></h2>
+      </button>
+
+      <div class="panel mt-3">
+        <p><%= program.summary %></p>
+        <div class="d-flex justify-content-end">
+          <% if program.instance_of?(Career) %>
+            <%= link_to "More Details", career_path(program) %>
+          <% elsif program.instance_of?(Programme) %>
+            <%= link_to "More Details", programme_path(program) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 </div>

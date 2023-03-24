@@ -10,7 +10,11 @@ application.register("accordion", AccordionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import UserFormController from "./user_form_controller"
-application.register("user-form", UserFormController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import ShortlistController from "./shortlist_controller"
+application.register("shortlist", ShortlistController)
+
+import UserFormController from "./user_form_controller"
+application.register("user-form", UserFormController)

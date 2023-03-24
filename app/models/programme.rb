@@ -15,4 +15,13 @@ class Programme < ApplicationRecord
   validates :name, presence: true
   validates :university, presence: true
   validates :overview, presence: true
+
+  # Check if programme has been shortlisted by the current user
+  # -----------------------------------------------
+  # checks pathways where the user is the current user
+  # and returns the opposite of whether the resultant set
+  # is empty of not
+  def shortlisted?(user)
+    !pathways.where(user:).empty?
+  end
 end
