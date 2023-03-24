@@ -11,6 +11,13 @@
   position: relative;
   font-size: 14px;
   height: 350px;
+
+  &.hidden  {
+    box-shadow: none;
+    & > * {
+      opacity: 0.5;
+    }
+  }
 }
 
 #pop-up {
@@ -37,4 +44,9 @@
 
 .form-check {
   display: none;
+}
+
+.hidden-space {
+  opacity: 0;
+  height: 54px;
 }

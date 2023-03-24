@@ -4,7 +4,7 @@ class PathwaysController < ApplicationController
 
   def index
     @user = current_user
-    @pathways = @user.pathways
+    @pathways = @user.pathways.where(active: true).order(id: :asc)
   end
 
   # def new
@@ -26,17 +26,13 @@ class PathwaysController < ApplicationController
 
   def update
     @pathway = Pathway.find(update_pathways_id[:id])
-    @pathway.update!(update_pathway_params)
+    @pathway.update!(primary_pathway_params)
     redirect_to pathways_path
   end
 
-  # private
+  private
 
-  # def pathway_params
-  #   params.require(:pathway).permit(:programme_id)
-  # end
-
-  def update_pathway_params
+  def primary_pathway_params
     params.require(:pathway).permit(:primary)
   end
 
