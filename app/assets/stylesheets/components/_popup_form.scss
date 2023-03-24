@@ -46,6 +46,17 @@
   margin-top: 10vh;
   height: 80vh;
   overflow-y: scroll;
+
+  h2 {
+    text-align: center;
+    margin-top: 2vh;
+    font-weight: bold;
+  }
+
+  .container {
+    padding-inline: 5rem;
+    height: 5rem;
+  }
 }
 
 .teal-background {
@@ -57,15 +68,18 @@
 }
 
 .content-container {
-  width: 80%;
   margin: 0 auto;
 }
 
 .item {
   border-left: 4px solid white;
   padding-left: 8px;
-
 }
+
 .item:hover {
   border-left: 4px solid $teal;
+}
+
+.border {
+  box-sizing: border-box;
 }

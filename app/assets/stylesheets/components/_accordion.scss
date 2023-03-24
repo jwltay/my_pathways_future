@@ -8,14 +8,17 @@
   display:block;
   width: 100%;
   border-bottom: 0.8px dashed $body-color;
-  border-left: 0.8px dashed $body-color;
-  border-right: 0.8px dashed $body-color;
   padding: 16px;
 
   &.active {
     .panel {
       display:block;
     }
+  }
+
+  &:hover {
+    background-color: $beige;
+    border-left: 2px solid $teal;
   }
 }
 
@@ -24,6 +27,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  h2{
+    text-align: left;
+  }
 }
 
 .accordion-card .btn a{
