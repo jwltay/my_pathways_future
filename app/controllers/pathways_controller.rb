@@ -4,7 +4,7 @@ class PathwaysController < ApplicationController
 
   def index
     @user = current_user
-    @pathways = @user.pathways
+    @pathways = @user.pathways.order(id: :asc)
   end
 
   # def new
@@ -24,18 +24,21 @@ class PathwaysController < ApplicationController
   #   end
   # end
 
-  # def update
-  #   @pathway = Pathway.find(params[:id])
-  #   @pathway.save!
-  #   @programme = Programme.find(params[:programme_id])
-  #   redirect_to programme_path(@programme)
-  # end
+  def update
+    @pathway = Pathway.find(update_pathways_id[:id])
+    @pathway.update!(primary_pathway_params)
+    redirect_to pathways_path
+  end
 
-  # private
+  private
 
-  # def pathway_params
-  #   params.require(:pathway).permit(:programme_id)
-  # end
+  def primary_pathway_params
+    params.require(:pathway).permit(:primary)
+  end
+
+  def update_pathways_id
+    params.permit(:id)
+  end
 
   # def set_programme
   #   @programme = Programme.find(params[:programme_id])
