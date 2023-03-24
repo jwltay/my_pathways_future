@@ -1,0 +1,27 @@
+<div
+  class="accordions"
+  data-controller="accordion"
+>
+  <% items.each do |item| %>
+    <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
+      <button class="accordion btn p-0">
+        <h2 class="mb-0"><%= item.name.capitalize %></h2>
+        <% if item.instance_of?(Career) %>
+          <%= link_to "View University Programmes", programmes_path %>
+        <% elsif item.instance_of?(Programme) %>
+          <%= link_to "Compare", pathways_path %>
+        <% end %>
+      </button>
+      <div class="panel mt-3">
+        <p><%= item.summary %></p>
+        <div class="d-flex justify-content-end">
+          <% if item.instance_of?(Career) %>
+            <%= link_to "More Details", career_path(item) %>
+          <% elsif item.instance_of?(Programme) %>
+            <%= link_to "More Details", programme_path(item) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
