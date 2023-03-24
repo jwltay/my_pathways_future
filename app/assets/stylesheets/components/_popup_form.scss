@@ -13,10 +13,12 @@
   opacity: 0;
   pointer-events: none;
   transition: 300ms;
+  z-index: -1;
 
   &.show {
     opacity: 1;
     pointer-events: all;
+    z-index: 100;
 
     .modal-content{
       animation: 300ms slide-up 300ms forwards;
@@ -41,5 +43,20 @@
   background-color: white;
   margin: 0 auto;
   opacity: 0;
-  margin-top: 15vh;
+  margin-top: 10vh;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.teal-background {
+  background-color: $teal;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.border-bottom {
+  border-bottom: 0.8px dashed $body-color;
+  margin-top: 1em;
 }
