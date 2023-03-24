@@ -8,7 +8,7 @@
   <div class="beige-info-card row justify-content-evenly my-4">
     <% @pathways.each do |pathway| %>
       <% if pathway.active %>
-        <div class="bg-info col-3 p-4 my-3 rounded shadow text-dark text-center d-flex flex-column justify-content-evenly">
+        <div class="bg-info col-3 p-4 my-3 rounded shadow text-dark text-center d-flex flex-column justify-content-between">
 
           <p class="fw-bold"><%= pathway.programme.name %></p>
           <p class="text-body-color"><%= pathway.programme.university %></p>
