@@ -22,7 +22,7 @@
           <% if pathway.primary? %>
             <%= simple_form_for(pathway) do |f| %>
               <%= f.input :primary, :input_html => { checked: false }%>
-              <%= f.submit "Remove as Goal", class: "btn btn-danger rounded-pill text-white col-12" %>
+              <%= f.submit "Remove Goal", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
             <% end %>
           <% else %>
             <div class="hidden-space"></div>
