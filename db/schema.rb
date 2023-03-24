@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_095645) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_24_031041) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_095645) do
   end
 
   create_table "pathways", force: :cascade do |t|
-    t.boolean "active", default: false, null: false
+    t.boolean "shortlisted", default: false, null: false
     t.boolean "primary", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "programme_id", null: false
