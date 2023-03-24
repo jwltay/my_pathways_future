@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_095645) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_24_053634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,12 +44,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_095645) do
   end
 
   create_table "pathways", force: :cascade do |t|
-    t.boolean "active", default: false, null: false
     t.boolean "primary", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "programme_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "stage"
     t.index ["programme_id"], name: "index_pathways_on_programme_id"
     t.index ["user_id"], name: "index_pathways_on_user_id"
   end
