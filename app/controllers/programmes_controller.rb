@@ -9,6 +9,19 @@ class ProgrammesController < ApplicationController
     @programme = Programme.find(params[:id])
   end
 
+  def shortlist
+    # get the programme
+    @programme = Programme.find(params[:programme_id])
+
+    # create a new pathway
+    @pathway = Pathway.new
+    @pathway.programme = @programme
+    @pathway.user = current_user
+    @pathway.active = true
+
+    @pathway.save
+  end
+
   # def new
   #   @programme = Programme.new
   # end
