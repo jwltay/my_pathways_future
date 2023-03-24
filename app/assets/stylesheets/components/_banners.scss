@@ -18,3 +18,15 @@
 .cta-banner-image {
   width: 500px;
 }
+
+.banner-green {
+  background-color: $teal;
+  height: 10rem;
+  display:flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .container {
+    padding-inline: 5rem;
+  }
+}

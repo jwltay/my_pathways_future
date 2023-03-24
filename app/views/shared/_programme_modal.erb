@@ -1,0 +1,33 @@
+<!-- Parent controller -->
+<div data-controller="modal">
+  <!-- Trigger -->
+  <div class="btn btn-primary" data-action="click->modal#showModal">
+    show modal
+  </div>
+  <!-- Modal Wrapper -->
+  <div class="modal-wrapper" data-modal-target="popup">
+    <!-- Close Btn -->
+    <i class="fa fa-times fa-2x" data-action="click->modal#hideModal"></i>
+    <!-- Content -->
+    <div class="container">
+      <div class="modal-content">
+        <h2>More Information</h2>
+        <div class="banner-green">
+          <div class="container">
+            <h3><strong><%= programme.name %> @ <%= programme.university %></strong></h3>
+          </div>
+        </div>
+        <div class="container">
+          <h4>Programme Overview</h4>
+          <p><%= programme.overview %></p>
+          <h4>Programme Duration</h4>
+          <p><%= programme.duration %> Years</p>
+          <h4>Tuition Fees</h4>
+          <p>S$<%= programme.tuition_fees %></p>
+          <h4>University World Ranking</h4>
+          <p><%= programme.rating %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
