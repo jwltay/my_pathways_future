@@ -11,7 +11,7 @@ class PathwaysController < ApplicationController
   #   @pathway = Pathway.find(update_pathways_id[:id])
   #   @pathway.update!(shortlist_pathway_params)
   # end
-
+a
   # def new
   #   @pathways = Pathway.new
   # end
