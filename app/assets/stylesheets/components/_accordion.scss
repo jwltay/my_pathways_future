@@ -8,7 +8,6 @@
   display:block;
   width: 100%;
   border-bottom: 0.8px dashed $body-color;
-  border-left: 2px dashed $teal;
   padding: 16px;
 
   &.active {
@@ -19,6 +18,7 @@
 
   &:hover {
     background-color: $beige;
+    border-left: 2px solid $teal;
   }
 }
 

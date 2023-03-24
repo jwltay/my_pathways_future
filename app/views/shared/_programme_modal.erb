@@ -18,14 +18,22 @@
           </div>
         </div>
         <div class="container">
-          <h4>Programme Overview</h4>
-          <p><%= programme.overview %></p>
-          <h4>Programme Duration</h4>
-          <p><%= programme.duration %> Years</p>
-          <h4>Tuition Fees</h4>
-          <p>S$<%= programme.tuition_fees %></p>
-          <h4>University World Ranking</h4>
-          <p><%= programme.rating %></p>
+          <div class="item border-bottom pt-3">
+            <h4>Overview</h4>
+            <p><%= programme.overview %></p>
+          </div>
+          <div class="item border-bottom pt-3">
+            <h4>Programme Duration</h4>
+            <p><%= programme.duration %> Years</p>
+          </div>
+          <div class="item border-bottom pt-3">
+            <h4>Tuition Fees</h4>
+            <p>S$<%= programme.tuition_fees %></p>
+          </div>
+          <div class="item border-bottom pt-3">
+            <h4>University World Ranking</h4>
+            <p><%= programme.rating %></p>
+          </div>
         </div>
       </div>
     </div>
