@@ -24,18 +24,23 @@ class PathwaysController < ApplicationController
   #   end
   # end
 
-  # def update
-  #   @pathway = Pathway.find(params[:id])
-  #   @pathway.save!
-  #   @programme = Programme.find(params[:programme_id])
-  #   redirect_to programme_path(@programme)
-  # end
+  def update(pathway, input)
+    raise
+    value = update_pathway_params
+    # pathway.send(input) = value
+    pathway.save!
+    redirect_to pathways_path
+  end
 
   # private
 
   # def pathway_params
   #   params.require(:pathway).permit(:programme_id)
   # end
+
+  def update_pathway_params
+    params.require(:pathway).permit(:primary)
+  end
 
   # def set_programme
   #   @programme = Programme.find(params[:programme_id])
