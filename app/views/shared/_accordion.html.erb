@@ -1,13 +1,11 @@
-<div
-  class="accordions"
-  data-controller="accordion"
->
+<div class="accordions" data-controller="accordion">
   <% items.each do |item| %>
     <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
       <button class="accordion btn p-0">
         <h2 class="mb-0"><%= item.name.capitalize %></h2>
         <% if item.instance_of?(Career) %>
           <%= link_to "View University Programmes", career_programmes_path(item) %>
+        <% elsif item.instance_of?(Programme) %>
         <% elsif item.instance_of?(Programme) %>
           <%= link_to "Compare", pathways_path %>
         <% end %>
@@ -17,11 +15,13 @@
         <div class="d-flex justify-content-end">
           <% if item.instance_of?(Career) %>
             <%= render partial: "shared/career_modal", locals: { career: item } %>
-          <% elsif item.instance_of?(Programme) %>
-            <%= link_to "More Details", programme_path(item) %>
-          <% end %>
-        </div>
+          <% elsif item.instance_of?(Programme) %
+            <%= link_to "More Details", career_path(item) %>
+        <% elsif item.instance_of?(Programme) %>
+          <%= link_to "More Details", programme_path(item) %>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+<% end %>
 </div>
