@@ -1,7 +1,4 @@
-<div
-  class="accordions"
-  data-controller="accordion"
->
+<div class="accordions" data-controller="accordion">
   <% items.each do |item| %>
     <% if item == items.last %>
       <div class="accordion-card py-4 border-bottom-0" data-accordion-target="item" data-action="click->accordion#expand">
@@ -20,9 +17,9 @@
         <p><%= item.summary %></p>
         <div class="d-flex justify-content-end">
           <% if item.instance_of?(Career) %>
-            <%= link_to "More Details", career_path(item) %>
+            <%= render partial: "shared/career_modal", locals: { career: item } %>
           <% elsif item.instance_of?(Programme) %>
-            <%= render partial: "shared/programme_modal", locals: {programme: item}  %>
+            <%= render partial: "shared/programme_modal", locals: { programme: item } %>
           <% end %>
         </div>
       </div>

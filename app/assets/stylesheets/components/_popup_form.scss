@@ -56,3 +56,25 @@
     padding-inline: 5rem;
   }
 }
+
+.teal-background {
+  background-color: $teal;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.item {
+  border-left: 4px solid white;
+  padding-left: 8px;
+
+}
+.item:hover {
+  border-left: 4px solid $teal;
+}
