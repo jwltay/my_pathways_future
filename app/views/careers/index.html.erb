@@ -28,7 +28,10 @@
     };
 
 
-    const Graph = ForceGraph()(document.getElementById('graph')).graphData(gData).linkDirectionalParticles(2).nodeRelSize(12).height(300).width(1116).nodeAutoColorBy('group').linkAutoColorBy(d => gData.nodes[d.source].group);
+    const Graph = ForceGraph()(document.getElementById('graph')).graphData(gData).linkDirectionalParticles(2).nodeRelSize(12).height(300).width(1116).nodeAutoColorBy('group').linkAutoColorBy(d => gData.nodes[d.source].group).onNodeClick(node => { // Center/zoom on node
+      Graph.centerAt(node.x, node.y, 1000);
+      Graph.zoom(4, 1000);
+    });;
 
     Graph.d3Force('center', null);
 
