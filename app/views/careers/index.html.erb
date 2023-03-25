@@ -24,7 +24,7 @@
     };
 
 
-    const Graph = ForceGraph()(document.getElementById('graph')).linkDirectionalParticles(2).graphData(gData);
+    const Graph = ForceGraph()(document.getElementById('graph')).linkDirectionalParticles(2).height(400).width(1116).graphData(gData);
 
     Graph.d3Force('center', null);
 
