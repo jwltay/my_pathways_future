@@ -28,7 +28,7 @@
       .nodeRelSize(12)
       .height(300)
       .width(1116)
-      .backgroundColor('rgba(255, 255, 255, 0.8)')
+      .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
       .onNodeClick(node => { // Center/zoom on node
       Graph.centerAt(node.x, node.y, 1000);
@@ -41,7 +41,7 @@
         const textWidth = ctx.measureText(label).width;
         const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.4); // some padding
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0)';
         ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
 
         ctx.textAlign = 'center';
