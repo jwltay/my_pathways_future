@@ -13,30 +13,18 @@
   <div id="graph"></div>
 
   <script>
-    // Random tree
-    const NODES = 8;
-    const GROUPS = 5;
-    const gData = {
-      nodes: [...Array(NODES).keys()].map(i => ({
-        id: i,
-        group: Math.ceil(Math.random() * GROUPS)
-      })),
-      links: [...Array(NODES).keys()].filter(id => id).map(id => ({
-        source: id,
-        target: Math.round(Math.random() * (id - 1))
-      }))
-    };
-
-
-    const Graph = ForceGraph()(document.getElementById('graph')).graphData(gData).linkDirectionalParticles(2).nodeRelSize(12).height(300).width(1116).nodeAutoColorBy('group').linkAutoColorBy(d => gData.nodes[d.source].group).onNodeClick(node => { // Center/zoom on node
-      Graph.centerAt(node.x, node.y, 1000);
-      Graph.zoom(4, 1000);
-    });;
-
-    Graph.d3Force('center', null);
-
-    // fit to canvas when engine stops
-    Graph.onEngineStop(() => Graph.zoomToFit(400));
+    fetch('graph.json')
+    .then(res => res.json())
+    .then(data => {
+      const Graph = ForceGraph()
+      (document.getElementById('graph'))
+      .graphData(data)
+      .nodeId('id')
+      .nodeVal('val')
+      .nodeLabel('id')
+      .linkSource('source')
+      .linkTarget('target');
+    });
   </script>
 
   <%= render partial: "shared/accordion", locals: {items: @careers} %>
