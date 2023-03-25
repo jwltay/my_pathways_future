@@ -6,22 +6,22 @@ class CareersController < ApplicationController
     @careers = @user.careers
     nodes = [
       {
-        "id": "id1",
-        "name": @user.first_name,
+        "id": @user.first_name,
+        "name": "id1",
         "val": "1"
       }
     ] + @careers.each_with_index.map do |career, index|
       {
-        "id": "id#{index + 2}",
-        "name": career.name,
-        "val": (index + 2).to_s
+        "id": career.name,
+        "name": "id#{index + 2}",
+        "val": "1"
       }
     end
 
-    links = Array(2..(@careers.length + 1)).map do |i|
+    links = @careers.map do |career|
       {
-        "source": "id#{i}",
-        "target": "id1"
+        "source": career.name,
+        "target": @user.first_name
       }
     end
 
