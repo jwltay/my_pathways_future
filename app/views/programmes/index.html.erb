@@ -59,13 +59,7 @@
 
       <div class="panel mt-3">
         <p><%= program.summary %></p>
-        <div class="d-flex justify-content-end">
-          <% if program.instance_of?(Career) %>
-            <%= link_to "More Details", career_path(program) %>
-          <% elsif program.instance_of?(Programme) %>
-            <%= link_to "More Details", programme_path(program) %>
-          <% end %>
-        </div>
+        <%= render partial: "shared/programme_modal", locals: { programme: program } %>
       </div>
     </div>
   <% end %>
