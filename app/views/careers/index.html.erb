@@ -1,3 +1,22 @@
 <div class="container">
-  <%= render partial: "shared/accordion", locals: {items: @careers} %>
+  <div class="accordions" data-controller="accordion">
+    <% @careers.each do |career| %>
+      <% if career == @careers.last %>
+        <div class="accordion-card py-4 border-bottom-0" data-accordion-target="item" data-action="click->accordion#expand">
+      <% else %>
+        <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
+      <% end %>
+        <button class="accordion btn p-0">
+          <h2 class="mb-0"><%= career.name.capitalize %></h2>
+          <%= link_to "View University Programmes", career_programmes_path(career) %>
+        </button>
+        <div class="panel mt-3">
+          <p><%= career.summary %></p>
+          <div class="d-flex justify-content-end">
+            <%= render partial: "shared/career_modal", locals: { career: career } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
