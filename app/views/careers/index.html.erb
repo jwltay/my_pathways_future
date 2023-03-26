@@ -7,7 +7,7 @@
     }
   </style>
 
-  <script style="height: 400px;" src="//unpkg.com/force-graph"></script>
+  <script src="//unpkg.com/force-graph"></script>
 
 
   <div id="graph"></div>
@@ -32,7 +32,7 @@
       .nodeAutoColorBy('id')
       .onNodeClick(node => { // Center/zoom on node
       Graph.centerAt(node.x, node.y, 1000);
-      Graph.zoom(8, 1000)
+      Graph.zoom(6, 1000)
       })
       .nodeCanvasObject((node, ctx, globalScale) => {
         const label = node.id;
