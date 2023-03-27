@@ -20,7 +20,7 @@ export default class extends Controller {
       item => {
         if (item.innerText.includes(node.id)) {
           item.classList.add("active")
-
+          item.scrollIntoView()
         }
       })
   }
