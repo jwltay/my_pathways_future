@@ -33,7 +33,9 @@
 </style>
 
 <div class="banner-green">
-  <h1>Testing</h1>
+  <div class="container px-4">
+    <h1>University Programmes for <%= @career.name.split.map(&:capitalize).join(' ') %></h1>
+  </div>
 </div>
 
 <div class="container">
@@ -55,7 +57,7 @@
         <%= render 'pathways/form', program: program, career_id: @career.id %>
       <% end %>
 
-      <h2 class="mb-0"><%= program.name.capitalize %></h2>
+      <h2 class="mb-0"><%= program.name %></h2>
 
       <div class="panel mt-3">
         <p><%= program.summary %></p>
