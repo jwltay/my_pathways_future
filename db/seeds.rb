@@ -10,6 +10,7 @@ ProgrammeSubject.destroy_all if ProgrammeSubject.exists?
 User.destroy_all if User.exists?
 Subject.destroy_all if Subject.exists?
 Career.destroy_all if Career.exists?
+Event.destroy_all if Event.exists?
 Programme.destroy_all if Programme.exists?
 SoftSkill.destroy_all if SoftSkill.exists?
 
@@ -53,6 +54,27 @@ CSV.foreach(programmes_filepath, headers: :first_row) do |row|
   )
 end
 # End of Programmes ============================================================
+
+# Programme Events =================================================================
+Programme.all.each do |p|
+  Event.create(
+    start_date: 4.days.ago,
+    end_date: Time.now + 3.days,
+    programme: p,
+    highlight_hex: "A5DBD8",
+    header: "Gather references from teachers"
+  )
+
+  Event.create(
+    start_date: Time.now + 10.days,
+    end_date: Time.now + 10.days,
+    programme: p,
+    highlight_hex: "E96479",
+    header: "Application Deadline"
+  )
+end
+
+# End of Programme Events ============================================================
 
 ## career_programmes =========================================================
 # market research analyst
