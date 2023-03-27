@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :pathways, dependent: :destroy
   has_many :programmes, through: :pathways, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
