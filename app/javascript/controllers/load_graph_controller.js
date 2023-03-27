@@ -30,8 +30,8 @@ export default class extends Controller {
       .enableZoomInteraction(false)
       .zoom(2, 1000)
       .onNodeClick(node => { // Center/zoom on node
-      Graph.centerAt(node.x, node.y, 1000);
-      Graph.zoom(6, 1000)
+        Graph.centerAt(node.x, node.y, 1000)
+        Graph.zoom(6, 1000)
       })
       .nodeCanvasObject((node, ctx, globalScale) => {
         const label = node.id;

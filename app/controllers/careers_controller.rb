@@ -28,8 +28,8 @@ class CareersController < ApplicationController
   def graph_links
     @careers.map do |career|
       {
-        "source": career.name.titleize,
-        "target": @user.first_name.capitalize
+        "source": @user.first_name.capitalize,
+        "target": career.name.titleize
       }
     end
   end
