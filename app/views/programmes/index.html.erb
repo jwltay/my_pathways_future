@@ -34,7 +34,8 @@
 
 <div class="banner-green">
   <div class="container px-4">
-    <h1>University Programmes for <%= @career.name.split.map(&:capitalize).join(' ') %></h1>
+    <h1>University Programmes for <%= @career.name.titleize %></h1>
+    <%= image_tag "software-developer.png" %>
   </div>
 </div>
 
@@ -56,11 +57,13 @@
       <% else %>
         <%= render 'pathways/form', program: program, career_id: @career.id %>
       <% end %>
-
-      <h2 class="mb-0"><%= program.name %></h2>
-
+      <div class="accordion-card-headers">
+        <h2 class="mb-0"><%= program.name %></h2>
+      </div>
       <div class="panel mt-3">
-        <p><%= program.summary %></p>
+        <div class="panel-summary">
+          <p><%= program.summary %></p>
+        </div>
         <%= render partial: "shared/programme_modal", locals: { programme: program } %>
       </div>
     </div>

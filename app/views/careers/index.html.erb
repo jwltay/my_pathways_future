@@ -7,7 +7,7 @@
         <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
       <% end %>
         <div class="accordion-card-headers">
-          <h2 class="mb-0"><%= career.name.split.map(&:capitalize).join(' ') %></h2>
+          <h2 class="mb-0"><%= career.name.titleize %></h2>
           <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
         </div>
         <div class="panel">
