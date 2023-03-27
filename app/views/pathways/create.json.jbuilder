@@ -1,2 +1,1 @@
-end
-render(partial: 'pathways/unshortlist', formats: :html)
+# render(partial: 'pathways/unshortlist', formats: :html)
