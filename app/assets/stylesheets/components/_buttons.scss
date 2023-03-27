@@ -1,14 +1,15 @@
 .shortlist {
   text-decoration: none;
-  background-color: #88619a;
-  color: white;
+  color: $purple;
+  border: none;
+  font-size: 32px;
+  background-color: transparent;
   padding: 0.5rem 1rem;
   position: absolute;
   right: 0;
   top: 0;
   opacity: 0;
   transform: translateY(-50px);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 10;
   transition: 300ms;
 }
@@ -20,8 +21,7 @@
 }
 
 .shortlist:hover {
-  padding: 0.5rem 2rem;
-  color: white;
+  font-size: 38px;
 }
 
 .navigation-buttons {
