@@ -23,3 +23,14 @@
   padding: 0.5rem 2rem;
   color: white;
 }
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  gap: 16px;
+
+  .btn-danger {
+    color: white;
+  }
+}
