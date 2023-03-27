@@ -11,14 +11,17 @@
   <% end %>
 </div>
 <%# ================== END OF CALENDER ================== %>
+<%# ================== START OF TODO-LIST ================== %>
 <div class="container">
-  <ul>
-    <% @tasks.each do |task| %>
-      <li><%= task.title %></li>
+  <div class="container">
+    <ul>
+      <% @tasks.each do |task| %>
+        <li><%= task.title %></li>
+      <% end %>
+    </ul>
+    <%= simple_form_for(@task) do |f| %>
+      <%= f.input :title %>
+      <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
     <% end %>
-  </ul>
-  <%= simple_form_for(@task) do |f| %>
-    <%= f.input :title %>
-    <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
-  <% end %>
-</div>
+  </div>
+  <%# ================== END OF TODO-LIST ================== %>

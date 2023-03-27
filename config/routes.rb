@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "tasks/index"
   get "tasks/create"
   get "tasks/update"
+  get "tasks/destroy"
   devise_for :users, controllers: { registrations: "registrations" }
   root to: "pages#home"
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/dashboard", to: "pages#dashboard"
-  resources :tasks, only: %i[create update]
+  resources :tasks, only: %i[create update destroy]
   resources :programmes, only: %i[show] do
     resources :pathways, only: %i[create]
   end
