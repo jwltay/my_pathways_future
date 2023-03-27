@@ -1,12 +1,12 @@
 <h2 class='white-header text-dark text-center fw-bold p-3' style="margin-bottom: 32px;">Your Careers</h2>
-<div class="background"></div>
+<div class="background-graph"></div>
 <div class="container" data-controller="careers-index">
 
   <div class="graph">
     <div id="graph"></div>
   </div>
 
-  <div class="accordions row">
+  <div class="accordions row mt-5">
     <% @careers.each do |career| %>
       <% if career == @careers.last %>
         <div class="accordion-card py-4 border-bottom-0" data-careers-index-target="item" data-action="click->careers-index#expand">

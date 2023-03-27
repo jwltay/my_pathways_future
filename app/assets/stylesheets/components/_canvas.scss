@@ -1,4 +1,13 @@
 canvas {
   width: 100% !important;
   border-radius: 8px;
+  box-shadow: 0 .25rem .5rem rgba($black, .2);
+}
+
+.background-graph {
+  background-color: $teal;
+  height: 358px;
+  position:absolute;
+  top: 129px;
+  width: 100%;
 }
