@@ -1,13 +1,20 @@
-<div class="container">
-  <div class="accordions row" data-controller="accordion">
+<h2 class='white-header text-dark text-center fw-bold p-3' style="margin-bottom: 32px;">Your Careers</h2>
+<div class="background-graph"></div>
+<div class="container" data-controller="careers-index">
+
+  <div class="graph">
+    <div id="graph"></div>
+  </div>
+
+  <div class="accordions row mt-5">
     <% @careers.each do |career| %>
       <% if career == @careers.last %>
-        <div class="accordion-card py-4 border-bottom-0" data-accordion-target="item" data-action="click->accordion#expand">
+        <div class="accordion-card py-4 border-bottom-0" data-careers-index-target="item" data-action="click->careers-index#expand">
       <% else %>
-        <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
+        <div class="accordion-card py-4" data-careers-index-target="item" data-action="click->careers-index#expand">
       <% end %>
         <div class="accordion-card-headers">
-          <h2 class="mb-0"><%= career.name.capitalize %></h2>
+          <h2 class="mb-0"><%= career.name.titleize %></h2>
           <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
         </div>
         <div class="panel">
