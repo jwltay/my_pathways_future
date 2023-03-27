@@ -1,0 +1,12 @@
+.task-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-item .delete-btn {
+ display: none;
+}
+
+.task-item:hover .delete-btn {
+  display: inline;
+}
