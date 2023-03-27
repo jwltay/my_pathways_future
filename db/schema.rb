@@ -71,6 +71,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_035840) do
     t.text "education", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.bigint "programme_id", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "header"
+    t.string "highlight_hex"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["programme_id"], name: "index_events_on_programme_id"
+  end
+
   create_table "pathways", force: :cascade do |t|
     t.boolean "primary", default: false, null: false
     t.bigint "user_id", null: false
@@ -155,6 +166,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_035840) do
   add_foreign_key "career_programmes", "programmes"
   add_foreign_key "career_soft_skills", "careers"
   add_foreign_key "career_soft_skills", "soft_skills"
+  add_foreign_key "events", "programmes"
   add_foreign_key "pathways", "programmes"
   add_foreign_key "pathways", "users"
   add_foreign_key "programme_subjects", "programmes"

@@ -52,7 +52,14 @@
   }
 }
 
+.accordion-card {
+  overflow: hidden;
+}
 
+.accordion-card.active:hover .shortlist {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 
@@ -121,5 +128,4 @@
       display: none;
     }
   }
-
 }

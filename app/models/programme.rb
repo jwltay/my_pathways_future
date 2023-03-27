@@ -2,6 +2,8 @@ class Programme < ApplicationRecord
   has_many :pathways
   has_many :users, through: :pathways
 
+  has_many :events
+
   has_many :programme_subjects
   has_many :subjects, through: :programme_subjects
 
@@ -23,5 +25,9 @@ class Programme < ApplicationRecord
   # is empty of not
   def shortlisted?(user)
     !pathways.where(user:).empty?
+  end
+
+  def shortlisted_pathway(user)
+    Pathway.where(user: user, programme: self).first
   end
 end

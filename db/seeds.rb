@@ -10,6 +10,7 @@ ProgrammeSubject.destroy_all if ProgrammeSubject.exists?
 User.destroy_all if User.exists?
 Subject.destroy_all if Subject.exists?
 Career.destroy_all if Career.exists?
+Event.destroy_all if Event.exists?
 Programme.destroy_all if Programme.exists?
 SoftSkill.destroy_all if SoftSkill.exists?
 
@@ -76,6 +77,27 @@ CSV.foreach(programmes_filepath, headers: :first_row) do |row|
   )
 end
 # End of Programmes ============================================================
+
+# Programme Events =================================================================
+Programme.all.each do |p|
+  Event.create(
+    start_time: 4.days.ago,
+    end_time: Time.now + 3.days,
+    programme: p,
+    highlight_hex: "A5DBD8",
+    header: "Gather references from teachers"
+  )
+
+  Event.create(
+    start_time: Time.now + 10.days,
+    end_time: Time.now + 10.days,
+    programme: p,
+    highlight_hex: "E96479",
+    header: "Application Deadline"
+  )
+end
+
+# End of Programme Events ============================================================
 
 ## career_programmes =========================================================
 # market research analyst
@@ -239,37 +261,12 @@ end
 # End of Programme subjects=====================================================
 
 # ===========================FOR TESTING =======================================
-# manu = User.first
+manu = User.find_by(first_name: "Manu")
 
-# nus = Programme.create!(name: "bsc cs", university: "nus", tuition_fees: 30000, summary: "summary", overview: "overview", duration: 4, rating: 5)
-# ntu = Programme.create!(name: "bsc cs", university: "ntu", tuition_fees: 30000, summary: "summary", overview: "overview", duration: 4, rating: 5)
-# math = Programme.create!(name: "bsc mathematics", university: "ntu", tuition_fees: 30000, summary: "summary", overview: "overview", duration: 4, rating: 5)
+p1 = Programme.all.sample
+# p2 = Programme.where.not(id: p1.id).sample
 
-# swe = Career.create!(name: "swe", average_salary: 5000, summary: "summary", responsibilities: "responsibilities", progression: "progression", education: "education")
-# da = Career.create!(name: "data analyst", average_salary: 5000, summary: "summary", responsibilities: "responsibilities", progression: "progression", education: "education")
-
-# math.careers << da
-# math.careers << swe
-# nus.careers << swe
-# ntu.careers << swe
-
-# Pathway.create!(user: manu, programme: nus, active: true)
-# Pathway.create!(user: manu, programme: ntu, active: true)
-# Pathway.create!(user: manu, programme: math, active: true)
-
-# Subject.create!(name: "Mathematics")
-# Subject.create!(name: "Biology")
-# Subject.create!(name: "Chemistry")
-# Subject.create!(name: "Music")
-# Subject.create!(name: "English")
-# Subject.create!(name: "History")
-# Subject.create!(name: "Geography")
-
-# SoftSkill.create!(name: "Communication")
-# SoftSkill.create!(name: "Analytical Skills")
-# SoftSkill.create!(name: "Critical Thinking")
-# SoftSkill.create!(name: "Leadership")
-# SoftSkill.create!(name: "Project Management")
-
+Pathway.create!(user: manu, programme: p1)
+# Pathway.create!(user: manu, programme: p2)
 
 puts "Done 🚀🚀🚀"
