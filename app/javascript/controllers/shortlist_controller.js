@@ -8,6 +8,7 @@ export default class extends Controller {
 
   update(e) {
     e.preventDefault();
+
     const target = e.currentTarget;
     const url = target.action;
 
