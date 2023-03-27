@@ -6,5 +6,27 @@
     <div id="graph"></div>
   </div>
 
-  <%= render partial: "shared/accordion", locals: {items: @careers} %>
+  <div class="accordions row" data-controller="accordion">
+    <% @careers.each do |career| %>
+      <% if career == @careers.last %>
+        <div class="accordion-card py-4 border-bottom-0" data-accordion-target="item" data-action="click->accordion#expand">
+      <% else %>
+        <div class="accordion-card py-4" data-accordion-target="item" data-action="click->accordion#expand">
+      <% end %>
+        <div class="accordion-card-headers">
+          <h2 class="mb-0"><%= career.name.capitalize %></h2>
+          <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
+        </div>
+        <div class="panel">
+          <div class="panel-summary">
+            <p><%= career.summary %></p>
+          </div>
+          <div class="panel-button">
+            <%= render partial: "shared/career_modal", locals: { career: career } %>
+            <%= link_to "View University Programmes", career_programmes_path(career), class: "hidden btn btn-warning" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
