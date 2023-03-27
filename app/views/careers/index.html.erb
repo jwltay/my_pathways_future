@@ -1,10 +1,10 @@
 <h2 class='white-header text-dark text-center fw-bold p-3' style="margin-bottom: 32px;">Your Careers</h2>
 <div class="background"></div>
-
-<div class="graph" data-controller="load-graph">
-  <div id="graph"></div>
-</div>
-
 <div class="container">
+
+  <div class="graph" data-controller="load-graph">
+    <div id="graph"></div>
+  </div>
+
   <%= render partial: "shared/accordion", locals: {items: @careers} %>
 </div>

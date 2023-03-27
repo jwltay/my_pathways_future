@@ -8,6 +8,8 @@ export default class extends Controller {
   }
 
   loadGraph() {
+    const width = (window.innerWidth < 1140 ? 960 : 1140 )
+
     fetch('graph.json')
     .then(res => res.json())
     .then(data => {
@@ -22,7 +24,7 @@ export default class extends Controller {
       .linkDirectionalParticles(2)
       .linkWidth(2)
       .height(300)
-      // .width(width)
+      .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
       .onNodeClick(node => { // Center/zoom on node
