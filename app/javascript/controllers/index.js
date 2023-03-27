@@ -13,9 +13,6 @@ application.register("careers-index", CareersIndexController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import LoadGraphController from "./load_graph_controller"
-application.register("load-graph", LoadGraphController)
-
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
