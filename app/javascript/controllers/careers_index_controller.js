@@ -28,6 +28,9 @@ export default class extends Controller {
   }
 
   loadGraph() {
+    const width = this.element.clientWidth - 24
+    console.log(width)
+
     fetch('graph.json')
     .then(res => res.json())
     .then(data => {
@@ -42,6 +45,7 @@ export default class extends Controller {
       .linkDirectionalParticles(2)
       .linkWidth(2)
       .height(300)
+      .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
       .enableZoomInteraction(false)
