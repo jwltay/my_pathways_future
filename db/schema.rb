@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_064049) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_032929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,15 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_064049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["programme_id"], name: "index_events_on_programme_id"
-  end
-
-  create_table "lists", force: :cascade do |t|
-    t.string "content"
-    t.string "status"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "pathways", force: :cascade do |t|
@@ -147,7 +138,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_064049) do
   add_foreign_key "career_soft_skills", "careers"
   add_foreign_key "career_soft_skills", "soft_skills"
   add_foreign_key "events", "programmes"
-  add_foreign_key "lists", "users"
   add_foreign_key "pathways", "programmes"
   add_foreign_key "pathways", "users"
   add_foreign_key "programme_subjects", "programmes"
