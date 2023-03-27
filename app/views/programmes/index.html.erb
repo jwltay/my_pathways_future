@@ -35,7 +35,7 @@
 <div class="banner-green">
   <div class="container px-4">
     <h1>University Programmes for <%= @career.name.titleize %></h1>
-    <%= image_tag "software-developer.png" %>
+    <%= cl_image_tag @career.photo.key %>
   </div>
 </div>
 

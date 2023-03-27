@@ -19,7 +19,7 @@ programmes_filepath = "db/programmes.csv"
 puts "loading CSV for careers..."
 # Careers =====================================================================
 CSV.foreach(careers_filepath, headers: :first_row) do |row|
-  Career.create!(
+  career = Career.new(
     name: row['name'],
     average_salary: row['average_salary'].to_i,
     summary: row['summary'],
@@ -27,6 +27,29 @@ CSV.foreach(careers_filepath, headers: :first_row) do |row|
     progression: row['progression'],
     education: row['education']
   )
+
+  case row['name']
+  when 'market research analyst'
+    photo = File.open('app/assets/images/market-researcher.png')
+    career.photo.attach(io: photo, filename: "market-researcher.png", content_type: "image/png")
+  when 'accountant'
+    photo = File.open('app/assets/images/accountant.png')
+    career.photo.attach(io: photo, filename: "accountant.png", content_type: "image/png")
+  when 'software developer'
+    photo = File.open('app/assets/images/software-developer.png')
+    career.photo.attach(io: photo, filename: "software-developer.png", content_type: "image/png")
+  when 'financial analyst'
+    photo = File.open('app/assets/images/financial-analyst.png')
+    career.photo.attach(io: photo, filename: "financial-analyst.png", content_type: "image/png")
+  when 'medical scientist'
+    photo = File.open('app/assets/images/medical-scientist.png')
+    career.photo.attach(io: photo, filename: "medical-scientist.png", content_type: "image/png")
+  when 'data analyst'
+    photo = File.open('app/assets/images/data-analyst.png')
+    career.photo.attach(io: photo, filename: "data-analyst.png", content_type: "image/png")
+  end
+
+  career.save!
 end
 # Global Careers ===============================================================
 market_researcher = Career.find_by(name: "market research analyst")
