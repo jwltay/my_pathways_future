@@ -8,24 +8,4 @@
       </div>
     <% end %>
   <% end %>
-  <% @todolist.each_with_index do |todo,j| %>
-    <li class="prepare-checklist-checkbox">
-      <div class="check-input-label">
-        <% if todo.status == 'pending' %>
-          <input value=<%= todo.id %> class="prepare-checkbox-input" type="checkbox" id=<%= "todo#{j}" %> />
-        <% else %>
-          <input value=<%= todo.id %> checked class="prepare-checkbox-input" type="checkbox" id=<%= "todo#{j}" %> />
-        <% end %>
-        <label class="prepare-checkbox-input"for=<%= "todo#{j}" %>>
-          <h6><%= todo.content %></h6>
-        </label>
-      </div>
-      <div>
-        <i data-todo-id="<%= todo.id %>" class="fa-solid fa-trash"></i>
-      </div>
-    </li>
-  <% end %>
-<% else %>
-  <div></div>
-<% end %>
 </div>
