@@ -1,13 +1,11 @@
-<%# ================== START OF MONTH CALENDER ================== %>
-<%= month_calendar do |date| %>
-  <%= date %>
-<% end %>
-<%# ================== END OF  MONTH CALENDER ================== %>
-<%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
-  <%= date %>
-  <% meetings.each do |meeting| %>
-    <div class="meeting">  <-- We will add some style to the meeting class later so let's add it now -->
-        <p><%= meeting.name %></p>
+<div class="container">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <%= date %>
+    <% events.each do |e| %>
+      <div class="event">
+        <small><%= e.programme.name %> @ <%= e.programme.university %></small> <br>
+        <p><%= e.header %></p>
       </div>
     <% end %>
   <% end %>
+</div>

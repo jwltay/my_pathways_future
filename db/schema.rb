@@ -45,8 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_032929) do
 
   create_table "events", force: :cascade do |t|
     t.bigint "programme_id", null: false
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string "header"
     t.string "highlight_hex"
     t.datetime "created_at", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_032929) do
   end
 
   create_table "pathways", force: :cascade do |t|
+    t.boolean "shortlisted", default: false, null: false
     t.boolean "primary", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "programme_id", null: false
