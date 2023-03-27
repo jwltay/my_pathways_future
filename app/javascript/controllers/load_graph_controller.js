@@ -33,6 +33,9 @@ export default class extends Controller {
         Graph.centerAt(node.x, node.y, 1000)
         Graph.zoom(6, 1000)
       })
+      .onBackgroundClick(() => {
+        Graph.zoom(2, 1000)
+      })
       .nodeCanvasObject((node, ctx, globalScale) => {
         const label = node.id;
         const fontSize = 18/globalScale;
