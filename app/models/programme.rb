@@ -26,4 +26,8 @@ class Programme < ApplicationRecord
   def shortlisted?(user)
     !pathways.where(user:).empty?
   end
+
+  def shortlisted_pathway(user)
+    Pathway.where(user: user, programme: self).first
+  end
 end
