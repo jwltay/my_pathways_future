@@ -6,5 +6,4 @@ class Pathway < ApplicationRecord
   validates :programme, presence: true
 
   # find subject matches between user and programme
-
 end

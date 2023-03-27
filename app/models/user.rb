@@ -15,7 +15,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-
   CATEGORIES = [
     "I am a student considering prospective careers",
     "I am a graduate entering the workforce",

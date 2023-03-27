@@ -1,0 +1,11 @@
+<div class="container">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <%= date %>
+    <% events.each do |e| %>
+      <div class="event">
+        <small><%= e.programme.name %> @ <%= e.programme.university %></small> <br>
+        <p><%= e.header %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
