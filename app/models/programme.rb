@@ -2,6 +2,8 @@ class Programme < ApplicationRecord
   has_many :pathways
   has_many :users, through: :pathways
 
+  has_many :events
+
   has_many :programme_subjects
   has_many :subjects, through: :programme_subjects
 
