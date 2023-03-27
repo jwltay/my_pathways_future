@@ -20,7 +20,9 @@ export default class extends Controller {
       item => {
         if (item.innerText.includes(node.id)) {
           item.classList.add("active")
+          setTimeout(() => {
           item.scrollIntoView()
+          }, 500)
         }
       })
   }
@@ -49,7 +51,7 @@ export default class extends Controller {
       .zoom(2, 1000)
       .onNodeClick(node => { // Center/zoom on node
         Graph.centerAt(node.x, node.y, 1000)
-        Graph.zoom(6, 1000)
+        Graph.zoom(6, 500)
         this.expandNodeClick(node)
       })
       .onBackgroundClick(() => {
