@@ -27,6 +27,7 @@ export default class extends Controller {
       .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
+      .zoom(2, 1000)
       .onNodeClick(node => { // Center/zoom on node
       Graph.centerAt(node.x, node.y, 1000);
       Graph.zoom(6, 1000)
