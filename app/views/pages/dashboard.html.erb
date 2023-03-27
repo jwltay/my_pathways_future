@@ -1,3 +1,4 @@
+<%# ================== START OF CALENDER ================== %>
 <div class="container">
   <%= month_calendar(events: @events) do |date, events| %>
     <%= date %>
@@ -7,5 +8,17 @@
         <p><%= e.header %></p>
       </div>
     <% end %>
+  <% end %>
+</div>
+<%# ================== END OF CALENDER ================== %>
+<div class="container">
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= task.title %></li>
+    <% end %>
+  </ul>
+  <%= simple_form_for(@task) do |f| %>
+    <%= f.input :title %>
+    <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
   <% end %>
 </div>

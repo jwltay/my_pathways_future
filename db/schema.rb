@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_072857) do
   end
 
   create_table "pathways", force: :cascade do |t|
-    t.boolean "shortlisted", default: false, null: false
     t.boolean "primary", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "programme_id", null: false
@@ -102,8 +101,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_072857) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "user_soft_skills", force: :cascade do |t|
@@ -149,6 +150,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_072857) do
   add_foreign_key "pathways", "users"
   add_foreign_key "programme_subjects", "programmes"
   add_foreign_key "programme_subjects", "subjects"
+  add_foreign_key "tasks", "users"
   add_foreign_key "user_soft_skills", "soft_skills"
   add_foreign_key "user_soft_skills", "users"
   add_foreign_key "user_subjects", "subjects"
