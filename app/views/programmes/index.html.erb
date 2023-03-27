@@ -32,6 +32,9 @@
   }
 </style>
 
+<div class="banner-green">
+  <h1>Testing</h1>
+</div>
 
 <div class="container">
   <div
@@ -52,20 +55,11 @@
         <%= render 'pathways/form', program: program, career_id: @career.id %>
       <% end %>
 
-
-      <button class="accordion btn p-0">
-        <h2 class="mb-0"><%= program.name.capitalize %></h2>
-      </button>
+      <h2 class="mb-0"><%= program.name.capitalize %></h2>
 
       <div class="panel mt-3">
         <p><%= program.summary %></p>
-        <div class="d-flex justify-content-end">
-          <% if program.instance_of?(Career) %>
-            <%= link_to "More Details", career_path(program) %>
-          <% elsif program.instance_of?(Programme) %>
-            <%= link_to "More Details", programme_path(program) %>
-          <% end %>
-        </div>
+        <%= render partial: "shared/programme_modal", locals: { programme: program } %>
       </div>
     </div>
   <% end %>

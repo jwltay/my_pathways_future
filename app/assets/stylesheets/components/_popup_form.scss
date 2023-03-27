@@ -1,6 +1,9 @@
-@keyframes slide-up {
-  from {transform: translateY(100px); opacity:0}
-  to {transform: translateY(0); opacity:1}
+.modal-content-header {
+  display: flex;
+
+  .banner-green {
+    padding-left: 8px;
+  }
 }
 
 .modal-wrapper {
@@ -46,6 +49,7 @@
   margin-top: 10vh;
   height: 80vh;
   overflow-y: scroll;
+  overflow-x: hidden ;
 
   h2 {
     text-align: center;
@@ -53,9 +57,11 @@
     font-weight: bold;
   }
 
-  .container {
-    padding-inline: 5rem;
-    height: 5rem;
+  .modal-banner {
+    background-color: $teal;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
   }
 }
 
@@ -80,6 +86,28 @@
   border-left: 4px solid $teal;
 }
 
-.border {
-  box-sizing: border-box;
+
+/* styles for smartphones */
+@media only screen and (max-device-width: 480px) {
+  /* styles for smartphones */
+  .modal-content-header {
+    display: block;
+  }
+}
+
+/* styles for tablets */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+  /* styles for tablets */
+
+}
+
+/* styles for desktops */
+@media only screen and (min-device-width: 1025px) {
+  /* styles for desktops */
+
+}
+
+@keyframes slide-up {
+  from {transform: translateY(100px); opacity:0}
+  to {transform: translateY(0); opacity:1}
 }
