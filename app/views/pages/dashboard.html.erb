@@ -25,4 +25,8 @@
     <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
   <% end %>
 </div>
+<% ["Option 1", "Option 2", "Option 3"].each do |option| %>
+  <%= check_box_tag "options[]", option, checked: true %>
+  <%= label_tag option %><br>
+<% end %>
 <%# ================== END OF TODO-LIST ================== %>
