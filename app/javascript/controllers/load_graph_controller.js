@@ -3,15 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="load-graph"
 export default class extends Controller {
   connect() {
-    console.log("connected")
-
+    console.log("connected to graph")
     this.loadGraph()
-  }
-
-  loadAPI() {
-    fetch('//unpkg.com/force-graph')
-    .then(res => res.text())
-    .then(html => this.element.innerhtml = html)
   }
 
   loadGraph() {
@@ -29,7 +22,7 @@ export default class extends Controller {
       .linkDirectionalParticles(2)
       .linkWidth(2)
       .height(300)
-      // .width(1116)
+      // .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
       .onNodeClick(node => { // Center/zoom on node
