@@ -11,3 +11,15 @@
   margin: 0 auto;
   display: block;
 }
+
+.card-dashboard-pathway-image {
+  height: 100px;
+}
+
+.border-primary {
+  transition: 0.5s;
+  &:hover {
+    border-color: $danger !important;
+    transition: 0.5s;
+  }
+}
