@@ -24,12 +24,12 @@ export default class extends Controller {
     const {nodes} = this.graphData
     const filtered = nodes.filter(node => node.id == nodeId)[0]
 
-    this.forceGraph.zoom(8, 500).centerAt(filtered.x, filtered.y, 500)
+    this.forceGraph.zoom(6, 800).centerAt(filtered.x, filtered.y, 800)
   }
 
-  exitZoom() {
-    this.forceGraph.zoom(2, 500)
-  }
+  // exitZoom() {
+  //   this.forceGraph.zoom(2, 500).centerAt()
+  // }
 
   expandNodeClick(node) {
     this.itemTargets.forEach(item => item.classList.remove("active"))

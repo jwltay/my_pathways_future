@@ -2,8 +2,10 @@
   border-radius: 8px;
   box-shadow: 0 .25rem .5rem rgba($black, .3);
   margin-right: 8px;
+  position: sticky !important;
+  top: 0;
 }
 
 .background-graph {
-  background-color: red;
+  // background-color: red;
 }
