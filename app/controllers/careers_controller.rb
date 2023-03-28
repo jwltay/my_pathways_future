@@ -16,12 +16,15 @@ class CareersController < ApplicationController
   def graph_career_nodes
     [{
         "id": @user.first_name.capitalize,
-        "name": "id1",
-        "val": "1"
+        "name": "user",
+        "val": "1",
+        # "group": "career"
     }] + @careers.each_with_index.map do |career, index|
       { "id": career.name.titleize,
-        "name": "id#{index + 2}",
-        "val": "1" }
+        "name": "career",
+        "val": "1",
+        # "group": "career"
+      }
     end
   end
 
@@ -29,10 +32,10 @@ class CareersController < ApplicationController
     arr = []
     @careers.each do |career|
       career.programmes.each do |programme|
-        arr << { "id": programme.name.titleize, "name": career.name.titleize, "val": "1" }
+        arr << { "id": programme.name.titleize, "name": "programme", "val": "1" }
       end
     end
-    arr
+    arr.uniq
   end
 
   def graph_career_links
@@ -51,13 +54,13 @@ class CareersController < ApplicationController
         arr << { "source": career.name.titleize, "target": programme.name.titleize }
       end
     end
-    arr
+    arr.uniq
   end
 
   def generate_graph_json
     graph_data = {
-      "nodes": graph_career_nodes + graph_programme_nodes,
-      "links": graph_career_links + graph_programme_links
+      "nodes": (graph_career_nodes + graph_programme_nodes),
+      "links": (graph_career_links + graph_programme_links)
     }
 
     File.open('public/graph.json', "wb") do |file|
