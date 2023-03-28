@@ -1,2 +1,8 @@
-<h1>Tasks#create</h1>
-<p>Find me in app/views/tasks/create.html.erb</p>
+<div class="container mt-5">
+  <h1>New task</h1>
+  <%= render "form", task: @task %>
+  <hr>
+  <%= link_to tasks_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>

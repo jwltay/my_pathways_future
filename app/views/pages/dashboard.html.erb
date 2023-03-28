@@ -19,14 +19,17 @@
       <%= link_to "Destroy", task_path(task), data: {turbo_method: :delete}, class: "delete-btn btn btn-sm btn-danger" %>
     </div>
   <% end %>
-  <br>
   <%= simple_form_for(@task) do |f| %>
     <%= f.input :title, label: false %>
     <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
   <% end %>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.association :tasks,
+            as: :check_boxes %>
+  <% end %>
 </div>
-<% ["Option 1", "Option 2", "Option 3"].each do |option| %>
-  <%= check_box_tag "options[]", option, checked: true %>
-  <%= label_tag option %><br>
+<% @tasks.each do |option| %>
+  <%= check_box_tag "options[]", option, checked: false %>
+  <%= label_tag option.title %><br>
 <% end %>
 <%# ================== END OF TODO-LIST ================== %>
