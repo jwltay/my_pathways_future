@@ -10,9 +10,11 @@
     <div class="container">
       <div class="modal-content">
           <h2>More Information</h2>
-        <div class="row">
+        <div class="container">
           <div class="modal-content-header">
-            <div id="details-graph"></div>
+            <div class="header-img">
+              <%= cl_image_tag career.photo.key %>
+            </div>
             <div class="banner-green">
               <h3><strong><%= career.name.titleize %></strong></h3>
               <p><%= career.summary %></p>
@@ -20,15 +22,15 @@
           </div>
         </div>
         <div class="container">
-          <div class="item border-bottom pt-3">
-            <h4 class="fw-bold">General Responsibilities</h4>
+          <div class="item">
+            <h4 class="fw-bold">General responsibilities</h4>
             <p><%= career.responsibilities %></p>
           </div>
-          <div class="item border-bottom pt-3">
+          <div class="item">
             <h4 class="fw-bold">Career Progression</h4>
             <p><%= career.progression %></p>
           </div>
-          <div class="item border-bottom pt-3 mb-3">
+          <div class="item mb-3">
             <h4 class="fw-bold">Education Requirements</h4>
             <p><%= career.education %></p>
           </div>

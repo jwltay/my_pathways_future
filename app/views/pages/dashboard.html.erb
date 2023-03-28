@@ -1,6 +1,6 @@
 <div class="beige-background h-100">
   <div class="container px-5">
-    <h1 class="pt-3 px-4 ms-4">Hi Manu!</h1>
+    <h1 class="pt-4 pb-2 px-4 ms-4">Hi Manu!</h1>
     <div class="d-flex">
       <%# ================== LEFT SECTION STARTS HERE ================== %>
       <div class="col mx-4">
@@ -8,9 +8,9 @@
           <h2>Your selected pathway</h2>
           <hr class="m-0 mb-2">
           <p class="m-0">You have chosen to pursue</p>
-          <h3 class="mb-3">Software Engineering</h3>
+          <h3 class="mb-3 fs-5">Software Engineering</h3>
           <p class="m-0">as a career, by following the pathway</p>
-          <h3 class="mb-3">Bachelor of Engineering in Computer Science</h3>
+          <h3 class="mb-3 fs-5">Bachelor of Engineering in Computer Science</h3>
           <p class="m-0">offered by</p>
           <%= image_tag("NTU_Logo.png", class: "card-dashboard-pathway-image") %>
 
@@ -28,17 +28,30 @@
       <%# ================== RIGHT SECTION STARTS HERE ================== %>
       <div class="col mx-4">
         <%# ================== CALENDAR STARTS HERE ================== %>
-        <div class=" calendar h-auto p-4 py-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+        <div class="calendar h-auto p-4 py-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>Calendar of events</h2>
           <hr class="m-0 mb-2">
-          <%= month_calendar(events: @events) do |date, events| %>
-            <%= date.day %>
-            <% events.each do |e| %>
-              <div class="event">
+          <div class="d-flex">
+            <div>
+              <%= month_calendar(events: @events) do |date, events| %>
+                <%= date.day %>
+                <% events.each do |e| %>
+                  <div class="event">
 
-              </div>
-            <% end %>
-          <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="ps-4 w-100">
+              <p class="fw-bold m-0">Events</p>
+              <hr class="m-0 my-1">
+              <p class="m-0"><span class="event-color-code-purple"> </span> A-level results</p>
+              <p class="m-0"><span class="event-color-code-teal"> </span> Letters of recommendation</p>
+              <p class="m-0"><span class="event-color-code-pink"> </span> Application deadline</p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
         </div>
         <%# ================== CALENDAR ENDS HERE ================== %>
         <%# ================== TO-DO LIST STARTS HERE ================== %>
