@@ -38,7 +38,7 @@ export default class extends Controller {
     this.itemTargets.forEach(
       item => {
         if (item.innerText.includes(node.id)) {
-          item.classList.add("active")
+          item.classList.remove("inactive")
           setTimeout(() => {
             item.scrollIntoView()
           }, 500)
