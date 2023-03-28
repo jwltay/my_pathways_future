@@ -27,6 +27,10 @@ export default class extends Controller {
     this.forceGraph.zoom(8, 500).centerAt(filtered.x, filtered.y, 500)
   }
 
+  exitZoom() {
+    this.forceGraph.zoom(2, 500)
+  }
+
   expandNodeClick(node) {
     this.itemTargets.forEach(item => item.classList.remove("active"))
     this.itemTargets.forEach(
@@ -49,8 +53,6 @@ export default class extends Controller {
       .nodeLabel('id')
       .linkSource('source')
       .linkTarget('target')
-      // .linkDirectionalParticles(2)
-      // .linkDirectionalParticleSpeed(0.005)
       .linkWidth(2)
       .height(300)
       .width(width)

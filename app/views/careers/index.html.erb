@@ -8,7 +8,7 @@
 
   <div class="accordions row mt-4">
     <% @careers.each do |career| %>
-      <div class="accordion-card py-4" data-careers-index-target="item" data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes">
+      <div class="accordion-card py-4" data-careers-index-target="item" data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes mouseleave->careers-index#exitZoom">
         <div class="accordion-card-headers">
           <h2 class="mb-0"><%= career.name.titleize %></h2>
           <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
