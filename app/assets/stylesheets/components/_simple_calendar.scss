@@ -2,6 +2,7 @@
   .day {
     text-align: center;
     vertical-align: middle;
+    height: auto;
   }
 
   .wday-0 {
@@ -19,7 +20,20 @@
   .wday-6 {
   }
 
+  .prev-month {
+    background: none;
+    opacity: 30%;
+  }
+  .next-month {
+    background: none;
+    opacity: 30%;
+  }
+  .current-month {
+    background: none;
+  }
+
   .today {
+    border: 2px solid $purple;
   }
   .past {
   }
@@ -29,13 +43,126 @@
   .start-date {
   }
 
-  .prev-month {
-  }
-  .next-month {
-  }
-  .current-month {
-  }
-
   .has-events {
   }
+
+  thead > tr > th {
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  td {
+    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: none;
+  }
+
+  th {
+    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 20px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+  }
+
+  table {
+    border: 0px;
+    width: 210px;
+  }
+}
+
+.table {
+  --bs-table-striped-bg: none;
+}
+
+.calendar-heading {
+  text-align: center;
+  width: 210px;
+}
+
+.calendar-title {
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.calendar-heading > a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.event-color-code-purple {
+  float: left;
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 8px;
+  background: $purple;
+  clear: both;
+  border-radius: 50%;
+}
+
+.event-color-code-teal {
+  float: left;
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 8px;
+  background: $teal;
+  clear: both;
+  border-radius: 50%;
+}
+
+.event-color-code-pink {
+  float: left;
+  height: 16px;
+  width: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 8px;
+  background: $pink;
+  clear: both;
+  border-radius: 50%;
+}
+
+tr:nth-child(1) td:nth-child(5) {
+  color: white !important;
+  background-color: $purple;
+  border-radius: 50%;
+}
+
+tr:nth-child(2) td:nth-child(1) {
+  color: white !important;
+  background-color: $teal;
+  border-radius: 50% 0 0 50%;
+}
+
+tr:nth-child(2) td:nth-child(2),
+tr:nth-child(2) td:nth-child(3),
+tr:nth-child(2) td:nth-child(4) {
+  color: white !important;
+  background-color: $teal;
+}
+
+tr:nth-child(2) td:nth-child(5) {
+  color: white !important;
+  background-color: $teal;
+  border-radius: 0 50% 50% 0;
+}
+
+.day.wday-0.future.next-month {
+  color: white !important;
+  background-color: $pink;
+  border-radius: 50%;
+  opacity: 100%;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  color: none;
 }
