@@ -30,4 +30,12 @@ class Programme < ApplicationRecord
   def shortlisted_pathway(user)
     Pathway.where(user: user, programme: self).first
   end
+
+  def short_overview
+    overview.truncate(350, separator: ' ', omission: '')
+  end
+
+  def omitted_overview
+    overview.sub(short_overview[..-1], '')
+  end
 end
