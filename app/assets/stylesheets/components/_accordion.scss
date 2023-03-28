@@ -1,3 +1,69 @@
+.accordions {
+  margin: 32px 0 32px 0;
+}
+
+.accordion-card {
+  background-color: white;
+  display:block;
+  width: 100%;
+  border-bottom: 0.8px solid #e4e7ea;
+  padding: 16px;
+  border-left: 2px solid transparent;
+
+  &.active {
+    .panel {
+      display:block;
+    }
+  }
+
+  &:hover {
+    background-color: $beige;
+    border-left: 2px solid $teal;
+  }
+
+  .accordion-card-headers {
+    h2 {
+      font-size: 28px;
+      color: $dark;
+    }
+
+    .btn {
+      font-size: 14px;
+    }
+  }
+
+  .panel {
+    display: none;
+    height: max-content;
+    margin-top: 16px;
+
+    .panel-button {
+      .btn {
+        font-size: 14px;
+        color: $dark;
+      }
+    }
+  }
+
+  .panel-summary {
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.accordion-card {
+  overflow: hidden;
+}
+
+.accordion-card.active:hover .shortlist {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
 /* styles for smartphones */
 @media only screen and (max-device-width: 480px) {
   /* styles for smartphones */
@@ -62,42 +128,4 @@
       display: none;
     }
   }
-}
-
-.accordions {
-  margin: 32px 0 32px 0;
-}
-
-.accordion-card {
-  background-color: white;
-  display: block;
-  width: 100%;
-  border-bottom: 0.8px dashed $body-color;
-  padding: 16px;
-
-  &.active {
-    .panel {
-      display: block;
-    }
-  }
-
-  &:hover {
-    background-color: $beige;
-    border-left: 2px solid $teal;
-  }
-}
-
-.panel {
-  display: none;
-  height: max-content;
-  margin-top: 16px;
-}
-
-.accordion-card {
-  overflow: hidden;
-}
-
-.accordion-card.active:hover .shortlist {
-  opacity: 1;
-  transform: translateY(0);
 }

@@ -28,6 +28,15 @@
   margin-bottom: 1rem;
 
   .container {
-    padding-inline: 8px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 400px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
   }
 }
