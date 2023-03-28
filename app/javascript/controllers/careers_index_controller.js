@@ -39,7 +39,7 @@ export default class extends Controller {
       .graphData(data)
       .nodeId('id')
       .nodeVal('val')
-      .nodeLabel('id')
+      .nodeLabel('View')
       .linkSource('source')
       .linkTarget('target')
       .linkDirectionalParticles(2)
@@ -48,8 +48,8 @@ export default class extends Controller {
       .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
+      .zoom(3, 1000)
       .enableZoomInteraction(false)
-      .zoom(2, 1000)
       .onNodeClick(node => { // Center/zoom on node
         Graph.centerAt(node.x, node.y, 1000)
         Graph.zoom(6, 500)
@@ -60,14 +60,12 @@ export default class extends Controller {
       })
       .nodeCanvasObject((node, ctx, globalScale) => {
         const label = node.id;
-        const fontSize = 18/globalScale;
+        const fontSize = 14/globalScale;
         ctx.font = `${fontSize}px Sans-Serif`;
         const textWidth = ctx.measureText(label).width;
         const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.4); // some padding
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0)';
-        ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-
+        ctx.fillStyle = 'rgba(255, 255, 255, 1)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillStyle = node.color;
