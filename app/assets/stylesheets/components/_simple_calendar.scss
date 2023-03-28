@@ -2,6 +2,7 @@
   .day {
     text-align: center;
     vertical-align: middle;
+    height: auto;
   }
 
   .wday-0 {
@@ -30,12 +31,46 @@
   }
 
   .prev-month {
+    background: none;
   }
   .next-month {
+    background: none;
   }
   .current-month {
   }
 
   .has-events {
   }
+
+  thead > tr > th {
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  td {
+    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: none;
+  }
+
+  th {
+    padding: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 20px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+  }
+
+  table {
+    border: 0px;
+    width: 210px;
+  }
+}
+
+.table {
+  --bs-table-striped-bg: none;
 }
