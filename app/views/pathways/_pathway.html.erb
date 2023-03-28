@@ -26,7 +26,7 @@ border-top border-warning border-5      <%# purple top border%>
 
       <% if pathway.primary? %>
         <%= simple_form_for(pathway) do |f| %>
-          <%= f.input :primary, :input_html => { checked: false }%>
+          <%= f.input :primary, as: :hidden, :input_html => { value: false }%>
           <%= f.submit "Remove Goal", class: "btn btn-info rounded-pill shadow-sm text-danger border-danger col-12" %>
         <% end %>
       <% else %>
@@ -36,7 +36,7 @@ border-top border-warning border-5      <%# purple top border%>
     <% else %>
 
       <%= simple_form_for(pathway) do |f| %>
-        <%= f.input :primary, :input_html => { checked: true }%>
+        <%= f.input :primary, as: :hidden, input_html: { value: true }%>
         <%= f.submit "Set as Goal", class: "btn btn-danger rounded-pill shadow-sm text-white col-12" %>
       <% end %>
 
