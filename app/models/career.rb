@@ -11,4 +11,6 @@ class Career < ApplicationRecord
   validates :summary, presence: true
   validates :progression, presence: true
   validates :education, presence: true
+
+  has_one_attached :photo
 end

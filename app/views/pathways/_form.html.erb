@@ -1,6 +1,10 @@
 <%= simple_form_for([program, Pathway.new], data: {
-    action: "submit->shortlist#update"
+    action: "submit->shortlist#update mouseenter->shortlist#mouseEnter mouseleave->shortlist#mouseLeave"
   }) do |f| %>
   <%= f.hidden_field :career_id, value: career_id %>
-  <%= f.submit "Shortlist",class: "shortlist"  %>
+  <%= button_tag type: 'submit', class: "shortlist", data: { shortlist_target: 'bookmark' } do %>
+      <i class="fa-regular fa-bookmark"></i>
+  <% end %>
+
+
 <% end %>
