@@ -19,13 +19,13 @@ export default class extends Controller {
     event.currentTarget.classList.add("active")
   }
 
-  // highlightNodes(e) {
-  //   const nodeId = e.currentTarget.querySelector("h2").innerText
-  //   const {nodes} = this.graphData
-  //   const filtered = nodes.filter(node => node.id == nodeId)[0]
+  highlightNodes(e) {
+    const nodeId = e.currentTarget.querySelector("h2").innerText
+    const {nodes} = this.graphData
+    const filtered = nodes.filter(node => node.id == nodeId)[0]
 
-  //   this.forceGraph.zoom(5, 500).centerAt(filtered.x, filtered.y, 500)
-  // }
+    this.forceGraph.zoom(5, 500).centerAt(filtered.x, filtered.y, 500)
+  }
 
   expandNodeClick(node) {
     this.itemTargets.forEach(item => item.classList.remove("active"))
