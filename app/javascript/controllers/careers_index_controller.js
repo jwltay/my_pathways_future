@@ -16,8 +16,10 @@ export default class extends Controller {
 
   expand(event) {
     this.itemTargets.forEach(item => item.classList.remove("active"))
-    event.currentTarget.classList.add("active")
+    event.currentTarget.classList.toggle("inactive")
   }
+
+
 
   highlightNodes(e) {
     const nodeId = e.currentTarget.querySelector("h2").innerText
