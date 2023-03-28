@@ -13,9 +13,9 @@
     border-top: 0.8px solid #e4e7ea;
   }
 
-  &.inactive {
+  &.active {
     .panel {
-      display: none;
+      display: block;
     }
   }
 
@@ -36,6 +36,7 @@
   }
 
   .panel {
+    display: none;
     height: max-content;
     margin-top: 16px;
 

@@ -16,7 +16,7 @@ export default class extends Controller {
 
   expand(event) {
     this.itemTargets.forEach(item => item.classList.remove("active"))
-    event.currentTarget.classList.toggle("inactive")
+    event.currentTarget.classList.toggle("active")
   }
 
 
@@ -38,7 +38,7 @@ export default class extends Controller {
     this.itemTargets.forEach(
       item => {
         if (item.innerText.includes(node.id)) {
-          item.classList.remove("inactive")
+          item.classList.add("active")
           setTimeout(() => {
             item.scrollIntoView()
           }, 500)
