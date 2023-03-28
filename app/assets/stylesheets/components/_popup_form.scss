@@ -56,6 +56,34 @@
 
   .container {
     padding-inline: 40px;
+
+    .item {
+      border-bottom: $gray;
+      max-height: 150px;
+      overflow: hidden;
+      padding-top: 16px;
+      transition: max-height 0.3s ease;
+
+      &.show-item {
+        max-height: 1000px;
+      }
+
+      #dots {
+        display: none;
+
+        &.active {
+          display: inline;
+        }
+      }
+      #more {
+        opacity: 0;
+        transition: 0.3s ease;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .modal-content-header {

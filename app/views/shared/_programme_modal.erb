@@ -18,23 +18,53 @@
             <p>@ <%= programme.university %></p>
           </div>
         </div>
-        <div class="container">
-          <div class="item border-bottom pt-3">
+
+        <div class="container"
+          data-controller="read-more"
+        >
+          <div class="item">
             <h4>Overview</h4>
-            <p><%= programme.short_overview %>...<a href="">read more</a></p>
+            <p>
+              <%= programme.short_overview %>
+              <span id="dots"
+                class='active'
+                data-read-more-target="triggerMore"
+              >
+                ...
+                <a href=""
+                 data-action="click->read-more#readMore"
+                >
+                  Read More
+                </a>
+              </span>
+
+              <span id="more"
+                data-read-more-target="triggerLess">
+                <%= programme.omitted_overview %>
+                <span id="read-less">
+                  <a href=""
+                  data-action="click->read-more#readLess"
+                  >
+                    Read Less
+                  </a>
+                </span>
+              </span>
+            </p>
+
           </div>
-          <div class="item border-bottom pt-3">
+          <div class="item">
             <h4>Programme Duration</h4>
             <p><%= programme.duration %> Years</p>
           </div>
-          <div class="item border-bottom pt-3">
+          <div class="item">
             <h4>Tuition Fees</h4>
             <p>S$<%= programme.tuition_fees %></p>
           </div>
-          <div class="item border-bottom pt-3">
+          <div class="item">
             <h4>University World Ranking</h4>
             <p><%= programme.rating %></p>
           </div>
+
         </div>
       </div>
     </div>
