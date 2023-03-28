@@ -1,12 +1,9 @@
 .graph canvas {
   border-radius: 8px;
   box-shadow: 0 .25rem .5rem rgba($black, .3);
+  margin-right: 8px;
 }
 
 .background-graph {
-  background-color: $teal;
-  height: 326px;
-  position:absolute;
-  top: 129px;
-  width: 100%;
+  background-color: red;
 }

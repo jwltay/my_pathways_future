@@ -45,7 +45,7 @@ export default class extends Controller {
   }
 
   loadGraph(data) {
-    const width = this.element.clientWidth - 24
+    const width = 400 //this.element.clientWidth - 24
     this.forceGraph(this.graphTarget)
       .graphData(data)
       .nodeId('id')
@@ -54,7 +54,7 @@ export default class extends Controller {
       .linkSource('source')
       .linkTarget('target')
       .linkWidth(2)
-      .height(300)
+      .height(500)
       .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
@@ -116,27 +116,5 @@ export default class extends Controller {
         ctx.fillText(label, 0, 0);
         ctx.restore();
       });
-      // .nodeCanvasObject((node, ctx, globalScale) => {
-      //   const label = node.id
-      //   const fontSize = 12/globalScale
-      //   ctx.font = `${fontSize}px Sans-Serif`
-      //   const textWidth = ctx.measureText(label).width
-      //   const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
-
-      //   ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'
-      //   ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions)
-
-      //   ctx.textAlign = 'center'
-      //   ctx.textBaseline = 'middle'
-      //   ctx.fillStyle = node.color
-      //   ctx.fillText(label, node.x, node.y)
-
-      //   node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
-      // })
-      // .nodePointerAreaPaint((node, color, ctx) => {
-      //   ctx.fillStyle = color
-      //   const bckgDimensions = node.__bckgDimensions
-      //   bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions)
-      // })
   }
 }
