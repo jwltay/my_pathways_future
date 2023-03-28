@@ -63,6 +63,10 @@
   border-top: 5px solid $teal;
 }
 
+.category-selector:hover + label:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
+}
+
 #user_occupation_i_am_a_student_considering_prospective_careers + label {
   color: $dark;
 }

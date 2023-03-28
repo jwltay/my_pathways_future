@@ -39,18 +39,10 @@
   transform: translateZ(-10px)
 }
 
-// .bg-info:hover {
-//   box-shadow: $pink 0px 5px 20px;
-// }
-
 .bg-info:not(.goal, .hidden):hover > #pop-up {
   opacity: 1;
   top: -26px;
   transition: 300ms ease;
-}
-
-.form-check {
-  display: none;
 }
 
 .hidden-space {
