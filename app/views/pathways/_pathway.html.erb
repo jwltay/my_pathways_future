@@ -1,7 +1,8 @@
 <div class="bg-info col-3 p-4 my-3 rounded text-dark
 text-center d-flex flex-column justify-content-between
+border-top border-warning border-5
 <%= " hidden" if @user.primary_pathway? && !pathway.primary? %>
-<%= " goal" if @user.primary_pathway? && pathway.primary? %>">
+<%= " goal border-top border-danger border-5" if @user.primary_pathway? && pathway.primary? %>">
 
   <p id="pop-up">Ranked #<%= pathway.programme.rating %></p>
 
@@ -26,7 +27,7 @@ text-center d-flex flex-column justify-content-between
       <% if pathway.primary? %>
         <%= simple_form_for(pathway) do |f| %>
           <%= f.input :primary, :input_html => { checked: false }%>
-          <%= f.submit "Remove Goal", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
+          <%= f.submit "Remove Goal", class: "btn btn-info rounded-pill shadow-sm text-danger border-danger col-12" %>
         <% end %>
       <% else %>
         <div class="hidden-space"></div>
@@ -36,7 +37,7 @@ text-center d-flex flex-column justify-content-between
 
       <%= simple_form_for(pathway) do |f| %>
         <%= f.input :primary, :input_html => { checked: true }%>
-        <%= f.submit "Set as Goal", class: "btn btn-danger rounded-pill text-white col-12" %>
+        <%= f.submit "Set as Goal", class: "btn btn-danger rounded-pill shadow-sm text-white col-12" %>
       <% end %>
 
     <% end %>
