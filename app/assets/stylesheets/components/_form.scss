@@ -59,7 +59,8 @@
   border: 1px solid #EAEAEA;
   border-radius: 8px;
   background-color: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  border-top: 5px solid $teal;
 }
 
 #user_occupation_i_am_a_student_considering_prospective_careers + label {
