@@ -45,7 +45,7 @@ export default class extends Controller {
   }
 
   loadGraph(data) {
-    const width = 400 //this.element.clientWidth - 24
+    const width = 480 //this.element.clientWidth - 24
     this.forceGraph(this.graphTarget)
       .graphData(data)
       .nodeId('id')
@@ -54,7 +54,7 @@ export default class extends Controller {
       .linkSource('source')
       .linkTarget('target')
       .linkWidth(2)
-      .height(500)
+      .height(400)
       .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')

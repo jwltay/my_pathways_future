@@ -1,11 +1,7 @@
 .graph canvas {
   border-radius: 8px;
-  box-shadow: 0 .25rem .5rem rgba($black, .3);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
   margin-right: 8px;
   position: sticky !important;
   top: 0;
-}
-
-.background-graph {
-  // background-color: red;
 }

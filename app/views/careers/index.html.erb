@@ -1,13 +1,19 @@
-<h2 class='white-header text-dark text-center fw-bold'>Your Careers</h2>
-<div class="background-graph pt-3">
+<h2 class='bg-primary text-dark text-center py-3 fw-bold'>Your Careers</h2>
+<div class="wrapper mb-2">
 
   <div class="container d-flex" data-controller="careers-index">
+    <div class="wrap-left">
+      <div class="graph">
+        <div data-careers-index-target="graph" id="graph"></div>
+      </div>
 
-    <div class="graph">
-      <div data-careers-index-target="graph" id="graph"></div>
+      <div class="navigation-buttons mt-3">
+        <%= link_to "Back", edit_user_path(@user), class: "btn rounded-pill btn-primary" %>
+      </div>
+
     </div>
 
-    <div class="wrap-right d-flex flex-column justify-content-between">
+    <div class="wrap-right">
       <div class="accordions career-accordion row">
         <% @careers.each do |career| %>
           <div class="accordion-card py-4 <%= "rounded-top" if career == @careers.first %> <%= "rounded-bottom" if career == @careers.last %>" data-careers-index-target="item" data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes mouseleave->careers-index#exitZoom">
@@ -26,10 +32,6 @@
             </div>
           </div>
         <% end %>
-      </div>
-
-      <div class="navigation-buttons">
-        <%= link_to "Back", edit_user_path(@user), class: "btn rounded-pill btn-primary" %>
       </div>
 
     </div>
