@@ -61,10 +61,10 @@
       border-left: 4px solid white;
       padding-left: 8px;
       border-bottom: 1px solid $light-gray;
-      max-height: 150px;
+      max-height: 200px;
       overflow: hidden;
       padding-top: 16px;
-      transition: max-height 0.3s ease;
+      transition: max-height 0.5s ease;
 
       &:hover {
         border-left: 4px solid $teal;
@@ -72,6 +72,7 @@
 
       &.show-item {
         max-height: 1000px;
+        transition: max-height 0.5s ease;
       }
 
       #dots {
@@ -80,13 +81,20 @@
         &.active {
           display: inline;
         }
+
+        a {
+          text-decoration: none;
+        }
       }
       #more {
-        opacity: 0;
-        transition: 0.3s ease;
+        display: none;
 
         &.active {
-          opacity: 1;
+          display: inline;
+        }
+
+        a {
+          text-decoration: none;
         }
       }
 
@@ -105,6 +113,8 @@
 
     img {
       width: 300px;
+      height: 250px;
+      object-fit: cover;
     }
 
     .banner-green {
