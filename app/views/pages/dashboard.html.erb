@@ -1,14 +1,56 @@
-<%# ================== START OF CALENDER ================== %>
-<div class="container">
-  <%= month_calendar(events: @events) do |date, events| %>
-    <%= date.day %>
-    <% events.each do |e| %>
-      <div class="event">
-        <small><%= e.programme.name %> @ <%= e.programme.university %></small> <br>
-        <p><%= e.header %></p>
+<div class="beige-background h-100">
+  <div class="container px-5">
+    <h1 class="pt-3 px-4 ms-4">Hi Manu!</h1>
+    <div class="d-flex">
+      <%# ================== LEFT SECTION STARTS HERE ================== %>
+      <div class="col mx-4">
+        <div class="h-auto p-4 pt-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+          <h2>Your selected pathway</h2>
+          <hr class="m-0 mb-2">
+          <p class="m-0">You have chosen to pursue</p>
+          <h3 class="mb-3">Software Engineering</h3>
+          <p class="m-0">as a career, by following the pathway</p>
+          <h3 class="mb-3">Bachelor of Engineering in Computer Science</h3>
+          <p class="m-0">offered by</p>
+          <%= image_tag("NTU_Logo.png", class: "card-dashboard-pathway-image") %>
+
+        </div>
+        <div class="h-auto p-4 pt-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+          <h2>Application deadline</h2>
+        </div>
+        <div class="h-auto p-4 mb-4 bg-warning rounded shadow">
+          <h2 class="text-white text-center" >Ready to apply?</h2>
+          <p class="text-white text-center m-0" >Click here to go to the application page</p>
+        </div>
       </div>
-    <% end %>
-  <% end %>
+      <%# ================== LEFT SECTION ENDS HERE ================== %>
+
+      <%# ================== RIGHT SECTION STARTS HERE ================== %>
+      <div class="col mx-4">
+        <%# ================== CALENDAR STARTS HERE ================== %>
+        <div class=" calendar h-auto p-4 py-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+          <h2>Calendar of events</h2>
+          <hr class="m-0 mb-2">
+          <%= month_calendar(events: @events) do |date, events| %>
+            <%= date.day %>
+            <% events.each do |e| %>
+              <div class="event">
+
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <%# ================== CALENDAR ENDS HERE ================== %>
+        <%# ================== TO-DO LIST STARTS HERE ================== %>
+        <div class="h-auto p-4 py-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+          <h2>To-do list</h2>
+          <hr class="m-0 mb-2">
+        </div>
+        <%# ================== TO-DO LIST ENDS HERE ================== %>
+      </div>
+      <%# ================== RIGHT SECTION ENDS HERE ================== %>
+    </div>
+  </div>
 </div>
 <%# ================== END OF CALENDER ================== %>
 <%# ================== START OF TODO-LIST ================== %>
