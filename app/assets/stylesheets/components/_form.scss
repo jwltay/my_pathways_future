@@ -77,6 +77,8 @@
   font-weight: bold;
   border-top: 5px solid $purple;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
+  transition: 150ms ease;
+  transform: scale(1.05);
 }
 
 
@@ -89,6 +91,8 @@
   font-weight: bold;
   border-top: 5px solid $purple;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
+  transition: 150ms ease;
+  transform: scale(1.05);
 }
 
 
@@ -101,6 +105,8 @@
   font-weight: bold;
   border-top: 5px solid $purple;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
+  transition: 150ms ease;
+  transform: scale(1.05);
 }
 
 .tag-item {
