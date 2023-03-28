@@ -14,42 +14,30 @@
 <%# ================== START OF TODO-LIST ================== %>
 <div class="container mt-5">
   <h1>My tasks</h1>
-  <ul id="tasks">
+  <ul>
     <% @tasks.each do |task| %>
-      <li>
-        <% if task.completed? %>
-          <i class="fa-regular fa-square-check"></i>
-        <% else %>
-          <i class="fa-regular fa-square"></i>
+      <li><%= task.title %>
+        <p><strong><%= task.completed %></strong></p>
+        <%= simple_form_for(task) do |f| %>
+          <%= f.input :completed, input_html: { class: "check-box" } %>
+          <%# <%= f.submit "mark as completed" %>
         <% end %>
-        <%= link_to task.title, task_path(task.id) %>
-        <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
-          <i class="fa-regular fa-trash-can"></i>
-        <% end %>
-      </li>
+        <%= link_to "Delete", task_path(task), data: {turbo_method: :delete}, class: "delete-btn btn btn-sm btn-danger" %>
+      <% end %>
+    </ul>
+    <%= simple_form_for(@task) do |f| %>
+      <%= f.input :title, label: false %>
+      <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
     <% end %>
-  </ul>
-  <hr>
-  <%= link_to root_path do %>
-    <i class="fa-solid fa-plus"></i> Add a new task
-  <% end %>
-</div>
-<%= form_with model: @task do |f| %>
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="form-group">
-    <%= f.label :details %>
-    <%= f.text_area :details, class: 'form-control' %>
-  </div>
-  <% unless f.object.new_record? %>
-    <div class="checkbox">
-      <label>
-        <%= f.check_box :completed %> Completed
-      </label>
+  <%= form_with model: @task do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :details %>
+      <%= f.text_area :details, class: 'form-control' %>
     </div>
   <% end %>
-  <%= f.submit class: 'btn btn-primary mt-3' %>
-<% end %>
-<%# ================== END OF TODO-LIST ================== %>
+  <%# ================== END OF TODO-LIST ================== %>
