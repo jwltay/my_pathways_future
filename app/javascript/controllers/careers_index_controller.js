@@ -60,7 +60,7 @@ export default class extends Controller {
       .width(width)
       .backgroundColor('rgb(77, 69, 93)')
       .nodeAutoColorBy('id')
-      // .zoom(3, 1000)
+      .zoom(2, 1000)
       .enableZoomInteraction(false)
       .onNodeClick(node => { // Center/zoom on node
         this.forceGraph.centerAt(node.x, node.y, 1000)
