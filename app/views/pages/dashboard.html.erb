@@ -1,6 +1,7 @@
+<%# ================== START OF CALENDER ================== %>
 <div class="container">
   <%= month_calendar(events: @events) do |date, events| %>
-    <%= date %>
+    <%= date.day %>
     <% events.each do |e| %>
       <div class="event">
         <small><%= e.programme.name %> @ <%= e.programme.university %></small> <br>
@@ -9,3 +10,19 @@
     <% end %>
   <% end %>
 </div>
+<%# ================== END OF CALENDER ================== %>
+<%# ================== START OF TODO-LIST ================== %>
+<div class="container" style="margin-top: 20p; max-width: 250px">
+  <% @tasks.each do |task| %>
+    <div class="task-item">
+      <%= task.title %>
+      <%= link_to "Destroy", task_path(task), data: {turbo_method: :delete}, class: "delete-btn btn btn-sm btn-danger" %>
+    </div>
+  <% end %>
+  <br>
+  <%= simple_form_for(@task) do |f| %>
+    <%= f.input :title, label: false %>
+    <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
+  <% end %>
+</div>
+<%# ================== END OF TODO-LIST ================== %>
