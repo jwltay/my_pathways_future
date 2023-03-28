@@ -1,22 +1,25 @@
 .background {
   background-color: $teal;
-  height: 500px;
-  position:absolute;
-  top: 129px;
-  width: 100%;
-  z-index: -2;
+  position: relative;
+  z-index: 0;
 }
 
 .bg-info {
   position: relative;
   font-size: 14px;
   height: 350px;
-
+  transform-style: preserve-3d;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   &.hidden  {
     box-shadow: none;
+    background-color: #e8e6e1 !important;
     & > * {
       opacity: 0.5;
     }
+  }
+
+  &.goal {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 20px;
   }
 }
 
@@ -25,25 +28,21 @@
   font-size: 10px;
   top: 0px;
   right: 8px;
-  background: $purple;
+  background: $pink;
   padding-top: 4px;
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 24px;
-  z-index: -1;
-  opacity: 0;
+  opacity: 1;
   border-radius: 2px;
   color: white;
+  transform: translateZ(-10px)
 }
 
-.bg-info:hover > #pop-up {
+.bg-info:not(.goal, .hidden):hover > #pop-up {
   opacity: 1;
   top: -26px;
   transition: 300ms ease;
-}
-
-.form-check {
-  display: none;
 }
 
 .hidden-space {
