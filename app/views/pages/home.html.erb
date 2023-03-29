@@ -53,11 +53,13 @@
 </div>
 <%# ================== END OF BEIGE FEATURE CARDS ================== %>
 <%# ================== START OF CTA BANNER ================== %>
-<div class="cta-banner-background">
+<div class="cta-banner-background" data-controller="animation" data-animation-threshold-value="0.4">
   <div class="container d-flex align-items-center justify-content-center p-5">
     <div class="banner-content d-flex">
-      <%= image_tag("pixeltrue-find.png", class: "cta-banner-image") %>
-      <div class="banner-cta d-flex flex-column justify-content-center m-5">
+      <%= image_tag("pixeltrue-find.png", class: "cta-banner-image", data: {
+        animation_target: "fadeInRight"
+      })%>
+      <div class="banner-cta d-flex flex-column justify-content-center m-5" data-animation-target="fadeInLeft">
         <h1 class="text-dark">Let us help you find your way</h1>
         <%= link_to "Get started", new_user_registration_path, class: "btn btn-lg btn-warning text-white rounded-pill px-5 mt-5"%>
       </div>
