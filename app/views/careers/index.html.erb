@@ -20,9 +20,12 @@
           <%= "rounded-top" if career == @careers.first %>
           <%= "rounded-bottom" if career == @careers.last %>"
           data-careers-index-target="item"
-          data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes">
-            <div class="accordion-card-headers">
-              <h2 class="mb-0 fw-normal fs-5"><%= career.name.titleize %></h2>
+          data-action="mouseenter->careers-index#highlightNodes">
+            <div class="accordion-card-headers d-flex justify-content-between"\
+            data-action="click->careers-index#expand">
+              <h2 class="mb-0 fw-normal fs-5">
+                <%= career.name.titleize %>
+              </h2>
             </div>
             <div class="panel">
               <div class="panel-summary careers-overview">

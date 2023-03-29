@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="careers-index"
 export default class extends Controller {
-  static targets = ["item", "graph", "link"]
+  static targets = ["item", "graph", "link", "minimize"]
 
   connect() {
     fetch('graph.json')
@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   expand(event) {
-    event.currentTarget.classList.toggle("active")
+    event.currentTarget.parentNode.classList.toggle("active")
   }
 
   highlightNodes(e) {
