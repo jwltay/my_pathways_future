@@ -41,3 +41,8 @@
     padding: 6px 24px 6px 24px;
   }
 }
+
+.btn-add-task:hover {
+  background-color: $pink;
+  color: white !important;
+}

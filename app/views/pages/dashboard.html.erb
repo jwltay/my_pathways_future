@@ -44,7 +44,7 @@
             </div>
             <div class="ps-4 w-100">
               <p class="fw-bold m-0">Events</p>
-              <hr class="m-0 my-1">
+              <hr class="m-0 my-1 w-50">
               <p class="m-0"><span class="event-color-code-purple"> </span> A-level results</p>
               <p class="m-0"><span class="event-color-code-teal"> </span> Letters of recommendation</p>
               <p class="m-0"><span class="event-color-code-pink"> </span> Application deadline</p>
@@ -58,6 +58,40 @@
         <div class="h-auto p-4 py-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>To-do list</h2>
           <hr class="m-0 mb-2">
+          <ul class="p-1">
+            <% @tasks.each do |task| %>
+              <div class="d-flex justify-content-between" data-controller="todo-list">
+                <div>
+                  <%= simple_form_for(task,
+                    data: {
+                      todo_list_target: "form",
+                      action: "change->todo-list#markComplete"
+                    }) do |f| %>
+                    <%= f.input :completed,
+                        label: task.title,
+                        input_html: {
+                          class: "check-box",
+                          data: {
+                            todo_list_target: "checkbox"
+                          }
+                        }  %>
+                  <% end %>
+                </div>
+                <div>
+                  <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, task_path(task), data: {turbo_method: :delete}, class: "trash-icon" %>
+                </div>
+              </div>
+            <% end %>
+          </ul>
+            <%= simple_form_for(@task, data: {
+                      todo_list_target: "input",
+                      action: "change->todo-list#addTask"
+                    }) do |f| %>
+          <div class="d-flex justify-content-end" data-controller="todo-list">
+              <%= f.input :title, label: false, placeholder: "Add a task", wrapper_html: { class: "me-3 flex-grow-1" } %>
+              <%= f.submit "Add Task", class: "btn-add-task btn btn-info btn-small text-danger border-danger", style: "height: fit-content" %>
+          </div>
+            <% end %>
         </div>
         <%# ================== TO-DO LIST ENDS HERE ================== %>
       </div>
@@ -66,36 +100,3 @@
   </div>
 </div>
 <%# ================== END OF CALENDER ================== %>
-<%# ================== START OF TODO-LIST ================== %>
-<div
-  class="container mt-5"
->
-  <h1>My tasks</h1>
-  <ul>
-    <% @tasks.each do |task| %>
-      <div data-controller="todo-list">
-        <%= simple_form_for(task,
-          data: {
-            todo_list_target: "form",
-            action: "change->todo-list#markComplete"
-          }) do |f| %>
-          <%= f.input :completed,
-              label: task.title,
-              input_html: {
-                class: "check-box",
-                data: {
-                  todo_list_target: "input"
-                }
-              }  %>
-          <%# <%= f.submit "mark as completed" %>
-        <% end %>
-        <%= link_to "Delete", task_path(task), data: {turbo_method: :delete}, class: "delete-btn btn btn-sm btn-danger" %>
-      </div>
-    <% end %>
-  </ul>
-  <%= simple_form_for(@task) do |f| %>
-    <%= f.input :title, label: false %>
-    <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
-  <% end %>
-</div>
-<%# ================== END OF TODO-LIST ================== %>

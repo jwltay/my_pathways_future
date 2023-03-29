@@ -1,3 +1,11 @@
+form {
+  input {
+    &::placeholder {
+      opacity: 50% !important;
+    }
+  }
+}
+
 .form-container {
   width: 800px;
   margin: 0 auto;
@@ -56,7 +64,7 @@
   font-size: 14px;
   text-align: center;
   padding: 80px 30px 80px 30px;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #eaeaea;
   border-radius: 8px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
@@ -72,14 +80,14 @@
   color: $dark;
 }
 
-#user_occupation_i_am_a_student_considering_prospective_careers:checked + label {
+#user_occupation_i_am_a_student_considering_prospective_careers:checked
+  + label {
   font-weight: bold;
   border-top: 5px solid $purple;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
   transition: 150ms ease;
   transform: scale(1.05);
 }
-
 
 #user_occupation_i_am_a_graduate_entering_the_workforce + label {
   color: $dark;
@@ -93,12 +101,12 @@
   transform: scale(1.05);
 }
 
-
 #user_occupation_i_am_a_working_professional_exploring_my_options + label {
   color: $dark;
 }
 
-#user_occupation_i_am_a_working_professional_exploring_my_options:checked + label {
+#user_occupation_i_am_a_working_professional_exploring_my_options:checked
+  + label {
   font-weight: bold;
   border-top: 5px solid $purple;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px;
@@ -121,7 +129,7 @@
   font-size: 13px;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
-  background-color: #ECEAFF;
+  background-color: #eceaff;
   color: $purple;
   border: 1px solid $purple;
   margin-right: 0.6rem;
