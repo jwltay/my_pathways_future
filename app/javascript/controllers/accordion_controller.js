@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["item"]
 
   expand(event) {
-    this.itemTargets.forEach(item => item.classList.remove("active"))
-    event.currentTarget.classList.add("active");
+    // this.itemTargets.forEach(item => item.classList.remove("active"))
+    event.currentTarget.classList.toggle("active");
   }
 }
