@@ -35,7 +35,6 @@ export default class extends Controller {
 
   expandNodeClick(node) {
     if (node.name == "career") {
-      // console.log(this.linkTarget.lastElementChild.attributes.href.nodeValue)
       this.itemTargets.forEach(item => item.classList.remove("active"))
       this.itemTargets.forEach(
         item => {
@@ -48,13 +47,17 @@ export default class extends Controller {
         })
     } else {
       const url = this.linkTarget.lastElementChild.attributes.href.nodeValue
-      window.location.href = url
+      setTimeout(() => {
+        window.location.href = url
+      }, 500)
+
     }
   }
 
   loadGraph(data) {
     const width = 480 //this.element.clientWidth - 24
     const height = this.element.clientHeight // - 126.4
+    const root = this.graphData.nodes[0]
 
     this.forceGraph(this.graphTarget)
       .graphData(data)
@@ -63,11 +66,17 @@ export default class extends Controller {
       .nodeLabel('id')
       .linkSource('source')
       .linkTarget('target')
-      .linkWidth(2)
+      // .linkWidth(2)
       .height(height)
       .width(width)
-      .backgroundColor('rgb(77, 69, 93)')
+      .backgroundColor('black')
+      // .nodeColor(node => {
+      //   if (node === root) {
+      //     'rgb(233, 100, 121)'
+      //   }
+      // })
       .nodeAutoColorBy('name')
+      .linkColor(link => 'rgb(165, 219, 216)')
       .zoom(2, 1000)
       .enableZoomInteraction(false)
       .onNodeDragEnd(node => {
@@ -81,6 +90,9 @@ export default class extends Controller {
       })
       .onBackgroundClick(() => {
         this.forceGraph.zoom(2, 1000)
+      })
+      .onLinkClick(link => {
+        this.forceGraph.zoom(8, 500)
       })
       .linkCanvasObjectMode(() => 'after')
       .linkCanvasObject((link, ctx) => {
@@ -121,12 +133,12 @@ export default class extends Controller {
         ctx.translate(textPos.x, textPos.y);
         ctx.rotate(textAngle);
 
-        ctx.fillStyle = 'rgb(77, 69, 93)';
+        ctx.fillStyle = 'black';
         ctx.fillRect(- bckgDimensions[0] / 2, - bckgDimensions[1] / 2, ...bckgDimensions);
 
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillStyle = 'darkgrey';
+        ctx.fillStyle = 'rgb(165, 219, 216)';
         ctx.fillText(label, 0, 0);
         ctx.restore();
       });
