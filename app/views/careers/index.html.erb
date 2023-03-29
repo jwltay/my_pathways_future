@@ -23,7 +23,7 @@
           data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes">
             <div class="accordion-card-headers">
               <h2 class="mb-0 fw-normal fs-5"><%= career.name.titleize %></h2>
-              <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
+              <%= link_to "View Programmes", career_programmes_path(career), class: "btn btn-warning", data: { careers_index_target: "link" } %>
             </div>
             <div class="panel">
               <div class="panel-summary careers-overview">
@@ -31,7 +31,7 @@
               </div>
               <div class="panel-button">
                 <%= render partial: "shared/career_modal", locals: { career: career } %>
-                <div class="link-wrapper" data-careers-index-target="link">
+                <div class="link-wrapper">
                   <%= link_to "View University Programmes", career_programmes_path(career), class: "hidden btn btn-warning" %>
                 </div>
               </div>

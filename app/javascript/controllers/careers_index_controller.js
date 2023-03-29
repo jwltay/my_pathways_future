@@ -43,11 +43,10 @@ export default class extends Controller {
           }
         })
     } else {
-      const url = this.linkTarget.lastElementChild.attributes.href.nodeValue
+      const url = this.linkTarget.pathname
       setTimeout(() => {
         window.location.href = url
       }, 500)
-
     }
   }
 
