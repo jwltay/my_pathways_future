@@ -16,10 +16,13 @@
 
         </div>
         <div class="h-auto p-4 pt-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+          <%# Hard coded Programme and countdown! %>
           <h2>Application deadline</h2>
-          <%= content_tag(:h1, "" ,
+          <%= content_tag(:h2, "" ,
               data: {
-                controller: "countdown"
+                controller: "countdown",
+                countdown_target: "countdown",
+                seconds_until_end: @target.to_i - DateTime.now.to_i
             }) %>
         </div>
         <div class="h-auto p-4 mb-4 bg-warning rounded shadow">
