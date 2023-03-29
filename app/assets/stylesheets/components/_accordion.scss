@@ -130,7 +130,7 @@
     align-items: center;
   }
 
-  .panel-summary {
+  .panel-summary:not(.careers-overview) {
     width: 70%;
   }
 

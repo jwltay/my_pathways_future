@@ -17,13 +17,12 @@ class CareersController < ApplicationController
     [{
         "id": @user.first_name.capitalize,
         "name": "user",
-        "val": "1",
-        # "group": "career"
+        "val": "1"
     }] + @careers.each_with_index.map do |career, index|
-      { "id": career.name.titleize,
+      {
+        "id": career.name.titleize,
         "name": "career",
-        "val": "1",
-        # "group": "career"
+        "val": "1"
       }
     end
   end

@@ -48,6 +48,8 @@ export default class extends Controller {
 
   loadGraph(data) {
     const width = 480 //this.element.clientWidth - 24
+    const height = this.element.clientHeight // - 126.4
+
     this.forceGraph(this.graphTarget)
       .graphData(data)
       .nodeId('id')
@@ -56,12 +58,16 @@ export default class extends Controller {
       .linkSource('source')
       .linkTarget('target')
       .linkWidth(2)
-      .height(400)
+      .height(height)
       .width(width)
       .backgroundColor('rgb(77, 69, 93)')
-      .nodeAutoColorBy('id')
+      .nodeAutoColorBy('name')
       .zoom(2, 1000)
       .enableZoomInteraction(false)
+      .onNodeDragEnd(node => {
+        node.fx = node.x;
+        node.fy = node.y;
+      })
       .onNodeClick(node => { // Center/zoom on node
         this.forceGraph.centerAt(node.x, node.y, 1000)
         this.forceGraph.zoom(6, 500)

@@ -7,7 +7,7 @@
         <div data-careers-index-target="graph" id="graph"></div>
       </div>
 
-      <div class="navigation-buttons mt-3">
+      <div class="navigation-buttons d-none mt-3">
         <%= link_to "Back", edit_user_path(@user), class: "btn rounded-pill btn-primary" %>
       </div>
 
@@ -22,7 +22,7 @@
               <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
             </div>
             <div class="panel">
-              <div class="panel-summary">
+              <div class="panel-summary careers-overview">
                 <p><%= career.summary %></p>
               </div>
               <div class="panel-button">
