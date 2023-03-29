@@ -16,9 +16,13 @@
     <div class="wrap-right">
       <div class="accordions career-accordion row">
         <% @careers.each do |career| %>
-          <div class="accordion-card py-4 <%= "rounded-top" if career == @careers.first %> <%= "rounded-bottom" if career == @careers.last %>" data-careers-index-target="item" data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes">
+          <div class="accordion-card py-4
+          <%= "rounded-top" if career == @careers.first %>
+          <%= "rounded-bottom" if career == @careers.last %>"
+          data-careers-index-target="item"
+          data-action="click->careers-index#expand mouseenter->careers-index#highlightNodes">
             <div class="accordion-card-headers">
-              <h2 class="mb-0"><%= career.name.titleize %></h2>
+              <h2 class="mb-0 fw-normal fs-5"><%= career.name.titleize %></h2>
               <%= link_to "View University Programmes", career_programmes_path(career), class: "btn btn-warning" %>
             </div>
             <div class="panel">

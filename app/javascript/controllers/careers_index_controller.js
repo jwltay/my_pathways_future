@@ -15,11 +15,8 @@ export default class extends Controller {
   }
 
   expand(event) {
-    this.itemTargets.forEach(item => item.classList.remove("active"))
     event.currentTarget.classList.toggle("active")
   }
-
-
 
   highlightNodes(e) {
     const nodeId = e.currentTarget.querySelector("h2").innerText
@@ -55,8 +52,8 @@ export default class extends Controller {
   }
 
   loadGraph(data) {
-    const width = 480 //this.element.clientWidth - 24
-    const height = this.element.clientHeight // - 126.4
+    const width = this.element.clientWidth * 0.6
+    const height = this.element.clientHeight
     const root = this.graphData.nodes[0]
 
     this.forceGraph(this.graphTarget)
