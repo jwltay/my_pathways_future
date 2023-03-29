@@ -27,7 +27,9 @@
               </div>
               <div class="panel-button">
                 <%= render partial: "shared/career_modal", locals: { career: career } %>
-                <%= link_to "View University Programmes", career_programmes_path(career), class: "hidden btn btn-warning" %>
+                <div class="link-wrapper" data-careers-index-target="link">
+                  <%= link_to "View University Programmes", career_programmes_path(career), class: "hidden btn btn-warning" %>
+                </div>
               </div>
             </div>
           </div>

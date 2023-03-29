@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="careers-index"
 export default class extends Controller {
-  static targets = ["item", "graph"]
+  static targets = ["item", "graph", "link"]
 
   connect() {
     fetch('graph.json')
@@ -34,16 +34,22 @@ export default class extends Controller {
   // }
 
   expandNodeClick(node) {
-    this.itemTargets.forEach(item => item.classList.remove("active"))
-    this.itemTargets.forEach(
-      item => {
-        if (item.innerText.includes(node.id)) {
-          item.classList.add("active")
-          setTimeout(() => {
-            item.scrollIntoView()
-          }, 500)
-        }
-      })
+    if (node.name == "career") {
+      // console.log(this.linkTarget.lastElementChild.attributes.href.nodeValue)
+      this.itemTargets.forEach(item => item.classList.remove("active"))
+      this.itemTargets.forEach(
+        item => {
+          if (item.innerText.includes(node.id)) {
+            item.classList.add("active")
+            setTimeout(() => {
+              item.scrollIntoView()
+            }, 500)
+          }
+        })
+    } else {
+      const url = this.linkTarget.lastElementChild.attributes.href.nodeValue
+      window.location.href = url
+    }
   }
 
   loadGraph(data) {
