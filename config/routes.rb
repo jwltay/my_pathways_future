@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/dashboard", to: "pages#dashboard"
-  resources :tasks, only: %i[create update destroy]
+  resources :tasks, only: %i[index create update destroy]
   resources :programmes, only: %i[show] do
     resources :pathways, only: %i[create]
   end
