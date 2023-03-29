@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @tasks = Task.all
     @task = Task.new
@@ -15,7 +17,11 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update!(task_params)
-    redirect_to root_path
+
+    respond_to do |f|
+      f.html { redirect_to root_path }
+      f.json
+    end
   end
 
   def destroy
@@ -28,6 +34,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:completed)
+    params.require(:task).permit(:title, :completed)
   end
 end

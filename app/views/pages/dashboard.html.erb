@@ -12,32 +12,35 @@
 </div>
 <%# ================== END OF CALENDER ================== %>
 <%# ================== START OF TODO-LIST ================== %>
-<div class="container mt-5">
+<div
+  class="container mt-5"
+>
   <h1>My tasks</h1>
   <ul>
     <% @tasks.each do |task| %>
-      <li><%= task.title %>
-        <p><strong><%= task.completed %></strong></p>
-        <%= simple_form_for(task) do |f| %>
-          <%= f.input :completed, input_html: { class: "check-box" } %>
+      <div data-controller="todo-list">
+        <%= simple_form_for(task,
+          data: {
+            todo_list_target: "form",
+            action: "change->todo-list#markComplete"
+          }) do |f| %>
+          <%= f.input :completed,
+              label: task.title,
+              input_html: {
+                class: "check-box",
+                data: {
+                  todo_list_target: "input"
+                }
+              }  %>
           <%# <%= f.submit "mark as completed" %>
         <% end %>
         <%= link_to "Delete", task_path(task), data: {turbo_method: :delete}, class: "delete-btn btn btn-sm btn-danger" %>
-      <% end %>
-    </ul>
-    <%= simple_form_for(@task) do |f| %>
-      <%= f.input :title, label: false %>
-      <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
+      </div>
     <% end %>
-  </div>
-  <%= form_with model: @task do |f| %>
-    <div class="form-group">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :details %>
-      <%= f.text_area :details, class: 'form-control' %>
-    </div>
+  </ul>
+  <%= simple_form_for(@task) do |f| %>
+    <%= f.input :title, label: false %>
+    <%= f.submit "Add Task", class: "btn btn-info rounded-pill text-danger border-danger col-12" %>
   <% end %>
-  <%# ================== END OF TODO-LIST ================== %>
+</div>
+<%# ================== END OF TODO-LIST ================== %>
