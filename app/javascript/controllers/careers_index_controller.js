@@ -27,10 +27,6 @@ export default class extends Controller {
     this.forceGraph.zoom(6, 800).centerAt(filtered.x, filtered.y, 800)
   }
 
-  // exitZoom() {
-  //   this.forceGraph.zoom(2, 500).centerAt()
-  // }
-
   expandNodeClick(node) {
     if (node.name == "career") {
       this.itemTargets.forEach(item => item.classList.remove("active"))
@@ -63,15 +59,9 @@ export default class extends Controller {
       .nodeLabel('id')
       .linkSource('source')
       .linkTarget('target')
-      // .linkWidth(2)
       .height(height)
       .width(width)
       .backgroundColor('#fffcf5')
-      // .nodeColor(node => {
-      //   if (node === root) {
-      //     'rgb(233, 100, 121)'
-      //   }
-      // })
       .nodeAutoColorBy('name')
       .linkColor(link => '#4d455d')
       .zoom(2, 1000)

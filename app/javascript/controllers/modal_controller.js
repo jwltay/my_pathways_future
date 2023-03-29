@@ -23,7 +23,7 @@ export default class extends Controller {
           const nodeId = this.careerTarget.innerText
           const career = this.detailsGraphData.nodes.filter(node => node.id == nodeId)[0]
           this.detailsGraph.zoom(6, 800).centerAt(career.x, career.y, 800)
-        }, 1500)
+        }, 1800)
       })
   }
 
@@ -53,7 +53,6 @@ export default class extends Controller {
       .width(width)
       .backgroundColor('#fffcf5')
       .nodeAutoColorBy('name')
-      .linkColor(link => '#4d455d')
       .onBackgroundClick(() => {
         this.detailsGraph.zoom(2, 1000)
       })
@@ -68,7 +67,7 @@ export default class extends Controller {
         const textWidth = ctx.measureText(label).width
         const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2) // some padding
 
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'
+        ctx.fillStyle = 'rgba(255, 252, 245, 0.8)'
         ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions)
 
         ctx.textAlign = 'center'
