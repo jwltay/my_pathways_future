@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["popup"]
 
   connect() {
-    // console.log(this.popupTarget);
+    // console.log("connected to details graph");
   }
 
   showModal() {

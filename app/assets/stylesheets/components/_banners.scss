@@ -21,13 +21,92 @@
 
 .banner-green {
   background-color: $teal;
-  height: 20rem;
   display:flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 1rem;
 
   .container {
-    padding-inline: 8px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 400px;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    h1 {
+      color: $dark;
+    }
   }
+}
+
+@media only screen and (max-device-width: 480px) {
+  /* styles for smartphones */
+  .accordion-card-headers {
+    text-align: center;
+    .btn {
+      display: none;
+    }
+  }
+
+  .panel-summary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .panel-button {
+    .btn {
+      width: 100%;
+    }
+
+    .hidden {
+      margin-top: 16px;
+      display: block;
+    }
+  }
+}
+
+
+@media only screen and (max-device-width: 480px) {
+  /* styles for smartphones */
+  .banner-green {
+    .container {
+      display: block;
+      padding-top: 16px;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* styles for tablets */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) {
+  /* styles for tablets */
+  .banner-green {
+    .container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 16px;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+
+/* styles for desktops */
+@media only screen and (min-device-width: 1025px) {
+  /* styles for desktops */
+
 }

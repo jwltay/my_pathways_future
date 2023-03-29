@@ -29,3 +29,7 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+en:
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
