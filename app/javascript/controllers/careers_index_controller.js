@@ -65,14 +65,14 @@ export default class extends Controller {
       // .linkWidth(2)
       .height(height)
       .width(width)
-      .backgroundColor('white')
+      .backgroundColor('#fffcf5')
       // .nodeColor(node => {
       //   if (node === root) {
       //     'rgb(233, 100, 121)'
       //   }
       // })
       .nodeAutoColorBy('name')
-      // .linkColor(link => 'rgb(165, 219, 216)')
+      .linkColor(link => '#4d455d')
       .zoom(2, 1000)
       .enableZoomInteraction(false)
       .onNodeDragEnd(node => {
@@ -129,12 +129,12 @@ export default class extends Controller {
         ctx.translate(textPos.x, textPos.y);
         ctx.rotate(textAngle);
 
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = '#fffcf5';
         ctx.fillRect(- bckgDimensions[0] / 2, - bckgDimensions[1] / 2, ...bckgDimensions);
 
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillStyle = 'darkgrey';
+        ctx.fillStyle = '#4d455d';
         ctx.fillText(label, 0, 0);
         ctx.restore();
       });
