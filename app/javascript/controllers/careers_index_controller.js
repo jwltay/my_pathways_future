@@ -12,6 +12,7 @@ export default class extends Controller {
         this.forceGraph = ForceGraph()
         this.loadGraph(this.graphData)
       })
+    this.graphData
   }
 
   expand(event) {
