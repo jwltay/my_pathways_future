@@ -25,5 +25,8 @@ application.register("read-more", ReadMoreController)
 import ShortlistController from "./shortlist_controller"
 application.register("shortlist", ShortlistController)
 
+import TodoListController from "./todo_list_controller"
+application.register("todo-list", TodoListController)
+
 import UserFormController from "./user_form_controller"
 application.register("user-form", UserFormController)
