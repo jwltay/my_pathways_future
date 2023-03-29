@@ -11,7 +11,7 @@
       <div class="modal-content">
           <h2>More Information</h2>
         <div class="container">
-          <div class="modal-content-header">
+          <div class="modal-content-header with-graph">
             <!--- former image
             <div class="header-img">
               <%= cl_image_tag career.photo.key %>
@@ -21,7 +21,7 @@
               <div data-modal-target="details" id="graph"></div>
             </div>
 
-            <div class="banner-green">
+            <div class="banner-green with-graph">
               <h3 data-modal-target="career"><strong><%= career.name.titleize %></strong></h3>
               <p><%= career.summary %></p>
             </div>
@@ -29,7 +29,7 @@
         </div>
         <div class="container">
           <div class="item">
-            <h4 class="fw-bold">General responsibilities</h4>
+            <h4 class="fw-bold">General Responsibilities</h4>
             <p><%= career.responsibilities %></p>
           </div>
           <div class="item">
