@@ -23,9 +23,8 @@ export default class extends Controller {
           const nodeId = this.careerTarget.innerText
           const career = this.detailsGraphData.nodes.filter(node => node.id == nodeId)[0]
           this.detailsGraph.zoom(6, 800).centerAt(career.x, career.y, 800)
-        }, 1200)
+        }, 1500)
       })
-
   }
 
   hideModal() {
@@ -42,7 +41,6 @@ export default class extends Controller {
   loadDetailsGraph(data) {
     const width = 300 // this.element.clientWidth * 0.6
     const height = 250 //this.element.clientHeight
-    // console.log(JSON.stringify(career));
 
     this.detailsGraph(this.detailsTarget)
       .graphData(data)
@@ -58,6 +56,10 @@ export default class extends Controller {
       .linkColor(link => '#4d455d')
       .onBackgroundClick(() => {
         this.detailsGraph.zoom(2, 1000)
+      })
+      .onNodeDragEnd(node => {
+        node.fx = node.x;
+        node.fy = node.y;
       })
       .nodeCanvasObject((node, ctx, globalScale) => {
         const label = node.id
