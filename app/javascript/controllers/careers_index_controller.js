@@ -46,9 +46,9 @@ export default class extends Controller {
             .previousElementSibling
               .pathname
       console.log(url)
-      // setTimeout(() => {
-      //   window.location.href = url
-      // }, 500)
+      setTimeout(() => {
+        window.location.href = url
+      }, 500)
     }
   }
 
