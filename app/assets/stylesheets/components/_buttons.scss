@@ -43,3 +43,8 @@
     box-shadow: 0 .125rem .25rem rgba($black, .075);
   }
 }
+
+.btn-add-task:hover {
+  background-color: $pink;
+  color: white !important;
+}
