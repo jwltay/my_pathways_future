@@ -1,9 +1,8 @@
 <%# --------------Form to add task ----------------------------- %>
-
 <%= simple_form_for([user, task],
   data: {
-    action: "submit->todo-list#addTask",
-    todo_list_target: "taskForm"
+    todo_list_target: "taskForm",
+    action: "submit->todo-list#addTask"
   }) do |f| %>
   <div class="d-flex justify-content-end">
     <%= f.input :title, label: false, placeholder: "Add a task", wrapper_html: { class: "me-3 flex-grow-1" } %>

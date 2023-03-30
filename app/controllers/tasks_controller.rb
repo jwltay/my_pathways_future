@@ -9,16 +9,14 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-
     respond_to do |f|
       if @task.save
-        @tasks = Task.all
+        @task.user = current_user
         f.html { redirect_to dashboard_path }
-        f.json
       else
-        f.html { render "pages/todo_list_form", status: :unprocessable_entity }
-        f.json
+        f.html { render "pages/dashboard", status: :unprocessable_entity }
       end
+      f.json
     end
   end
 

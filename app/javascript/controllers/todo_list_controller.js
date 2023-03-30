@@ -40,7 +40,9 @@ export default class extends Controller {
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
         }
+        const action = this.taskFormTarget.action
         this.taskFormTarget.outerHTML = data.form
+        this.taskFormTarget.action = action
       })
   }
 }
