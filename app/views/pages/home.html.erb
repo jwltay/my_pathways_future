@@ -1,11 +1,11 @@
 <%# ================== START OF HERO BANNER ================== %>
 <div class="hero-banner-background">
-  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="container d-flex align-items-center justify-content-center min-vh-75 py-4">
     <div class="banner-content d-flex">
-      <div class="banner-cta d-flex flex-column justify-content-center fade-in-right">
+      <div class="banner-cta d-flex flex-column justify-content-center align-items-start fade-in-right">
         <h1 class="text-dark">Find Your Path</h1>
         <h2 class="fs-4 w-55 text-dark">Helping you to navigate the education system towards a bright future</h2>
-        <%= link_to "Get started", new_user_registration_path, class: "btn btn-warning btn-lg w-50 text-white rounded-pill mt-5"%>
+        <%= link_to "Get started", new_user_registration_path, class: "btn btn-warning btn-lg text-white rounded-pill px-4 mt-5"%>
       </div>
       <%= image_tag("pixeltrue-location.png", class: "hero-banner-image fade-in-left") %>
     </div>
@@ -13,11 +13,11 @@
 </div>
 <%# ================== END OF HERO BANNER ================== %>
 <%# ================== START OF BEIGE FEATURE CARDS ================== %>
-<div class="container" data-controller="animation" data-animation-threshold-value="0.4">
-  <h1 class="text-dark text-center pt-5 fw-bold">More than one way to success</h2>
-  <div class="row m-5">
+<div class="container" data-controller="animation" data-animation-threshold-value="0.7">
+  <h1 class="text-dark text-center pt-4 fw-bold">More than one way to success</h2>
+  <div class="row mt-4 mb-5">
     <div class="col-md-4" data-animation-target="fadeInRight">
-      <div class="card-beige-small p-5 shadow-sm rounded d-flex align-items-center">
+      <div class="card-beige-small p-4 rounded d-flex align-items-center">
         <div>
           <%= image_tag("pixeltrue-discover.png", class: "card-beige-small-image") %>
           <div class="mt-5">
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="col-md-4" data-animation-target="fadeInTop">
-      <div class="card-beige-small p-5 shadow-sm rounded d-flex align-items-center">
+      <div class="card-beige-small p-4 rounded d-flex align-items-center">
         <div>
           <%= image_tag("pixeltrue-explore.png", class: "card-beige-small-image") %>
           <div class="mt-5">
@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="col-md-4"  data-animation-target="fadeInBottom">
-      <div class="card-beige-small p-5 shadow-sm rounded d-flex align-items-center">
+      <div class="card-beige-small p-4 rounded d-flex align-items-center">
         <div>
           <%= image_tag("pixeltrue-follow.png", class: "card-beige-small-image") %>
           <div class="mt-5">
@@ -53,15 +53,15 @@
 </div>
 <%# ================== END OF BEIGE FEATURE CARDS ================== %>
 <%# ================== START OF CTA BANNER ================== %>
-<div class="cta-banner-background" data-controller="animation" data-animation-threshold-value="0.4">
+<div class="cta-banner-background" data-controller="animation" data-animation-threshold-value="0.6">
   <div class="container d-flex align-items-center justify-content-center p-5">
     <div class="banner-content d-flex">
       <%= image_tag("pixeltrue-find.png", class: "cta-banner-image", data: {
-        animation_target: "fadeInRight"
+        animation_target: "fadeInBottom"
       })%>
-      <div class="banner-cta d-flex flex-column justify-content-center m-5" data-animation-target="fadeInLeft">
+      <div class="banner-cta d-flex flex-column justify-content-center align-items-start m-5" data-animation-target="fadeInBottom">
         <h1 class="text-dark">Let us help you find your way</h1>
-        <%= link_to "Get started", new_user_registration_path, class: "btn btn-warning btn-lg text-white rounded-pill w-50 mt-5"%>
+        <%= link_to "Get started", new_user_registration_path, class: "btn btn-warning btn-lg text-white rounded-pill px-4 mt-5"%>
       </div>
     </div>
   </div>
