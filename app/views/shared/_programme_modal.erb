@@ -23,23 +23,23 @@
         >
         <%# ----------------------Start of info-cards ------------------------%>
           <div class="info-cards">
-            <div class="bg-info pathway-card col-3 p-4 my-3 rounded text-dark
-                        text-center d-flex flex-column justify-content-between
-                        border-top border-warning border-5">
+            <div class="bg-info pathway-card text-dark
+                        text-center d-flex flex-column justify-content-between">
+              <i class="fa-regular fa-calendar-days" style="color: #4398B4;"></i>
               <h4>Programme Duration</h4>
               <p><%= programme.duration %> years</p>
             </div>
-            <div class="bg-info pathway-card col-3 p-4 my-3 rounded text-dark
-                        text-center d-flex flex-column justify-content-between
-                        border-top border-warning border-5">
+            <div class="bg-info pathway-card text-dark
+                        text-center d-flex flex-column justify-content-between">
+              <i class="fa-solid fa-file-invoice-dollar" style="color: #32A474;"></i>
               <h4>Tuition Fees</h4>
               <p>S$<%= programme.tuition_fees %></p>
             </div>
-            <div class="bg-info pathway-card col-3 p-4 my-3 rounded text-dark
-                        text-center d-flex flex-column justify-content-between
-                        border-top border-warning border-5">
-              <h4>University World Ranking</h4>
-              <p><%= programme.rating %> years</p>
+            <div class="bg-info pathway-card text-dark
+                        text-center d-flex flex-column justify-content-between">
+              <i class="fa-solid fa-trophy" style="color: #E4BC14;"></i>
+              <h4>University Ranking</h4>
+              <p>#<%= programme.rating %></p>
             </div>
           </div>
         <%# ----------------------End of info-cards ------------------------%>
