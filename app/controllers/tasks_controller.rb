@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     @task.user = current_user
     @task.save
 
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def update
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     @task.update!(task_params)
 
     respond_to do |f|
-      f.html { redirect_to root_path }
+      f.html { redirect_to dashboard_path }
       f.json
     end
   end
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   private
