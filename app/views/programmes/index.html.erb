@@ -12,9 +12,9 @@
   >
       <% @programmes.each do |program| %>
         <div
-        class="accordion-card py-4 position-relative"
-        data-accordion-target="program"
-        data-controller="shortlist"
+          class="accordion-card py-4 position-relative"
+          data-accordion-target="program"
+          data-controller="shortlist"
         >
           <% if program.shortlisted?(current_user) %>
             <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>

@@ -19,6 +19,10 @@
           <div class="career-accordion-card py-4"
           data-careers-index-target="item"
           data-action="mouseenter->careers-index#highlightNodes">
+            <i id="career-bookmark-indicator"
+              class="fa-solid fs-3 fa-bookmark text-danger
+              <%= "d-none" unless career.name == "software developer" || career.name == "medical scientist" %>">
+            </i>
             <div class="accordion-card-headers d-flex justify-content-between"\
             data-action="click->careers-index#expand">
               <h2 class="mb-0 fw-normal fs-4">
