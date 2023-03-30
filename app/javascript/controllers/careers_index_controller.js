@@ -67,9 +67,6 @@ export default class extends Controller {
       .height(height)
       .width(width)
       .backgroundColor('#fffcf5')
-      // .nodeColor(node => {
-      //   if (node == root) {'e96479'}
-      // })
       .nodeAutoColorBy('name')
       .linkColor(link => '#4d455d')
       .zoom(2, 1000)
