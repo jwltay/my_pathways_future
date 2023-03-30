@@ -1,0 +1,30 @@
+<ul id="countdown" data-controller="countdown" data-countdown-target="countdown" data-seconds-until-end="<%= target.to_i - DateTime.now.to_i %>">
+  <li id="days">
+    <div class="numbers">
+      <div class="number" data-countdown-target="days1"></div>
+      <div class="number" data-countdown-target="days2"></div>
+    </div>
+    <div class="label">Days</div>
+  </li>
+  <li id="hours">
+    <div class="numbers">
+      <div class="number" data-countdown-target="hours1"></div>
+      <div class="number" data-countdown-target="hours2"></div>
+    </div>
+    <div class="label">Hours</div>
+  </li>
+  <li id="minutes">
+    <div class="numbers">
+      <div class="number" data-countdown-target="minutes1"></div>
+      <div class="number" data-countdown-target="minutes2"></div>
+    </div>
+    <div class="label">Minutes</div>
+  </li>
+  <li id="seconds">
+    <div class="numbers">
+      <div class="number" data-countdown-target="seconds1"></div>
+      <div class="number" data-countdown-target="seconds2"></div>
+    </div>
+    <div class="label">Seconds</div>
+  </li>
+</ul>
