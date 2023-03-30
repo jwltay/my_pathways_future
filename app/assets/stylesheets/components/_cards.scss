@@ -25,28 +25,25 @@
 }
 
 .info-cards {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
- grid-gap: 10px;
- word-wrap: break-word;
-
- .pathway-card {
-  height: 20vh;
-  padding: 8px;
+  margin-top: 16px;
   margin-bottom: 16px;
-  // border-top: 5px solid $purple;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  word-wrap: break-word;
 
-  &:hover {
-    // border-top: 5px solid $pink;
-  }
+  .pathway-card {
+    height: 20vh;
+    padding: 8px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
 
-  i {
-    font-size: 40px;
+    i {
+      font-size: 40px;
+    }
+    p {
+      margin: 0;
+    }
   }
-  p {
-    margin: 0;
-  }
- }
 }

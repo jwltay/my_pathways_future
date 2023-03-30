@@ -32,7 +32,7 @@ class Programme < ApplicationRecord
   end
 
   def short_overview
-    overview.truncate(350, separator: ' ', omission: '')
+    overview.truncate(500, separator: ' ', omission: '')
   end
 
   def omitted_overview
