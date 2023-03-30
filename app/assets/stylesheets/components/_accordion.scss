@@ -1,15 +1,81 @@
 .accordions {
   margin: 32px 0 32px 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 1rem;
+}
+
+.career-accordions {
+  margin: 32px 0 32px 0;
 }
 
 .accordion-card {
   background-color: white;
-  display:block;
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-left: 2px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
+
+  &.active {
+    .panel {
+      display: block;
+    }
+  }
+
+  &:hover {
+    background-color: $beige;
+    border-left: 4px solid $teal;
+  }
+
+  .accordion-card-headers {
+    :hover {
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: $dark;
+    }
+
+    .btn {
+      font-size: 14px;
+    }
+  }
+
+  .panel {
+    display: none;
+    height: max-content;
+    margin-top: 16px;
+
+    .panel-button {
+      .btn {
+        font-size: 14px;
+        color: $dark;
+      }
+
+      .hidden {
+        color: white;
+      }
+    }
+  }
+
+  .panel-summary {
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.career-accordion-card {
+  background-color: white;
+  display: block;
   width: 100%;
   padding: 16px;
   border-left: 2px solid transparent;
 
-  &+.accordion-card{
+  & + .career-accordion-card {
     border-top: 0.8px solid #e4e7ea;
   }
 
@@ -21,7 +87,7 @@
 
   &:hover {
     background-color: $beige;
-    border-left: 2px solid $teal;
+    border-left: 4px solid $teal;
   }
 
   .accordion-card-headers {
@@ -76,8 +142,6 @@
   border-radius: 8px !important;
   margin: 0 0 32px 0;
 }
-
-
 
 /* styles for smartphones */
 @media only screen and (max-device-width: 480px) {
