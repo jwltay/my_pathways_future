@@ -9,9 +9,17 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    @task.save
 
-    redirect_to dashboard_path
+    respond_to do |f|
+      if @task.save
+        @tasks = Task.all
+        f.html { redirect_to dashboard_path }
+        f.json
+      else
+        f.html { render "pages/todo_list_form", status: :unprocessable_entity }
+        f.json
+      end
+    end
   end
 
   def update
@@ -34,6 +42,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :completed)
+    params.require(:task).permit(:title)
   end
 end
