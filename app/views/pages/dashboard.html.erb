@@ -1,23 +1,23 @@
 <div class="beige-background h-100">
   <div class="container px-5">
-    <h1 class="pt-4 pb-2 px-4 ms-4 fade-in-right">Hi Manu!</h1>
+    <h1 class="pt-5 pb-3 px-4 ms-4 fade-in-right">Hi Manu!</h1>
     <div class="d-flex">
       <%# ================== LEFT SECTION STARTS HERE ================== %>
       <div class="col mx-4">
-        <div class="h-auto p-4 pt-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+        <div class="h-auto px-5 pb-4 pt-3 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>Your selected pathway</h2>
-          <hr class="m-0 mb-2">
+          <hr class="m-0 my-4">
           <p class="m-0">You have chosen to pursue</p>
-          <h3 class="mb-3 fs-5">Software Engineering</h3>
+          <h3 class="mb-4 fs-5">Software Engineering</h3>
           <p class="m-0">as a career, by following the pathway</p>
-          <h3 class="mb-3 fs-5">Bachelor of Engineering in Computer Science</h3>
-          <p class="m-0">offered by</p>
+          <h3 class="mb-4 fs-5">Bachelor of Engineering in Computer Science</h3>
+          <p class="m-0 mb-1">offered by</p>
           <%= image_tag("NTU_Logo.png", class: "card-dashboard-pathway-image") %>
         </div>
-        <div class="h-auto p-4 pt-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+        <div class="h-auto ps-2 pe-5 pb-4 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <%# Hard coded Programme and countdown! %>
-          <h2>Application deadline</h2>
-          <%= render partial: "shared/countdown", locals:{ target: @target} %>
+          <%= render partial: "shared/countdown", locals:{ target: @target } %>
+          <h6 class="text-end">to application deadline</h6>
         </div>
         <div class="h-auto p-4 mb-4 bg-warning rounded shadow">
           <h2 class="text-white text-center" >Ready to apply?</h2>
