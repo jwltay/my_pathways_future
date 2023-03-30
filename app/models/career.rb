@@ -13,4 +13,13 @@ class Career < ApplicationRecord
   validates :education, presence: true
 
   has_one_attached :photo
+
+  def pathway_count(user)
+    count = 0
+
+    user.pathways.each do |pathway|
+      count += 1 if programmes.include?(pathway.programme)
+    end
+    count
+  end
 end
