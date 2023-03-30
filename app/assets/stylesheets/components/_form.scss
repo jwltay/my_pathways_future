@@ -61,7 +61,7 @@ form {
   cursor: pointer;
   box-sizing: border-box;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   padding: 80px 30px 80px 30px;
   border: 1px solid #eaeaea;
@@ -78,6 +78,10 @@ form {
 
 #user_occupation_i_am_a_student_considering_prospective_careers + label {
   color: $dark;
+  padding-top: 150px;
+  background: url(school-solid.svg) no-repeat;
+  background-size: 40px;
+  background-position: 50% 30%;
 }
 
 #user_occupation_i_am_a_student_considering_prospective_careers:checked
@@ -91,6 +95,10 @@ form {
 
 #user_occupation_i_am_a_graduate_entering_the_workforce + label {
   color: $dark;
+  padding-top: 150px;
+  background: url(graduation-cap-solid.svg) no-repeat;
+  background-size: 50px;
+  background-position: 50% 30%;
 }
 
 #user_occupation_i_am_a_graduate_entering_the_workforce:checked + label {
@@ -103,6 +111,10 @@ form {
 
 #user_occupation_i_am_a_working_professional_exploring_my_options + label {
   color: $dark;
+  padding-top: 150px;
+  background: url(briefcase-solid.svg) no-repeat;
+  background-size: 40px;
+  background-position: 50% 30%;
 }
 
 #user_occupation_i_am_a_working_professional_exploring_my_options:checked
