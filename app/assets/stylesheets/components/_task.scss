@@ -4,9 +4,30 @@
 }
 
 .task-item .delete-btn {
- display: none;
+  display: none;
 }
 
 .task-item:hover .delete-btn {
   display: inline;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label,
+.form-check-input.is-valid ~ .form-check-label {
+  color: $gray;
+  border-color: $teal;
+  text-decoration: line-through;
+}
+
+.was-validated .form-check-input:valid:checked,
+.form-check-input.is-valid:checked {
+  background-color: $teal;
+  border-color: $teal;
+}
+
+.form-check-input.is-valid {
+  border-color: #d8d8d8;
+}
+
+.form-check-input.is-valid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(165, 219, 216, 0.25);
 }
