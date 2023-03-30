@@ -11,7 +11,6 @@
     <!-- Content -->
     <div class="container">
       <div class="modal-content">
-        <h2>More Information</h2>
         <div class="banner-green">
           <div class="container d-block">
             <h3><%= programme.name %></h3>
@@ -22,7 +21,30 @@
         <div class="container"
           data-controller="read-more"
         >
-          <div class="item">
+        <%# ----------------------Start of info-cards ------------------------%>
+          <div class="info-cards">
+            <div class="bg-info pathway-card text-dark
+                        text-center d-flex flex-column justify-content-between">
+              <i class="fa-regular fa-calendar-days" style="color: #4398B4;"></i>
+              <h4>Programme Duration</h4>
+              <p><%= programme.duration %> years</p>
+            </div>
+            <div class="bg-info pathway-card text-dark
+                        text-center d-flex flex-column justify-content-between">
+              <i class="fa-solid fa-file-invoice-dollar" style="color: #32A474;"></i>
+              <h4>Tuition Fees</h4>
+              <p>S$<%= programme.tuition_fees %></p>
+            </div>
+            <div class="bg-info pathway-card text-dark
+                        text-center d-flex flex-column justify-content-between">
+              <i class="fa-solid fa-trophy" style="color: #E4BC14;"></i>
+              <h4>University Ranking</h4>
+              <p>#<%= programme.rating %></p>
+            </div>
+          </div>
+        <%# ----------------------End of info-cards ------------------------%>
+          <%# ---------------------Start of Overview --------------------------%>
+          <div class="item rounded">
             <h4>Overview</h4>
             <p>
               <%= programme.short_overview %>
@@ -50,21 +72,8 @@
                 </span>
               </span>
             </p>
-
           </div>
-          <div class="item">
-            <h4 class="fw-bold">Programme Duration</h4>
-            <p><%= programme.duration %> Years</p>
-          </div>
-          <div class="item">
-            <h4 class="fw-bold">Tuition Fees</h4>
-            <p>S$<%= programme.tuition_fees %></p>
-          </div>
-          <div class="item">
-            <h4 class="fw-bold">University World Ranking</h4>
-            <p><%= programme.rating %></p>
-          </div>
-
+          <%# ---------------------End of Overview --------------------------%>
         </div>
       </div>
     </div>
