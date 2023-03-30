@@ -8,44 +8,57 @@
   <div
   class="accordions"
   data-controller="accordion"
->
     <% @programmes.each do |program| %>
-      <% if program == @programmes.last %>
+      <% if program == @programmes.last
+  <% @programmes.each do |program| %>
         <div
-          class="accordion-card py-4 border-bottom-0 position-relative"
+          class="accordion-card py-4 position-relative
+          <%= " rounded-top" if program == @programmes.first %>
+          <%= " rounded-bottom" if program == @programmes.last %>"
           data-accordion-target="program"
           data-action="click->accordion#expand"
-          data-controller="shortlist"
-          >
-        <% else %>
-          <div
+    data-controller="shortlist"
+  <% else %>
+    <div
           class="accordion-card py-4 position-relative"
           data-accordion-target="program"
           data-action="click->accordion#expand"
-            data-controller="shortlist"
-            >
-          <% end %>
-          <% if program.shortlisted?(current_user) %>
-            <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
-          <% else %>
-            <%= render 'pathways/form', program: program, career_id: @career.id %>
-          <% end %>
-          <div class="accordion-card-headers d-block">
-            <h2 class="mb-0"><%= program.name %></h2>
-            <p>@ <%= program.university.titleize %></p>
-          </div>
-          <div class="panel mt-3">
-            <div class="panel-summary">
-              <p><%= program.summary %></p>
-            </div>
-            <div class="panel-button">
-              <%= render partial: "shared/programme_modal", locals: { programme: program } %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      data-controller="shortlist"
+      >
+    <% end %>
+    <% if program.shortlisted?(current_user) %>
+      <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
+    <% else %>
+      <%= render 'pathways/form', program: program, career_id: @career.id %>
+    <% end %>
+    <div class="accordion-card-headers d-block">
+      <h2 class="mb-0"><%= program.name %></h2>
+      <p>@ <%= program.university.titleize %></p>
     </div>
-    <div class="navigation-buttons">
-      <%= link_to "Back", careers_path, class: "btn rounded-pill btn-primary" %>
-      <%= link_to "Compare Pathways", pathways_path, class: "btn rounded-pill btn-danger" %>
+    <div class="panel mt-3">
+      <div class="panel-summary">
+        <p><%= program.summary %></p>
+      </div>
+      <div class="panel-button">
+        <%= render partial: "shared/programme_modal", locals: { programme: program } %>
+      </div>
     </div>
+    <% if program.shortlisted?(current_user) %>
+      <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
+    <% else %>
+      <%= render 'pathways/form', program: program, career_id: @career.id %>
+    <% end %>
+    <div class="accordion-card-headers d-block">
+      <h2 class="mb-0"><%= program.name %></h2>
+      <p>@ <%= program.university.titleize %></p>
+    </div>
+    <div class="panel mt-3">
+      <div class="panel-summary">
+        <p><%= program.summary %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="navigation-buttons">
+    <%= link_to "Back", careers_path, class: "btn rounded-pill btn-primary" %>
+    <%= link_to "Compare Pathways", pathways_path, class: "btn rounded-pill btn-danger" %>
+  </div>
