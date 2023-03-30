@@ -34,11 +34,13 @@
 
   .btn-danger {
     color: white;
+    box-shadow: 0 .125rem .25rem rgba($black, .075);
   }
 
   .btn-primary {
     color: white;
     padding: 6px 24px 6px 24px;
+    box-shadow: 0 .125rem .25rem rgba($black, .075);
   }
 }
 

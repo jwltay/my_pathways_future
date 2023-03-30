@@ -1,0 +1,30 @@
+ul#countdown {
+  position: relative;
+  margin: 0 auto;
+  color: rgb(99,99,99);
+  border: 1px solid #adafb2;
+  border-width: 1px 0;
+  overflow: hidden;
+  font-weight: bold;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+
+  li {
+    padding: 0;
+    display: inline-block;
+    width: 20%;
+    font-size: 32px;
+    text-align: center;
+
+    .label {
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
+
+  .numbers {
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -6,13 +6,16 @@
   background-color: white;
   display:block;
   width: 100%;
-  border-bottom: 0.8px solid #e4e7ea;
   padding: 16px;
   border-left: 2px solid transparent;
 
+  &+.accordion-card{
+    border-top: 0.8px solid #e4e7ea;
+  }
+
   &.active {
     .panel {
-      display:block;
+      display: block;
     }
   }
 
@@ -22,6 +25,10 @@
   }
 
   .accordion-card-headers {
+    :hover {
+      cursor: pointer;
+    }
+
     h2 {
       font-size: 28px;
       color: $dark;
@@ -65,6 +72,10 @@
   transform: translateY(0);
 }
 
+.career-accordion {
+  border-radius: 8px !important;
+  margin: 0 0 32px 0;
+}
 
 
 
@@ -123,7 +134,7 @@
     align-items: center;
   }
 
-  .panel-summary {
+  .panel-summary:not(.careers-overview) {
     width: 70%;
   }
 

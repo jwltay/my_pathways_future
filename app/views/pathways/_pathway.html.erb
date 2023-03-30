@@ -1,46 +1,36 @@
-<div class="bg-info col-3 p-4 my-3 rounded text-dark
+<div class="bg-info pathway-card col-3 p-4 my-3 rounded text-dark
 text-center d-flex flex-column justify-content-between
-border-top border-warning border-5      <%# purple top border%>
+border-top border-warning border-5 fade-in-top    <%# purple top border%>
 <%= " hidden" if @user.primary_pathway? && !pathway.primary? %>
 <%= " goal border-top border-danger border-5" if @user.primary_pathway? && pathway.primary? %>">
-
   <p id="pop-up">Ranked #<%= pathway.programme.rating %></p>
-
   <p class="fw-bold"><%= pathway.programme.name %></p>
   <p class="text-body-color"><%= pathway.programme.university %></p>
   <p class="text-danger fw-bold">$<%= pathway.programme.tuition_fees %></p>
-
   <p class="m-0">Subject Requirements:</p>
   <ul class="list-unstyled">
     <% pathway.programme.subjects.each do |subject| %>
-
       <li class="text-warning">
         <i class="fa-solid fa-book"></i>
         <%= subject.name %>
-      <li>
-    <% end %>
-  </ul>
-
-  <div class="row">
-    <% if @user.primary_pathway? %>
-
-      <% if pathway.primary? %>
-        <%= simple_form_for(pathway) do |f| %>
-          <%= f.input :primary, as: :hidden, :input_html => { value: false }%>
-          <%= f.submit "Remove Goal", class: "btn btn-info rounded-pill shadow-sm text-danger border-danger col-12" %>
+        <li>
         <% end %>
-      <% else %>
-        <div class="hidden-space"></div>
-      <% end %>
-
-    <% else %>
-
-      <%= simple_form_for(pathway) do |f| %>
-        <%= f.input :primary, as: :hidden, input_html: { value: true }%>
-        <%= f.submit "Set as Goal", class: "btn btn-danger rounded-pill shadow-sm text-white col-12" %>
-      <% end %>
-
-    <% end %>
-  </div>
-
-</div>
+      </ul>
+      <div class="row">
+        <% if @user.primary_pathway? %>
+          <% if pathway.primary? %>
+            <%= simple_form_for(pathway) do |f| %>
+              <%= f.input :primary, as: :hidden, :input_html => { value: false }%>
+              <%= f.submit "Remove Goal", class: "btn btn-info rounded-pill shadow-sm text-danger border-danger col-12" %>
+            <% end %>
+          <% else %>
+            <div class="hidden-space"></div>
+          <% end %>
+        <% else %>
+          <%= simple_form_for(pathway) do |f| %>
+            <%= f.input :primary, as: :hidden, input_html: { value: true }%>
+            <%= f.submit "Set as Goal", class: "btn btn-danger rounded-pill shadow-sm text-white col-12" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>

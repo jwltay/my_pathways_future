@@ -7,8 +7,14 @@ import { application } from "./application"
 import AccordionController from "./accordion_controller"
 application.register("accordion", AccordionController)
 
+import AnimationController from "./animation_controller"
+application.register("animation", AnimationController)
+
 import CareersIndexController from "./careers_index_controller"
 application.register("careers-index", CareersIndexController)
+
+import CountdownController from "./countdown_controller"
+application.register("countdown", CountdownController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

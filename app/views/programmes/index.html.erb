@@ -1,5 +1,5 @@
 <div class="banner-green">
-  <div class="container px-4">
+  <div class="container px-4 fade-in-right">
     <h1>University Programmes for <%= @career.name.titleize %>s</h1>
     <%= cl_image_tag @career.photo.key %>
   </div>
@@ -11,28 +11,20 @@
   data-controller="accordion"
 >
   <% @programmes.each do |program| %>
-      <% if program == @programmes.last %>
-        <div
-          class="accordion-card py-4 border-bottom-0 position-relative"
-          data-accordion-target="program"
-          data-action="click->accordion#expand"
-          data-controller="shortlist"
-        >
-      <% else %>
-        <div
-          class="accordion-card py-4 position-relative"
-          data-accordion-target="program"
-          data-action="click->accordion#expand"
-          data-controller="shortlist"
-        >
-      <% end %>
+    <div
+      class="accordion-card py-4 position-relative
+      <%= " rounded-top" if program == @programmes.first %>
+      <%= " rounded-bottom" if program == @programmes.last %>"
+      data-accordion-target="program"
+      data-controller="shortlist"
+    >
 
       <% if program.shortlisted?(current_user) %>
         <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
       <% else %>
         <%= render 'pathways/form', program: program, career_id: @career.id %>
       <% end %>
-      <div class="accordion-card-headers d-block">
+      <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
         <h2 class="mb-0"><%= program.name %></h2>
         <p>@ <%= program.university.titleize %></p>
       </div>
