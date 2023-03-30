@@ -84,12 +84,8 @@
                 </div>
               <% end %>
             </ul>
-            <%= simple_form_for(@task,
-              data: {
-                todo_list_target: "input",
-                action: "change->todo-list#addTask"
-              }) do |f| %>
-            <div class="d-flex justify-content-end" data-controller="todo-list">
+            <%= simple_form_for(@task) do |f| %>
+            <div class="d-flex justify-content-end">
               <%= f.input :title, label: false, placeholder: "Add a task", wrapper_html: { class: "me-3 flex-grow-1" } %>
               <%= f.submit "Add Task", class: "btn-add-task btn btn-info btn-small text-danger border-danger", style: "height: fit-content" %>
             </div>

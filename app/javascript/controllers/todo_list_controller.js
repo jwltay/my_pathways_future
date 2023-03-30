@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="todo-list"
 export default class extends Controller {
-  static targets = ["form", "checkbox", "input"];
+  static targets = ["form", "checkbox"];
 
   connect() {
     console.log("Connected to todo-list controller");
@@ -23,10 +23,5 @@ export default class extends Controller {
     } else {
       this.checkboxTarget.classList.add("is-valid");
     }
-  }
-
-  addTask(e) {
-    e.preventDefault();
-    console.log("Add task!");
   }
 }
