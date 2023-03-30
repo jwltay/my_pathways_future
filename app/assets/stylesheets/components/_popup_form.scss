@@ -11,6 +11,7 @@
   transition: 300ms;
   z-index: -1;
 
+
   &.show {
     opacity: 1;
     pointer-events: all;
@@ -44,6 +45,7 @@
   width: 60vw;
   overflow-y: scroll;
   overflow-x: hidden;
+  border-radius: 8px;
 
   h3 {
     color: $dark;
