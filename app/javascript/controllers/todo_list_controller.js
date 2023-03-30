@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="todo-list"
 export default class extends Controller {
-  static targets = ["checkboxForm", "taskForm", "checkbox", "items"];
+  static targets = ["checkboxForm", "taskForm", "checkbox", "items", "delete"];
   static values = { position: String }
 
   connect() {
@@ -46,8 +46,14 @@ export default class extends Controller {
       })
   }
 
-  deleteTask(e){
+  deleteTask(e) {
     e.preventDefault();
-    console.log("hello")
+    console.log(e.detail.url.href)
+    fetch(e.detail.url.href, {
+      method: "DELETE"
+    })
+      .then(response => {
+        console.log(response)
+      })
   }
 }
