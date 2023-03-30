@@ -25,7 +25,8 @@ export default class extends Controller {
     }
   }
 
-  addTask() {
+  addTask(e) {
+    e.preventDefault();
     console.log("Add task!");
   }
 }
