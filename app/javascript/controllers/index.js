@@ -10,6 +10,9 @@ application.register("accordion", AccordionController)
 import CareersIndexController from "./careers_index_controller"
 application.register("careers-index", CareersIndexController)
 
+import CountdownController from "./countdown_controller"
+application.register("countdown", CountdownController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -21,6 +24,9 @@ application.register("read-more", ReadMoreController)
 
 import ShortlistController from "./shortlist_controller"
 application.register("shortlist", ShortlistController)
+
+import TodoListController from "./todo_list_controller"
+application.register("todo-list", TodoListController)
 
 import UserFormController from "./user_form_controller"
 application.register("user-form", UserFormController)
