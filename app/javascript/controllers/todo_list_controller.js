@@ -45,4 +45,9 @@ export default class extends Controller {
         this.taskFormTarget.action = action
       })
   }
+
+  deleteTask(e){
+    e.preventDefault();
+    console.log("hello")
+  }
 }
