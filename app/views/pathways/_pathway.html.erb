@@ -9,7 +9,7 @@ border-top border-warning border-5   <%# purple top border%>
   <p class="text-danger fw-bold">$<%= pathway.programme.tuition_fees %></p>
   <p class="m-0">Subject Requirements:</p>
   <ul class="list-unstyled">
-    <% pathway.programme.subjects.each do |subject| %>
+    <% pathway.programme.subjects.uniq.each do |subject| %>
       <li class="text-warning">
         <i class="fa-solid fa-book"></i>
         <%= subject.name %>
