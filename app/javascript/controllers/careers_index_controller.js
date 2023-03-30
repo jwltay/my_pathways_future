@@ -40,10 +40,15 @@ export default class extends Controller {
           }
         })
     } else {
-      const url = this.linkTarget.pathname
-      setTimeout(() => {
-        window.location.href = url
-      }, 500)
+      const url =
+        this.linkTargets.filter(l =>
+          l.innerText.includes(node.id))[0]
+            .previousElementSibling
+              .pathname
+      console.log(url)
+      // setTimeout(() => {
+      //   window.location.href = url
+      // }, 500)
     }
   }
 
