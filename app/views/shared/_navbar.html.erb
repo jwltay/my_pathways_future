@@ -6,7 +6,6 @@
         <span>My</span>
         <span class="text-danger fw-bold">Pathways</span>Future
       </h4>
-      <%= link_to "Careers", careers_path, class: "nav-link pe-4 border-end" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,6 +15,7 @@
         <% if user_signed_in? %>
           <li class="nav-item d-flex">
             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link pe-4" %>
+            <%= link_to "Careers", careers_path, class: "nav-link pe-4" %>
             <%= link_to "Dashboard", dashboard_path, class: "nav-link pe-4 border-end" %>
             <%= link_to "Compare Pathways", pathways_path, class: "btn btn-danger rounded-pill ms-4 text-white" %>
           </li>
