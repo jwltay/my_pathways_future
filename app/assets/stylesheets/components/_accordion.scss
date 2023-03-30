@@ -25,6 +25,10 @@
   }
 
   .accordion-card-headers {
+    :hover {
+      cursor: pointer;
+    }
+
     h2 {
       font-size: 28px;
       color: $dark;
