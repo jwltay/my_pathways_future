@@ -4,7 +4,7 @@
     <div class="banner-content d-flex">
       <div class="banner-cta d-flex flex-column justify-content-center align-items-start fade-in-right">
         <h1 class="text-dark">Find Your Path</h1>
-        <h2 class="fs-4 w-60 text-dark">Helping you to navigate the education system towards a bright future</h2>
+        <h2 class="fs-4 w-60 text-dark fw-normal">Helping you to navigate the education system towards a bright future</h2>
         <%= link_to "Get started", new_user_registration_path, class: "btn btn-warning btn-lg text-white rounded-pill px-4 mt-5"%>
       </div>
       <%= image_tag("pixeltrue-location.png", class: "hero-banner-image fade-in-left") %>
@@ -22,7 +22,7 @@
           <%= image_tag("pixeltrue-discover.png", class: "card-beige-small-image") %>
           <div class="mt-5">
             <h3 class="text-dark">Discover your possiblities</h3>
-            <p class="text-dark">Get tailored university and career recommendations based on your profile and shortlist them</p>
+            <p class="text-dark">Get tailored university and career recommendations based on your profile</p>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
         <div>
           <%= image_tag("pixeltrue-explore.png", class: "card-beige-small-image") %>
           <div class="mt-5">
-            <h3 class="text-dark">Explore your shortlisted options</h3>
+            <h3 class="text-dark">Explore your options</h3>
             <p class="text-dark">Compare the details of your selected recommendations all in one place</p>
           </div>
         </div>
@@ -53,7 +53,7 @@
 </div>
 <%# ================== END OF BEIGE FEATURE CARDS ================== %>
 <%# ================== START OF CTA BANNER ================== %>
-<div class="cta-banner-background" data-controller="animation" data-animation-threshold-value="0.6">
+<div class="cta-banner-background footer-padding" data-controller="animation" data-animation-threshold-value="0.6">
   <div class="container d-flex align-items-center justify-content-center p-5">
     <div class="banner-content d-flex">
       <%= image_tag("pixeltrue-find.png", class: "cta-banner-image", data: {
