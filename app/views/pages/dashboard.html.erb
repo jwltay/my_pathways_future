@@ -16,7 +16,9 @@
 
         </div>
         <div class="h-auto p-4 pt-2 mb-4 bg-white rounded shadow border-top border-primary border-5">
+          <%# Hard coded Programme and countdown! %>
           <h2>Application deadline</h2>
+          <%= render partial: "shared/countdown", locals:{ target: @target} %>
         </div>
         <div class="h-auto p-4 mb-4 bg-warning rounded shadow">
           <h2 class="text-white text-center" >Ready to apply?</h2>
