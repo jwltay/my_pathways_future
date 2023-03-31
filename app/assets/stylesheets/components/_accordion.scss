@@ -70,6 +70,7 @@
 
 .career-accordion-card {
   background-color: white;
+  position: relative;
   display: block;
   width: 100%;
   padding: 16px;
@@ -207,4 +208,19 @@
       display: none;
     }
   }
+}
+
+// styling for bookmark indicator in career index
+
+#career-bookmark-indicator {
+  position: absolute;
+  top: 2px;
+  right: 16px;
+}
+
+#pathway-count {
+  position: absolute;
+  top: 2px;
+  right: 22px;
+  font-size: 14px;
 }
