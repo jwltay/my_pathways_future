@@ -23,10 +23,8 @@
               <% end %>
               <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
                 <h2 class="mb-0"><%= program.name %></h2>
-                <div class="uni-with-logo d-flex justify-content-between">
-                  <p>@ <%= program.university.titleize %></p>
-                  <%= cl_image_tag program.photo.key, style: "height: 4rem;" %>
-                </div>
+                <p>@ <%= program.university.titleize %></p>
+                <%= cl_image_tag program.photo.key, style: "max-width: 80px; min-height 4rem; position: absolute; bottom: 8px; right: 8px;" %>
               </div>
               <div class="panel mt-3">
                 <div class="panel-summary">
@@ -54,10 +52,8 @@
               <% end %>
               <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
                 <h2 class="mb-0"><%= program.name %></h2>
-                <div class="uni-with-logo d-flex justify-content-between">
-                  <p>@ <%= program.university.titleize %></p>
-                  <%= cl_image_tag program.photo.key, style: "height: 4rem;" %>
-                </div>
+                <p>@ <%= program.university.titleize %></p>
+                <%= cl_image_tag program.photo.key, style: "max-width: 80px; min-height 4rem; position: absolute; bottom: 8px; right: 8px;" %>
               </div>
               <div class="panel mt-3">
                 <div class="panel-summary">

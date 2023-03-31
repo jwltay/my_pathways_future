@@ -106,7 +106,7 @@ end
 # suss_photo = File.open("app/assets/images/suss.png")
 suss.each do |programme|
   puts "Attached crest to #{programme.name}"
-  programme.photo.attach(io: File.open("app/assets/images/suss.png"), filename: "suss.png", content_type: "image/png")
+  programme.photo.attach(io: File.open("app/assets/images/SUSS_transparent.svg.png"), filename: "suss.png", content_type: "image/png")
 end
 
 # End of Programmes ============================================================
