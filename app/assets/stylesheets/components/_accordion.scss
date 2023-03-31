@@ -2,14 +2,87 @@
   margin: 32px 0 32px 0;
 }
 
+// .career-accordions {
+//   margin: 32px 0 32px 0;
+// }
+
+.left-accordion {
+  max-width: 529px;
+}
+
+.right-accordion {
+  max-width: 529px;
+}
+
 .accordion-card {
   background-color: white;
-  display:block;
+  display: block;
   width: 100%;
+  min-height: 156px;
   padding: 16px;
   border-left: 2px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
 
-  &+.accordion-card{
+  &.active {
+    .panel {
+      display: block;
+    }
+  }
+
+  &:hover {
+    background-color: $beige;
+    border-left: 4px solid $teal;
+  }
+
+  .accordion-card-headers {
+    :hover {
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: $dark;
+    }
+
+    .btn {
+      font-size: 14px;
+    }
+  }
+
+  .panel {
+    display: none;
+    height: max-content;
+    margin-top: 16px;
+
+    .panel-button {
+      .btn {
+        font-size: 14px;
+        color: $dark;
+      }
+
+      .hidden {
+        color: white;
+      }
+    }
+  }
+
+  .panel-summary {
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.career-accordion-card {
+  background-color: white;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 4px 16px 16px 16px;
+  border-left: 2px solid transparent;
+
+  & + .career-accordion-card {
     border-top: 0.8px solid #e4e7ea;
   }
 
@@ -21,7 +94,7 @@
 
   &:hover {
     background-color: $beige;
-    border-left: 2px solid $teal;
+    border-left: 4px solid $teal;
   }
 
   .accordion-card-headers {
@@ -76,8 +149,6 @@
   border-radius: 8px !important;
   margin: 0 0 32px 0;
 }
-
-
 
 /* styles for smartphones */
 @media only screen and (max-device-width: 480px) {
@@ -135,7 +206,7 @@
   }
 
   .panel-summary:not(.careers-overview) {
-    width: 70%;
+    width: 100%;
   }
 
   .panel-button {
@@ -143,4 +214,19 @@
       display: none;
     }
   }
+}
+
+// styling for bookmark indicator in career index
+
+#career-bookmark-indicator {
+  position: absolute;
+  top: 2px;
+  right: 16px;
+}
+
+#pathway-count {
+  position: absolute;
+  top: 2px;
+  right: 22px;
+  font-size: 14px;
 }

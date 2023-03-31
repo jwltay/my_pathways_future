@@ -3,6 +3,8 @@ class ProgrammesController < ApplicationController
     @user = current_user
     @career = Career.find(params[:career_id])
     @programmes = @career.programmes
+    @programmes_even = @programmes.each_with_index.filter_map { |p, i| p if i.even? }
+    @programmes_odd = @programmes.each_with_index.filter_map { |p, i| p if i.odd? }
   end
 
   def show

@@ -4,9 +4,9 @@ border-top border-warning border-5   <%# purple top border%>
 <%= " hidden" if @user.primary_pathway? && !pathway.primary? %>
 <%= " goal border-top border-danger border-5" if @user.primary_pathway? && pathway.primary? %>">
   <p id="pop-up">Ranked #<%= pathway.programme.rating %></p>
-  <p class="fw-bold"><%= pathway.programme.name %></p>
-  <p class="text-body-color"><%= pathway.programme.university %></p>
-  <p class="text-danger fw-bold">$<%= pathway.programme.tuition_fees %></p>
+  <p class="fw-bold fs-5"><%= pathway.programme.name %></p>
+  <p class="text-body-color fw-bold"><%= pathway.programme.university %></p>
+  <p class="text-danger fw-bold fs-5">$<%= pathway.programme.tuition_fees %></p>
   <p class="m-0">Subject Requirements:</p>
   <ul class="list-unstyled">
     <% pathway.programme.subjects.uniq.each do |subject| %>
