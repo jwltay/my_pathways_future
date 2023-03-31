@@ -18,6 +18,8 @@ class Programme < ApplicationRecord
   validates :university, presence: true
   validates :overview, presence: true
 
+  has_one_attached :photo
+
   # Check if programme has been shortlisted by the current user
   # -----------------------------------------------
   # checks pathways where the user is the current user

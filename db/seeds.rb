@@ -76,6 +76,39 @@ CSV.foreach(programmes_filepath, headers: :first_row) do |row|
     rating: row['rating'].to_i
   )
 end
+
+# Attaching University Crests to Programmes ==================================
+puts 'Adding University Crests to Programmes...'
+
+nus = Programme.where(university: "National University of Singapore")
+ntu = Programme.where(university: "Nanyang Technological University")
+smu = Programme.where(university: "Singapore Management University")
+suss = Programme.where(university: "Singapore University of Social Sciences")
+
+# nus_photo = File.open("app/assets/images/nus.png")
+nus.each do |programme|
+  programme.photo.attach(io: File.open("app/assets/images/nus.png"), filename: "nus.png", content_type: "image/png")
+  puts "Attached crest to #{programme.name}"
+end
+
+# ntu_photo = File.open("app/assets/images/ntu.jpeg")
+ntu.each do |programme|
+  programme.photo.attach(io: File.open("app/assets/images/ntu.png"), filename: "ntu.png", content_type: "image/png")
+  puts "Attached crest to #{programme.name}"
+end
+
+# smu_photo = File.open("app/assets/images/smu.jpeg")
+smu.each do |programme|
+  programme.photo.attach(io: File.open("app/assets/images/smu.png"), filename: "smu.png", content_type: "image/png")
+  puts "Attached crest to #{programme.name}"
+end
+
+# suss_photo = File.open("app/assets/images/suss.png")
+suss.each do |programme|
+  puts "Attached crest to #{programme.name}"
+  programme.photo.attach(io: File.open("app/assets/images/SUSS_transparent.svg.png"), filename: "suss.png", content_type: "image/png")
+end
+
 # End of Programmes ============================================================
 
 # Programme Events =================================================================
