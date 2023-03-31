@@ -93,13 +93,13 @@ end
 
 # ntu_photo = File.open("app/assets/images/ntu.jpeg")
 ntu.each do |programme|
-  programme.photo.attach(io: File.open("app/assets/images/ntu.jpeg"), filename: "ntu.jpeg", content_type: "image/jpeg")
+  programme.photo.attach(io: File.open("app/assets/images/ntu.png"), filename: "ntu.png", content_type: "image/png")
   puts "Attached crest to #{programme.name}"
 end
 
 # smu_photo = File.open("app/assets/images/smu.jpeg")
 smu.each do |programme|
-  programme.photo.attach(io: File.open("app/assets/images/smu.jpeg"), filename: "smu.jpeg", content_type: "image/jpeg")
+  programme.photo.attach(io: File.open("app/assets/images/smu.png"), filename: "smu.png", content_type: "image/png")
   puts "Attached crest to #{programme.name}"
 end
 
