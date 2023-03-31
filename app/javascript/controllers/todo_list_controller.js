@@ -48,8 +48,6 @@ export default class extends Controller {
   deleteTask(e) {
     e.preventDefault();
     const target = e.currentTarget
-
-    console.log(e.currentTarget.href)
     fetch(e.currentTarget.href, {
       method: "DELETE",
       accept: "application/json"
