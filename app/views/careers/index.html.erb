@@ -31,6 +31,16 @@
             data-action="click->careers-index#expand">
               <h2 class="mb-0 fw-normal fs-4">
                 <%= career.name.titleize %>
+
+                <!--- contains hidden info needed for graph links -->
+                <%= link_to "View Programmes", career_programmes_path(career), class: "d-none" %>
+                <ul class="d-none" data-careers-index-target="link">
+                  <% career.programmes.each do |programme| %>
+                    <li><%= programme.name.titleize %></li>
+                  <% end %>
+                </ul>
+                <!--- hidden section ends --->
+
               </h2>
             </div>
             <div class="panel">
@@ -39,7 +49,7 @@
               </div>
               <div class="panel-button d-flex">
                 <%= render partial: "shared/career_modal", locals: { career: career } %>
-                <%= link_to "View Programmes", career_programmes_path(career), class: "ms-3 btn btn-warning text-white", data: { careers_index_target: "link" } %>
+                <%= link_to "View Programmes", career_programmes_path(career), class: "ms-3 btn btn-warning text-white" %>
               </div>
             </div>
           </div>

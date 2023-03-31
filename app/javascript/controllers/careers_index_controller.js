@@ -40,7 +40,12 @@ export default class extends Controller {
           }
         })
     } else {
-      const url = this.linkTarget.pathname
+      const url =
+        this.linkTargets.filter(l =>
+          l.innerText.includes(node.id))[0]
+            .previousElementSibling
+              .pathname
+      console.log(url)
       setTimeout(() => {
         window.location.href = url
       }, 500)
@@ -62,9 +67,6 @@ export default class extends Controller {
       .height(height)
       .width(width)
       .backgroundColor('#fffcf5')
-      // .nodeColor(node => {
-      //   if (node == root) {'e96479'}
-      // })
       .nodeAutoColorBy('name')
       .linkColor(link => '#4d455d')
       .zoom(2, 1000)
