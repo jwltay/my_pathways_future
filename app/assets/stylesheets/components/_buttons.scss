@@ -48,3 +48,8 @@
   background-color: $pink;
   color: white !important;
 }
+
+#apply-button:hover {
+  background-color: $pink !important;
+  cursor: pointer;
+}
