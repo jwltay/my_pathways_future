@@ -24,6 +24,7 @@
         <% end %>
         <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
           <h2 class="mb-0"><%= program.name %></h2>
+          <%= image_tag("#{programme.photo}") %>
           <p>@ <%= program.university.titleize %></p>
         </div>
         <div class="panel mt-3">
