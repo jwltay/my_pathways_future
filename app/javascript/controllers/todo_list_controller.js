@@ -37,23 +37,27 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
+        console.log(data);
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML(this.positionValue, data.inserted_item)
         }
-        const action = this.taskFormTarget.action
         this.taskFormTarget.outerHTML = data.form
-        this.taskFormTarget.action = action
       })
   }
 
   deleteTask(e) {
     e.preventDefault();
-    console.log(e.detail.url.href)
-    fetch(e.detail.url.href, {
-      method: "DELETE"
+    const target = e.currentTarget
+
+    console.log(e.currentTarget.href)
+    fetch(e.currentTarget.href, {
+      method: "DELETE",
+      accept: "application/json"
     })
-      .then(response => {
-        console.log(response)
+      .then(response => response.json())
+      .then(data => {
+        const row = target.closest(".d-flex")
+        row.parentElement.removeChild(row)
       })
   }
 }

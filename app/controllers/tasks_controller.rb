@@ -9,14 +9,13 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user = current_user
-    respond_to do |f|
+    respond_to do |format|
       if @task.save
-        @task.user = current_user
-        f.html { redirect_to dashboard_path }
+        format.html { redirect_to dashboard_path }
       else
-        f.html { render "pages/dashboard", status: :unprocessable_entity }
+        format.html { render "pages/dashboard", status: :unprocessable_entity }
       end
-      f.json
+      format.json
     end
   end
 
@@ -34,7 +33,10 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to dashboard_path
+    respond_to do |format|
+      # format.html { redirect_to dashboard_path, status: :see_other }
+      format.json { render json: { task: @task.persisted?, status: :see_other } }
+    end
   end
 
   private

@@ -21,7 +21,9 @@
         <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, task_path(task),
           data: {
         turbo_method: :delete,
-        action: "turbo:before-fetch-request@document->todo-list#deleteTask"
+        # action: "turbo:before-fetch-request@document->todo-list#deleteTask"
+        action: "click->todo-list#deleteTask",
+        remote: true
       },
           class: "trash-icon" %>
       </div>
