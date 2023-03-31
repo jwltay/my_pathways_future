@@ -20,7 +20,7 @@
   width: 100%;
   min-height: 156px;
   padding: 16px;
-  border-left: 2px solid transparent;
+  border-left: 4px solid transparent;
   border-radius: 8px;
   box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
 
@@ -80,7 +80,7 @@
   display: block;
   width: 100%;
   padding: 4px 16px 16px 16px;
-  border-left: 2px solid transparent;
+  border-left: 4px solid transparent;
 
   & + .career-accordion-card {
     border-top: 0.8px solid #e4e7ea;
