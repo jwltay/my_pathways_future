@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/dashboard", to: "pages#dashboard"
-  resources :tasks, only: %i[index create update destroy]
+  # removed task, create
+  resources :tasks, only: %i[index update destroy]
   resources :programmes, only: %i[show] do
     resources :pathways, only: %i[create]
   end
@@ -16,5 +17,7 @@ Rails.application.routes.draw do
   resources :careers, only: %i[index show] do
     resources :programmes, only: %i[index]
   end
-  resources :users, only: %i[edit update]
+  resources :users, only: %i[edit update] do
+    resources :tasks, only: %i[create]
+  end
 end

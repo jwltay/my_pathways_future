@@ -42,4 +42,4 @@
 
 .env*
 
-graph.json
+public/graph.json

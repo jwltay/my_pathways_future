@@ -1,15 +1,15 @@
 <div class="beige-background h-100 footer-padding">
   <div class="container px-5">
-    <h1 class="pt-5 pb-3 px-5 ms-4 fade-in-right">Hi <%= @user.first_name %>!</h1>
+    <h1 class="pt-5 pb-3 px-5 ms-4 fade-in-right">Hi <%= @user.first_name.capitalize %>!</h1>
     <div class="d-flex">
       <%# ================== LEFT SECTION STARTS HERE ================== %>
       <div class="col mx-4">
         <div class="h-auto px-5 pb-5 pt-4 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>Your selected pathway</h2>
           <hr class="m-0 my-3">
-          <p class="m-0">You have chosen to pursue</p>
-          <h3 class="mb-4 fs-5">Software Engineering</h3>
-          <p class="m-0">as a career, by following the pathway</p>
+          <p class="m-0">You have chosen to pursue a career as a</p>
+          <h3 class="mb-4 fs-5">Software Developer,</h3>
+          <p class="m-0">by following the pathway</p>
           <h3 class="mb-4 fs-5"><%= @programme.name %></h3>
           <p class="m-0 mb-1">offered by</p>
           <%= image_tag("NTU_Logo.png", class: "card-dashboard-pathway-image") %>
@@ -19,7 +19,7 @@
           <%= render partial: "shared/countdown", locals:{ target: @target } %>
           <h6 class="text-end">to application deadline</h6>
         </div>
-        <div class="h-auto p-4 mb-4 bg-warning rounded shadow">
+        <div id="apply-button" class="h-auto p-4 mb-4 bg-warning rounded shadow">
           <h2 class="text-white text-center" >Ready to apply?</h2>
           <p class="text-white text-center m-0" >Click here to go to the application page</p>
         </div>
@@ -57,38 +57,9 @@
         <div class="h-auto px-5 py-4 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>To-do list</h2>
           <hr class="m-0 my-3">
-          <div>
-            <ul class="p-1">
-              <% @tasks.each do |task| %>
-                <div class="d-flex justify-content-between" data-controller="todo-list">
-                  <div>
-                    <%= simple_form_for(task,
-                      data: {
-                        todo_list_target: "form",
-                        action: "change->todo-list#markComplete"
-                      }) do |f| %>
-                      <%= f.input :completed,
-                          label: task.title,
-                          input_html: {
-                            class: "check-box",
-                            data: {
-                              todo_list_target: "checkbox"
-                            }
-                          }  %>
-                    <% end %>
-                  </div>
-                  <div>
-                    <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, task_path(task), data: {turbo_method: :delete}, class: "trash-icon" %>
-                  </div>
-                </div>
-              <% end %>
-            </ul>
-            <%= simple_form_for(@task) do |f| %>
-            <div class="d-flex justify-content-end">
-              <%= f.input :title, label: false, placeholder: "Add a task", wrapper_html: { class: "me-3 flex-grow-1" } %>
-              <%= f.submit "Add Task", class: "btn-add-task btn btn-info btn-small text-danger border-danger", style: "height: fit-content" %>
-            </div>
-            <% end %>
+          <div data-controller="todo-list" data-todo-list-position-value="beforeend">
+            <%= render partial: "pages/todo_list", locals: { tasks: @tasks }%>
+            <%= render partial: "pages/todo_list_form", locals: { user: @user, task: Task.new }%>
           </div>
         </div>
         <%# ================== TO-DO LIST ENDS HERE ================== %>
