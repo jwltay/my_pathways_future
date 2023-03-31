@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     subject_ids.each { |id| @user.user_subjects.build(subject_id: id) }
     soft_skill_ids.each { |id| @user.user_soft_skills.build(soft_skill_id: id) }
     # preload tasks
-    task1 = Task.new(title: "Prepare digit copy of NRIC for submission")
+    task1 = Task.new(title: "Prepare digital copy of NRIC for submission")
     task1.user = @user
     task2 = Task.new(title: "Prepare supporting documents (Academic certificates and transcripts)")
     task2.user = @user
