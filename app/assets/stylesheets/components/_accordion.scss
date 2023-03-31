@@ -1,18 +1,24 @@
 .accordions {
   margin: 32px 0 32px 0;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 1rem;
 }
 
-.career-accordions {
-  margin: 32px 0 32px 0;
+// .career-accordions {
+//   margin: 32px 0 32px 0;
+// }
+
+.left-accordion {
+  max-width: 529px;
+}
+
+.right-accordion {
+  max-width: 529px;
 }
 
 .accordion-card {
   background-color: white;
   display: block;
   width: 100%;
+  min-height: 156px;
   padding: 16px;
   border-left: 2px solid transparent;
   border-radius: 8px;
@@ -200,7 +206,7 @@
   }
 
   .panel-summary:not(.careers-overview) {
-    width: 70%;
+    width: 100%;
   }
 
   .panel-button {

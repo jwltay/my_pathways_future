@@ -6,38 +6,72 @@
     </div>
   </div>
   <div class="container">
-    <div
-    class="accordions"
-    data-controller="accordion"
-  >
-      <% @programmes.each do |program| %>
-        <div
-          class="accordion-card py-4 position-relative"
-          data-accordion-target="program"
-          data-controller="shortlist"
-        >
-          <% if program.shortlisted?(current_user) %>
-            <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
-          <% else %>
-            <%= render 'pathways/form', program: program, career_id: @career.id %>
-          <% end %>
-          <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
-            <h2 class="mb-0"><%= program.name %></h2>
-            <p>@ <%= program.university.titleize %></p>
-          </div>
-          <div class="panel mt-3">
-            <div class="panel-summary">
-              <p><%= program.summary %></p>
+    <div class="accordions" data-controller="accordion">
+      <div class="dual-accordion d-flex">
+
+      <!--- LEFT ACCORDION --->
+      <div class="left-accordion me-2">
+        <% @programmes_even.each do |program| %>
+          <div
+            class="accordion-card py-4 mb-3 position-relative"
+            data-accordion-target="program"
+            data-controller="shortlist"
+          >
+            <% if program.shortlisted?(current_user) %>
+              <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
+            <% else %>
+              <%= render 'pathways/form', program: program, career_id: @career.id %>
+            <% end %>
+            <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
+              <h2 class="mb-0"><%= program.name %></h2>
+              <p>@ <%= program.university.titleize %></p>
             </div>
-            <div class="panel-button">
-              <%= render partial: "shared/programme_modal", locals: { programme: program } %>
+            <div class="panel mt-3">
+              <div class="panel-summary">
+                <p><%= program.summary %></p>
+              </div>
+              <div class="panel-button">
+                <%= render partial: "shared/programme_modal", locals: { programme: program } %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    <div class="navigation-buttons pb-5">
-      <%= link_to "Back", careers_path, class: "btn rounded-pill btn-primary" %>
-      <%= link_to "Compare Pathways", pathways_path, class: "btn rounded-pill btn-danger" %>
+        <% end %>
+      </div>
+
+      <!--- RIGHT ACCORDION --->
+      <div class="right-accordion ms-2">
+        <% @programmes_odd.each do |program| %>
+          <div
+            class="accordion-card py-4 mb-3 position-relative"
+            data-accordion-target="program"
+            data-controller="shortlist"
+          >
+            <% if program.shortlisted?(current_user) %>
+              <%= render 'pathways/unshortlist', pathway: program.shortlisted_pathway(current_user), career: @career %>
+            <% else %>
+              <%= render 'pathways/form', program: program, career_id: @career.id %>
+            <% end %>
+            <div class="accordion-card-headers d-block" data-action="click->accordion#expand">
+              <h2 class="mb-0"><%= program.name %></h2>
+              <p>@ <%= program.university.titleize %></p>
+            </div>
+            <div class="panel mt-3">
+              <div class="panel-summary">
+                <p><%= program.summary %></p>
+              </div>
+              <div class="panel-button">
+                <%= render partial: "shared/programme_modal", locals: { programme: program } %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      </div>
     </div>
   </div>
+  <div class="navigation-buttons pb-5">
+    <%= link_to "Back", careers_path, class: "btn rounded-pill btn-primary" %>
+    <%= link_to "Compare Pathways", pathways_path, class: "btn rounded-pill btn-danger" %>
+  </div>
+</div>
