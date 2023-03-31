@@ -53,8 +53,8 @@ export default class extends Controller {
   }
 
   loadGraph(data) {
-    const width = this.element.clientWidth * 0.6
-    const height = this.element.clientHeight + 50
+    const width = this.element.clientWidth * 0.65
+    const height = this.element.clientHeight + 100
     const root = this.graphData.nodes[0]
 
     this.forceGraph(this.graphTarget)

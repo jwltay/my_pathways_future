@@ -7,9 +7,9 @@
         <div class="h-auto px-5 pb-5 pt-4 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>Your selected pathway</h2>
           <hr class="m-0 my-3">
-          <p class="m-0">You have chosen to pursue</p>
-          <h3 class="mb-4 fs-5">Software Engineering</h3>
-          <p class="m-0">as a career, by following the pathway</p>
+          <p class="m-0">You have chosen to pursue a career as a</p>
+          <h3 class="mb-4 fs-5">Software Developer,</h3>
+          <p class="m-0">by following the pathway</p>
           <h3 class="mb-4 fs-5"><%= @programme.name %></h3>
           <p class="m-0 mb-1">offered by</p>
           <%= image_tag("NTU_Logo.png", class: "card-dashboard-pathway-image") %>
@@ -19,7 +19,7 @@
           <%= render partial: "shared/countdown", locals:{ target: @target } %>
           <h6 class="text-end">to application deadline</h6>
         </div>
-        <div class="h-auto p-4 mb-4 bg-warning rounded shadow">
+        <div id="apply-button" class="h-auto p-4 mb-4 bg-warning rounded shadow">
           <h2 class="text-white text-center" >Ready to apply?</h2>
           <p class="text-white text-center m-0" >Click here to go to the application page</p>
         </div>
