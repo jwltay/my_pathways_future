@@ -1,6 +1,6 @@
 <div class="beige-background h-100 footer-padding">
   <div class="container px-5">
-    <h1 class="pt-5 pb-3 px-5 ms-4 fade-in-right">Hi <%= @user.first_name %>!</h1>
+    <h1 class="pt-5 pb-3 px-5 ms-4 fade-in-right">Hi <%= @user.first_name.capitalize %>!</h1>
     <div class="d-flex">
       <%# ================== LEFT SECTION STARTS HERE ================== %>
       <div class="col mx-4">
@@ -57,38 +57,9 @@
         <div class="h-auto px-5 py-4 mb-4 bg-white rounded shadow border-top border-primary border-5">
           <h2>To-do list</h2>
           <hr class="m-0 my-3">
-          <div>
-            <ul class="p-1">
-              <% @tasks.each do |task| %>
-                <div class="d-flex justify-content-between" data-controller="todo-list">
-                  <div>
-                    <%= simple_form_for(task,
-                      data: {
-                        todo_list_target: "form",
-                        action: "change->todo-list#markComplete"
-                      }) do |f| %>
-                      <%= f.input :completed,
-                          label: task.title,
-                          input_html: {
-                            class: "check-box",
-                            data: {
-                              todo_list_target: "checkbox"
-                            }
-                          }  %>
-                    <% end %>
-                  </div>
-                  <div>
-                    <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, task_path(task), data: {turbo_method: :delete}, class: "trash-icon" %>
-                  </div>
-                </div>
-              <% end %>
-            </ul>
-            <%= simple_form_for(@task) do |f| %>
-            <div class="d-flex justify-content-end">
-              <%= f.input :title, label: false, placeholder: "Add a task", wrapper_html: { class: "me-3 flex-grow-1" } %>
-              <%= f.submit "Add Task", class: "btn-add-task btn btn-info btn-small text-danger border-danger", style: "height: fit-content" %>
-            </div>
-            <% end %>
+          <div data-controller="todo-list" data-todo-list-position-value="beforeend">
+            <%= render partial: "pages/todo_list", locals: { tasks: @tasks }%>
+            <%= render partial: "pages/todo_list_form", locals: { user: @user, task: Task.new }%>
           </div>
         </div>
         <%# ================== TO-DO LIST ENDS HERE ================== %>
