@@ -7,15 +7,6 @@ class PathwaysController < ApplicationController
     @pathways = @user.pathways.order(id: :asc)
   end
 
-  # def update
-  #   @pathway = Pathway.find(update_pathways_id[:id])
-  #   @pathway.update!(shortlist_pathway_params)
-  # end
-
-  # def new
-  #   @pathways = Pathway.new
-  # end
-
   def create
     @programme = Programme.find(params[:programme_id])
     @career = Career.find(params[:pathway][:career_id])
