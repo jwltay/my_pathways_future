@@ -6,6 +6,8 @@ MyPathwaysFuture is a Ruby on Rails web app that helps users find a suitable car
 
 This project was built in two weeks as our capstone project for Le Wagon's Certificate in Web Development course.
 
+Force directed graph was built using [vasturiano's force graph](https://github.com/vasturiano/force-graph "force-graph by vasturiano")
+
 ## Usage
 
 [![](https://markdown-videos.deta.dev/youtube/Jxa7PFylvis)](https://www.youtube.com/watch?v=Jxa7PFylvis)
