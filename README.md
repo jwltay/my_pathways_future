@@ -1,6 +1,6 @@
 # MyPathwaysFuture
 
-MyPathwaysFuture is a Ruby on Rails web app that helps users find a suitable career and choose a (Singaporean) university programme that will get them there.
+MyPathwaysFuture is a Ruby on Rails desktop web app that helps users find a suitable career and choose a (Singaporean) university programme that will get them there.
 
 ![graph_demo_mypathwaysfuture](https://user-images.githubusercontent.com/115083635/229442887-3db7d0b8-e710-4380-96ec-07707857b6ba.gif)
 
@@ -28,3 +28,5 @@ The app works best with the following inputs:
 - Occupation: student entering university
 - Subjects: English, Biology, Chemistry, Mathematics
 - Soft Skills: Communication, Problem-Solving, Analytical Skills, Teamwork, Critical Thinking
+
+Works best on desktop.
