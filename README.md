@@ -2,7 +2,7 @@
 
 MyPathwaysFuture is a Ruby on Rails web app that helps users find a suitable career and choose a (Singaporean) university programme that will get them there.
 
-![pathway graph](https://giphy.com/embed/rQ8VZ6Y4AbMylAjktT "Graphical representation of career paths/university programmes")
+![graph_demo_mypathwaysfuture](https://user-images.githubusercontent.com/115083635/229442887-3db7d0b8-e710-4380-96ec-07707857b6ba.gif)
 
 This project was built in two weeks as our capstone project for Le Wagon's Certificate in Web Development course.
 
